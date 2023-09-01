@@ -12,7 +12,7 @@ export default function Landing() {
         
         <div className = "flex flex-col items-center">
             <div className = "text-white w-full">
-                <p className = "text-center">Video here</p>
+                <p className = " videohere text-center"></p>
         </div>
             <button className = "w-full flex justify-center">
                 <Image src = "/landingassests/button.svg" alt = "button" width = {1} height = {1} className = "w-3/12 h-3/12"/>

@@ -15,9 +15,9 @@ export default function Navbar() {
            
             <div className = "flex justify-end text-2xl items-center w-full z-10 mr-24">
                 <div className = {`flex gap-32 ${tektur.className} font-medium`}>
-                    <button className = "py-2 px-4">FAQs</button>
-                    <button className = "py-2 px-4">GUIDE</button>
-                    <button className = "py-2 px-4">GALLERY</button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4">FAQs</button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4">GUIDE</button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4">GALLERY</button>
                 </div>
             </div>
         </nav>
