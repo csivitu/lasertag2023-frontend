@@ -3,7 +3,7 @@ import Footer from '@/components/landingcomponents/Footer'
 import React from 'react'
 import Image from 'next/image'
 
-export default function Landing() {
+export default function Landing(){
   return (
     
     < div className = "bg-black flex flex-col h-screen justify-between">
