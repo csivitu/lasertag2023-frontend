@@ -52,7 +52,7 @@ export default function Photo() {
                   <Image src = {`/landingassests/carouselassets/goleft.svg`} alt = "image-1" width = {100} height = {100}/>
                 </button>
                 <div>
-                <Image src = {`${array[current].source}`} alt = "image-1" width = {300}  height = {300}/>
+                <Image src = {`${array[current].source}`} alt = "image-1" width = {250}  height = {250}/>
                 </div>
                   <button onClick = {next}>
                     <Image src = "/landingassests/carouselassets/goright.svg" alt = "goright" width = {100} height = {100}/></button>
