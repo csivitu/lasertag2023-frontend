@@ -7,19 +7,19 @@ const tektur = Tektur({subsets:['latin']})
 export default function Photo() {
   const array = [
     {
-      source : "/landingassests/image1.svg"
+      source : "/landingassests/carouselassets/image1.svg"
     },
     {
-      source : "/landingassests/image2.svg"
+      source : "/landingassests/carouselassets/image2.svg"
     },
     {
-      source : "/landingassests/image3.svg"
+      source : "/landingassests/carouselassets/image3.svg"
     },
     {
-      source : "/landingassests/image4.svg"
+      source : "/landingassests/carouselassets/image4.svg"
     },
     {
-      source : "/landingassests/image5.svg"
+      source : "/landingassests/carouselassets/image5.svg"
     },
     
   ];
@@ -49,13 +49,13 @@ export default function Photo() {
               
               <div className = "flex flex-row justify-center align-center">
                 <button onClick = {prev}>
-                  <Image src = {`/landingassests/goleft.svg`} alt = "image-1" width = {100} height = {100}/>
+                  <Image src = {`/landingassests/carouselassets/goleft.svg`} alt = "image-1" width = {100} height = {100}/>
                 </button>
                 <div>
                 <Image src = {`${array[current].source}`} alt = "image-1" width = {300}  height = {300}/>
                 </div>
                   <button onClick = {next}>
-                    <Image src = "/landingassests/goright.svg" alt = "goright" width = {100} height = {100}/></button>
+                    <Image src = "/landingassests/carouselassets/goright.svg" alt = "goright" width = {100} height = {100}/></button>
                 </div>
              
             </div>
