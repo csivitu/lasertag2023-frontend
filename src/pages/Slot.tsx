@@ -7,7 +7,7 @@ const tektur = Tektur({ subsets: ["latin"] });
 export default function Slot() {
   return (
     <>
-      <div className="bg-black flex flex-col h-screen justify-between">
+      <div className="bg-black flex flex-col min-h-screen justify-between">
         <div className="flex flex-col items-center">
           <div className="px-36 py-14">
             <div className="flex flex-col items-center">
