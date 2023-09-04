@@ -8,10 +8,11 @@ export default function Home() {
   return (
     <>
       <Landing />
+      <Photo/>
       <Guide />
       <FAQ/>
       <Slot/>
-      {/* <Photo/> */}
+     
     </>
   );
 }
