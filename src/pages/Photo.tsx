@@ -45,7 +45,7 @@ export default function Photo() {
             <p className = " text-center text-xl">Don your vests and have your guns at the ready, maximize hits to climb up the leaderboard!</p>
         </div>
         
-        <div className = "">
+        <div>
               
               <div className = "flex flex-row justify-center align-center">
                 <button onClick = {prev} className = "">

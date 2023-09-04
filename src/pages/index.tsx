@@ -13,9 +13,8 @@ export default function Home() {
       <Guide />
       <FAQ/>
       <Slot/>
-     
       <LastFooter/>
-      {/* <Photo/> */}
+      
     </>
   );
 }
