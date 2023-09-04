@@ -3,6 +3,7 @@ import Guide from "./Guide";
 import FAQ from './faq';
 import Slot from "./Slot";
 import Photo from "./Photo";
+import LastFooter from "./LastFooter";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Guide />
       <FAQ/>
       <Slot/>
+      <LastFooter/>
       {/* <Photo/> */}
     </>
   );

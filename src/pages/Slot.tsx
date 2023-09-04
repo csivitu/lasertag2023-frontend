@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import LastFooter from '@/components/landingcomponents/LastFooter';
 import "tailwindcss/tailwind.css";
 import { Tektur } from "next/font/google";
 const tektur = Tektur({ subsets: ["latin"] });
@@ -8,7 +7,7 @@ const tektur = Tektur({ subsets: ["latin"] });
 export default function Slot() {
   return (
     <>
-      <div className="bg-black flex flex-col h-screen justify-between">
+      <div className="bg-black flex flex-col min-h-screen justify-between">
         <div className="flex flex-col items-center">
           <div className="px-36 py-14">
             <div className="flex flex-col items-center">
@@ -27,9 +26,7 @@ export default function Slot() {
             </div>
           </div>
         </div>
-        <LastFooter/>
       </div>
-      
     </>
   );
 }

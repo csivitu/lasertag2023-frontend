@@ -20,4 +20,5 @@
       <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_677_1817" result="shape"/>
     </filter>
   </defs>
+  
 </svg>
