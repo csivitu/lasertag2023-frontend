@@ -12,8 +12,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'footerImg':'url("/landingassests/footervector.svg")',
+          'footerImg2':'url("/landingassests/Vector.svg")',
       },
-      
+      screens:{
+        "mobile":"320px",
+        "tab":"768px",
+        "laptopS":"1024px",
+        "laptopM":"1440px",
+      }
      
     },
   },
