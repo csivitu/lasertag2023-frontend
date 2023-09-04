@@ -48,13 +48,13 @@ export default function Photo() {
         <div>
               
               <div className = "flex flex-row justify-center align-center">
-                <button onClick = {prev} className = "">
+                <button onClick = {prev}>
                   <Image src = {`/landingassests/goleft.svg`} alt = "image-1" width = {100} height = {100}/>
                 </button>
                 <div>
                 <Image src = {`${array[current].source}`} alt = "image-1" width = {300}  height = {300}/>
                 </div>
-                  <button onClick = {next} className = "">
+                  <button onClick = {next}>
                     <Image src = "/landingassests/goright.svg" alt = "goright" width = {100} height = {100}/></button>
                 </div>
              
