@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import LastFooter from '@/components/landingcomponents/LastFooter';
 import "tailwindcss/tailwind.css";
 import { Tektur } from "next/font/google";
 const tektur = Tektur({ subsets: ["latin"] });
@@ -26,7 +27,9 @@ export default function Slot() {
             </div>
           </div>
         </div>
+        <LastFooter/>
       </div>
+      
     </>
   );
 }
