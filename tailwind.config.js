@@ -12,14 +12,18 @@ module.exports = {
       slotBookTimeFontSize:'18px'
     },
     gap:{
-      slotBookDatePadding:'32px'
+      slotBookDatePadding:'32px',
+      calcWidthBox:'calc(100% - (4 * 20px)) / 4)'
     },
     padding:{
       bookNowButtonX:'182px',
       bookNowButtonY:'14px',
     }
     ,extend: {
-colors:{
+      width:{
+        calcWidthBox:'calc(25% - 20px)'
+      }
+      ,colors:{
   slotBookDateColor:'#3E3E3E',
   slotBookDateColorHover:'#1E1E1E',
   slotBookTime:'#1E1E1E',

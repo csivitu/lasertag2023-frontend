@@ -1,4 +1,3 @@
-
 import 'tailwindcss/tailwind.css'
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
@@ -14,18 +13,18 @@ export default function slotBook() {
             Select your Laser Tag Slot
         </div>
        <section className='flex flex-col justify-center  items-center w-[75%] gap-[50px]'>
-       <div className='flex flex-row justify-center items-center gap-slotBookDatePadding w-[85%]'>
-        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize `}>
+       <div className='flex flex-row justify-start items-center gap-slotBookDatePadding w-[85%] flex-wrap'>
+        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}>
           22nd Sept
         </div>
-        <div className={`bg-slotBookDateColorHover ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize`}>
+        <div className={`bg-slotBookDateColorHover ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}>
           22nd Sept
         </div>
-        <div className={`bg-slotBookDateColorHover ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize`}>
+        <div className={`bg-slotBookDateColorHover ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}>
           22nd Sept
         </div>
         </div>
-        <section className='flex flex-row  flex-wrap justify-center items-start  w-[85%] gap-[5px]'>
+        <section className='flex flex-row  flex-wrap justify-between items-start  w-[85%] gap-calcWidthBox gap-y-slotBookDatePadding'>
         <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}>
           <p>9 am</p>
           <div className='w-[1.5px] h-[20px] bg-white'></div>
@@ -69,7 +68,7 @@ export default function slotBook() {
     <p className={`${chakraPetch.className} text-white font-semibold`}>1 of 3</p>
     <Image width={16} height={16} alt="Right Arrow" src="/slotBookPage/Vector-1.svg"/>
         </section>
-        <button className={`bg-slotBookTimeRed text-white rounded-[8px] ${chakraPetch.className} font-semibold text-slotBookDateFontSize px-bookNowButtonX py-bookNowButtonY`}>
+        <button className={`bg-slotBookTimeRed text-white rounded-[8px] ${chakraPetch.className} font-semibold text-slotBookDateFontSize px-bookNowButtonX py-bookNowButtonY break-keep	`}>
       Book Now
         </button>
       </section>
@@ -78,4 +77,3 @@ export default function slotBook() {
   )
     
 }
-
