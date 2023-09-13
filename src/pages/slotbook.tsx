@@ -2,14 +2,14 @@
 import 'tailwindcss/tailwind.css'
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
-
+import Image from 'next/image'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 
 export default function slotBook() {
 
   return (
-    <main className={` w-full flex flex-col justify-between items-center min-h-screen bg-black py-[20px]`}>
+    <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px]`}>
         <div className={` text-white ${tektur.className} text-slotBookHeadingFontSize font-bold`}>
             Select your Laser Tag Slot
         </div>
@@ -63,9 +63,17 @@ export default function slotBook() {
         </div>
         </section>
        </section>
+      <section className='flex flex-col justify-center items-center gap-[20px]'>
+      <section className='flex flex-row justify-center items-center gap-[10px]'>
+    <Image width={16} height={16} alt="Left Arrow" src="/slotBookPage/Vector.svg"/>
+    <p className={`${chakraPetch.className} text-white font-semibold`}>1 of 3</p>
+    <Image width={16} height={16} alt="Right Arrow" src="/slotBookPage/Vector-1.svg"/>
+        </section>
         <button className={`bg-slotBookTimeRed text-white rounded-[8px] ${chakraPetch.className} font-semibold text-slotBookDateFontSize px-bookNowButtonX py-bookNowButtonY`}>
       Book Now
         </button>
+      </section>
+        
     </main>
   )
     
