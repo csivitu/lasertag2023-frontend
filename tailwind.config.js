@@ -6,6 +6,7 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+   
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -13,6 +14,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'footerImg':'url("/landingassests/footervector.svg")',
           'footerImg2':'url("/landingassests/Vector.svg")',
+      },
+      fontFamily:{
+        tekturBold:'tektur'
       },
       screens:{
         "mobile":"320px",
