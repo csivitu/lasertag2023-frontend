@@ -6,9 +6,22 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-   
-    extend: {
-      backgroundImage: {
+    fontSize:{
+      slotBookDateFontSize:'24px',
+      slotBookHeadingFontSize:'32px',
+      slotBookTimeFontSize:'18px'
+    },
+    gap:{
+      slotBookDatePadding:'32px'
+    }
+    ,extend: {
+colors:{
+  slotBookDateColor:'#3E3E3E',
+  slotBookDateColorHover:'#1E1E1E',
+  slotBookTime:'#1E1E1E',
+  slotBookTimeGreen:'#30D158'
+}
+      ,backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
