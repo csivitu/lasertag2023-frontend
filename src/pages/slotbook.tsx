@@ -60,6 +60,11 @@ export default function slotBook() {
           <div className='w-[1.5px] h-[20px] bg-white'></div>
           <p className={` ${chakraPetch.className} text-slotBookTimeGreen`}>Seats Available</p>
         </div>
+        <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}>
+          <p>9 am</p>
+          <div className='w-[1.5px] h-[20px] bg-white'></div>
+          <p className={` ${chakraPetch.className} text-slotBookTimeGreen`}>Seats Available</p>
+        </div>
         </section>
        </section>
       <section className='flex flex-col justify-center items-center gap-[20px]'>
