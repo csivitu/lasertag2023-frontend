@@ -13,13 +13,18 @@ module.exports = {
     },
     gap:{
       slotBookDatePadding:'32px'
+    },
+    padding:{
+      bookNowButtonX:'182px',
+      bookNowButtonY:'14px',
     }
     ,extend: {
 colors:{
   slotBookDateColor:'#3E3E3E',
   slotBookDateColorHover:'#1E1E1E',
   slotBookTime:'#1E1E1E',
-  slotBookTimeGreen:'#30D158'
+  slotBookTimeGreen:'#30D158',
+  slotBookTimeRed:'#FF453A'
 }
       ,backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
