@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css'
+import '../app/globals.css'
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
 import Image from 'next/image'
