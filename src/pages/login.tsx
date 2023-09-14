@@ -28,12 +28,12 @@ export default function login(){
 
           <div className='w-full'>
           <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}>Gravitas Registered Email Address</h2>
-          <input type="text" className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`} placeholder='studentname@vit.ac.in'/>
+          <input type="text" className={`${chakraPetch.className} bg-transparent  text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`} placeholder='studentname@vit.ac.in'/>
           </div>
 
           <div className='w-full'>
           <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}>Contact Number</h2>
-          <input type="text" className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`} placeholder='studentname@vit.ac.in'/>
+          <input type="text" className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full text-black placeholder-[#222222]`} placeholder='studentname@vit.ac.in'/>
           </div>
          
 
