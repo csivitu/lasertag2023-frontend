@@ -25,7 +25,4 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-@font-face {
-  font-family: "tektur" ;
-  src: url("../../public/fonts/tekturBold.ttf") format('truetype');
-}
+
