@@ -22,7 +22,7 @@ export default function login(){
           <div className='flex flex-col justify-center items-start gap-[48px] w-[75%]'>
 
           <div className='flex flex-col justify-center items-start '>
-          <h1 className={`${tektur.className} text-black font-semibold text-slotBookHeadingFontSize`}>Let's get you equipped,</h1>
+          <h1 className={`${tektur.className} text-black font-semibold text-slotBookHeadingFontSize`}>Let&apos;s get you equipped,</h1>
           <h2 className={`${chakraPetch.className} text-black font-semibold text-slotBookTimeFontSize`}>Enter your details to sign in</h2>
           </div>
 
