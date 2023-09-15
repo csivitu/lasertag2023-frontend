@@ -32,20 +32,18 @@ export default function verify(){
           <h1 className={`${tektur.className} text-black font-semibold text-slotBookHeadingFontSize`}>Almost there soldier,</h1>
           <h2 className={`${chakraPetch.className} text-black font-semibold text-slotBookTimeFontSize`}>We take our job very seriously</h2>
           </div>
-
           <div className='w-full'>
           <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}>Enter OTP</h2>
-
-          <OtpInput
-      value={otp}
-      onChange={setOtp}
-      numInputs={6}
-      containerStyle={'w-full flex flex-row justify-between items-start'}
-      inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold'}
-      inputType="tel"
-      renderInput={(props:any) => <input {...props} />}
-      shouldAutoFocus={true}
-    />
+                <OtpInput
+            value={otp}
+            onChange={setOtp}
+            numInputs={6}
+            containerStyle={'w-full flex flex-row justify-between items-start'}
+            inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold'}
+            inputType="tel"
+            renderInput={(props:any) => <input {...props} />}
+            shouldAutoFocus={true}
+            />
           </div>
 
          
