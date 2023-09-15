@@ -44,6 +44,7 @@ export default function verify(){
       inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold'}
       inputType="tel"
       renderInput={(props:any) => <input {...props} />}
+      shouldAutoFocus={true}
     />
           </div>
 
