@@ -1,15 +1,33 @@
-
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
-import Image from 'next/image'
-import React, { useState } from 'react';
+import Image from 'next/image';
+import{ useState } from 'react';
+import axios from 'axios';
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 import '../app/globals.css'
 import OtpInput from 'react-otp-input';
 
 export default function verify(){
+
+
  const [otp,setOtp]= useState<string>("");
+  const handleOtpSubmit= async ()=>{
+    try{
+      const header={
+        'Content-Type':"application/json",
+        "method":'POST'
+      }
+      const payload= {
+       
+      }
+      const response = await axios.post("",payload,header)
+    }
+    catch(e){
+
+    }
+  }
+
 
 
 
@@ -40,15 +58,15 @@ export default function verify(){
             numInputs={6}
             containerStyle={'w-full flex flex-row justify-between items-start'}
             inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold'}
-            inputType="tel"
-            renderInput={(props:any) => <input {...props} />}
+            inputType="text"
+            renderInput={(props:any) => <input {...props} suppressHydrationWarning />}
             shouldAutoFocus={true}
             />
           </div>
 
          
 
-          <button className='w-full px-[1820x] py-[14px] rounded-[8px] bg-black'>
+          <button className='w-full px-[1820x] py-[14px] rounded-[8px] bg-black' onClick={handleOtpSubmit}>
             Submit
           </button>
           </div>
