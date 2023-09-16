@@ -50,7 +50,7 @@ export default function Guide() {
 
   return (
     <>
-      <div className="bg-black flex flex-col justify-between">
+      <div className="bg-black flex flex-col justify-between min-h-screen">
         <div className="flex flex-col items-center">
           <div className="px-4 lg:px-36 xl:px-36 py-14">
             <div className="flex flex-col items-center w-full">
