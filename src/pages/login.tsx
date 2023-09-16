@@ -33,7 +33,7 @@ const payload= {
 }
   const response = await axios.post("http://localhost:5000/login",payload,header)
   console.log(response)
-  router.push('/verify?email=manas');
+  router.push(`/verify?email=${email}`);
 }
 catch(e){
 console.log(e)
