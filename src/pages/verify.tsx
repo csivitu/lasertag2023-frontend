@@ -51,6 +51,7 @@ const [otp,setOtp]= useState<string>("");
         progress: undefined,
         theme: "dark",
         });
+        router.push('/')
     }
     catch(e:any){
       const errorMessage=e.response.data.error;

@@ -2,9 +2,29 @@ import React from 'react'
 import 'tailwindcss/tailwind.css'
 import Image from 'next/image'
 import { Tektur } from 'next/font/google'
+import { checkExpiry } from '@/helpers/checkExpiry'
+import {useState,useEffect} from "react"
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie'
 const tektur = Tektur({subsets:['latin']})
 
 export default function Navbar() {
+    const router = useRouter();
+    const handleLogin = ()=>{
+        if(!loggedIn)
+        router.push('/login')
+        else{
+            Cookies.remove('jwtToken')
+        }
+    }
+
+    const [loggedIn, setLoggedIn]= useState<boolean>()
+    useEffect(()=>{
+        if(!checkExpiry()){
+            setLoggedIn(!checkExpiry())
+        }
+    },[])
+    
   return (
     <>
     
@@ -18,7 +38,7 @@ export default function Navbar() {
                     <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">FAQs</button>
                     <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">GUIDE</button>
                     <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">GALLERY</button>
-                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">SIGN IN</button>
+                    <button onClick={handleLogin} className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">{loggedIn?'Sign Out':'Sign In'} </button>
                 </div>
             </div>
         </nav>
