@@ -1,5 +1,6 @@
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import{ useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -35,8 +36,11 @@ const [otp,setOtp]= useState<string>("");
        email:params,
        otp:otp
       }
-      const response = await axios.post("http://localhost:5000/verify-user",payload,header)
-    
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/verify-user`,payload,header)
+      const token = response.data.token;
+      Cookies.set('jwtToken', token, { expires: 7 * 24 * 60 * 60/24 }); 
+
+   
       toast.success(`Logged In`, {
         position: "top-right",
         autoClose: 4000,

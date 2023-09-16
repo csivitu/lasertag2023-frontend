@@ -33,7 +33,8 @@ const payload= {
   phoneno:contactNumber,
   email
 }
-  const response = await axios.post("http://localhost:5000/login",payload,header)
+  const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,payload,header)
+  
   console.log(response)
   toast.success('Sending OTP...', {
     position: "top-right",
