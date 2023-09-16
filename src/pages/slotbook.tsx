@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
-import { getTime, getDate } from '@/helpers/dateAndTime'
+import { getTime, getDate, getDayOfMonth } from '@/helpers/dateAndTime'
 
 
 export default function SlotBook() {
@@ -16,7 +16,11 @@ export default function SlotBook() {
   const dayOneRef=useRef<HTMLDivElement>(null)
   const dayTwoRef=useRef<HTMLDivElement>(null)
   const dayThreeRef=useRef<HTMLDivElement>(null)
-  const [selectDay,setSelectDay] = useState<Number>(1)
+  const [selectDay,setSelectDay] = useState<number>(0)
+
+//   useEffect(()=>{
+// console.log(selectDay)
+//   },[selectDay])
 
   useEffect(()=>{
    const fetchSlot= async ()=>{
@@ -46,7 +50,7 @@ export default function SlotBook() {
        <section className='flex flex-col justify-center  items-center w-[75%] gap-[50px]'>
        <div className='flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap'>
         <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayOneRef} onClick={()=>{
-          setSelectDay(1)
+          setSelectDay(22)
           dayOneRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayTwoRef.current?.classList.remove('bg-slotBookDateColorHover')
           dayThreeRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -54,7 +58,7 @@ export default function SlotBook() {
           Day 1
         </div>
         <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayTwoRef} onClick={()=>{
-          setSelectDay(2)
+          setSelectDay(23)
           dayTwoRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayOneRef.current?.classList.remove('bg-slotBookDateColorHover')
           dayThreeRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -62,7 +66,7 @@ export default function SlotBook() {
           Day 2
         </div>
         <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayThreeRef} onClick={()=>{
-          setSelectDay(3)
+          setSelectDay(24)
           dayThreeRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayOneRef.current?.classList.remove('bg-slotBookDateColorHover')
           dayTwoRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -71,14 +75,20 @@ export default function SlotBook() {
         </div>
         </div>
         <section className='grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]'>
-        {slotData.map((slot)=>{
-          return (
-            <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}>
-          <p>{getDate(slot.endTime)}</p>
-          <div className='w-[1.5px] h-[20px] bg-white'></div>
-          <p className={` ${chakraPetch.className} text-slotBookTimeGreen`}>Seats Available</p>
-        </div>
-          )
+
+
+        {slotData.map((slot,index)=>{
+          
+         if(selectDay==getDayOfMonth(slot.startTime)){
+            return(
+              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}>
+              <p>{getTime(slot.startTime)}</p>
+              <div className='w-[1.5px] h-[20px] bg-white'></div>
+              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`}>Seats Available</p>
+            </div>
+            )
+            }
+          
         })}
 
 
