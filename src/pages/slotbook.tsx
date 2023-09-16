@@ -8,6 +8,7 @@ import axios from 'axios'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 import { getTime, getDate, getDayOfMonth } from '@/helpers/dateAndTime'
+import Slot from '@/components/landingcomponents/Slot'
 
 
 export default function SlotBook() {
@@ -17,6 +18,28 @@ export default function SlotBook() {
   const dayTwoRef=useRef<HTMLDivElement>(null)
   const dayThreeRef=useRef<HTMLDivElement>(null)
   const [selectDay,setSelectDay] = useState<number>(0)
+
+  const handleSlotClick=  (event:any)=>{
+    const id =event.target.dataset;
+    console.log(id)
+    async () =>{
+      try{
+        const headers= {
+          'Authorization': `Bearer ${token}`
+        }
+        const payload ={
+  
+        }
+        const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,{headers})
+      }
+      catch(e){
+  
+      }
+    }
+    
+    
+  }
+
 
 //   useEffect(()=>{
 // console.log(selectDay)
@@ -30,6 +53,7 @@ export default function SlotBook() {
         }
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/slot-info`,{headers})
         setSlotData(response.data)
+        // console.log(response.data)
         
       }
       
@@ -81,10 +105,10 @@ export default function SlotBook() {
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}>
-              <p>{getTime(slot.startTime)}</p>
-              <div className='w-[1.5px] h-[20px] bg-white'></div>
-              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`}>Seats Available</p>
+              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `} key={index} onClick={handleSlotClick} data-slotid={slot.id}>
+              <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+              <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
+              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>Seats Available</p>
             </div>
             )
             }
