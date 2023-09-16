@@ -5,7 +5,7 @@ import Image from 'next/image'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 
-export default function slotBook() {
+export default function SlotBook() {
 
   return (
     <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px]`}>

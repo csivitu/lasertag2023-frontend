@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function login(){
+export default function Login(){
   const router = useRouter();
 const emailRef= useRef<HTMLInputElement>(null)
 const contactNumberRef= useRef<HTMLInputElement>(null)
