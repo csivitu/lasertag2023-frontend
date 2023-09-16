@@ -1,7 +1,9 @@
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
 import Image from 'next/image';
-import{ useState } from 'react';
+import{ useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
@@ -10,21 +12,54 @@ import OtpInput from 'react-otp-input';
 
 export default function verify(){
 
+const router = useRouter()
 
- const [otp,setOtp]= useState<string>("");
+const params =router?.query.email;
+const [otp,setOtp]= useState<string>("");
+
+
+ useEffect(()=>{
+  setOtp(otp)
+   },[otp])
+
+
+
   const handleOtpSubmit= async ()=>{
     try{
       const header={
         'Content-Type':"application/json",
         "method":'POST'
       }
+      
       const payload= {
-       
+       email:params,
+       otp:otp
       }
-      const response = await axios.post("",payload,header)
+      const response = await axios.post("http://localhost:5000/verify-user",payload,header)
+    
+      toast.success(`Logged In`, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     }
-    catch(e){
-
+    catch(e:any){
+      const errorMessage=e.response.data.error;
+      toast.error(`${errorMessage}`, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     }
   }
 
@@ -33,7 +68,7 @@ export default function verify(){
 
   return (
     <main className="w-full flex flex-row bg-black h-screen">
-
+<ToastContainer />
       <div className='w-[50%] flex flex-col justify-start items-start relative'>
 
         <div className='w-full ml-[20px]'>

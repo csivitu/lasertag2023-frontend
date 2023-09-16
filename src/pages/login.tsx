@@ -8,6 +8,8 @@ import '../app/globals.css'
 import { useRef, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function login(){
   const router = useRouter();
@@ -16,11 +18,11 @@ const contactNumberRef= useRef<HTMLInputElement>(null)
 const sendOtpButton= useRef<HTMLButtonElement>(null)
 const [email,setEmail] = useState("");
 const [contactNumber,setContactNumber] = useState("");
+const [error,setError]=useState<String>("")
 
 
 const handleButtonClick= async (e:any)=>{
   e.preventDefault();
-
 try{
 
   const header={
@@ -33,16 +35,40 @@ const payload= {
 }
   const response = await axios.post("http://localhost:5000/login",payload,header)
   console.log(response)
+  toast.success('Sending OTP...', {
+    position: "top-right",
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
   router.push(`/verify?email=${email}`);
 }
-catch(e){
-console.log(e)
+catch(e:any){
+
+setError(e.response.data.error)
+const errorMessage=e.response.data.error;
+
+toast.error(`${errorMessage}`, {
+  position: "top-right",
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+  });
+
 }
 }
 
   return (
     <main className="w-full flex flex-row bg-black h-screen">
-
+  <ToastContainer/>
       <div className='w-[50%] flex flex-col justify-start items-start relative'>
 
         <div className='w-full ml-[20px]'>
