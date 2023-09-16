@@ -40,9 +40,7 @@ module.exports = {
           'footerImg2':'url("/landingassests/Vector.svg")',
          
       },
-      fontFamily:{
-        tekturBold:'tektur'
-      },
+      
       screens:{
         "mobile":"320px",
         "tab":"768px",
