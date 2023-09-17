@@ -1,38 +1,34 @@
-import Navbar from '@/components/landingcomponents/Navbar'
-import Footer from '@/components/landingcomponents/Footer'
+import Navbar from '@/components/landingcomponents/Navbar';
 import React from 'react'
-import Image from 'next/image'
-import Photo from '@/components/landingcomponents/Photo'
-import Guide from '@/components/landingcomponents/Guide'
-import FAQ from '@/components/landingcomponents/Faq'
+import "tailwindcss/tailwind.css";
+import Image from 'next/image';
+import Footer from '@/components/landingcomponents/Footer';
+import Photo from '@/components/landingcomponents/Photo';
+
+
 export default function Landing(){
   return (
     
     <>
-    
-    < div className = "bg-black flex flex-col h-screen justify-between">
-        
-            <Navbar/>
-        
-        <div className = "flex flex-col items-center">
-            <div className = "text-white w-full">
-                <p className = "text-center"></p>
-        </div>
-            <button className = " flex justify-center">
-                <Image src = "/landingassests/button.svg" alt = "button" width = {1} height = {1} className = "w-3/12 h-3/12"/>
-            </button>
-        </div>
-        
-            
-
-
+    <div className = "bg-black min-h-screen w-full flex flex-col justify-between">
+      
+        <Navbar/>
+      
+      <div className = "flex flex-col items-center ">
+      <Image src = "/landingassests/Final_2.gif" alt = "image" width = {1} height = {1} className = "w-[45%] h-fit"/>
+        <button className = "flex justify-center w-full">
+          <Image src = "/landingassests/button.svg" alt = "button" width = {100} height = {100} className = "w-2/12 h-2/12"/>
+        </button>
+      </div>
+      
+      <Footer/>
+      
+      
     </div>
-        
+   
+    
+      
     <Photo/>
-    <Guide/>
-     <FAQ/>
-     <Footer/>  
-
     </>
   )
 }
