@@ -24,6 +24,7 @@ export default function SlotBook() {
   const handleSlotClick=  (event:any)=>{
     const id =event.target.dataset.slotid;
    console.log(id)
+   
     const bookSlot =async () =>{
       try{
         const headers= {
