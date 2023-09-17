@@ -57,12 +57,14 @@ const onChangeClick =()=>{
              }
              const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/slot-info`,{headers})
              setSlotData(response.data)
+             console.log(response.data)
              
              
            }
            
-           catch(e){
-             console.log("Cant fetch")
+           catch(e:any){
+            
+             toast.error(`Error fetching slot, please refresh`,{theme: "dark"}) 
            }
            
        }
@@ -136,12 +138,12 @@ const onChangeClick =()=>{
             
         {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
-          <div className="modal-content ">
+          <div className="modal-content flex justify-between items-center gap-[1rem] flex-col">
 
             <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
-            <div className="flex justify-between items-center ">
-              <button onClick={handleConfirm}>Confirm</button>
-              <button onClick={closeModal}>Cancel</button>
+            <div className="flex justify-between items-center gap-[1rem] w-full">
+              <button onClick={handleConfirm} className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%]`}>Confirm</button>
+              <button onClick={closeModal} className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-white font-medium w-[50%]`}>Cancel</button>
             </div>
           </div>
         </div>
@@ -226,7 +228,7 @@ const onChangeClick =()=>{
             return(
               <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
                setSelectSlotId(event.target.dataset.slotid)
-               console.log(event.target.dataset.slotid)
+               
                 openModal()
               }}>
               <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>

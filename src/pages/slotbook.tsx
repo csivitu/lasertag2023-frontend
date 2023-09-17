@@ -120,12 +120,12 @@ checkIfSlotBooked()
       <ToastContainer/>
 {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
-          <div className="modal-content ">
+          <div className="modal-content flex justify-between items-center gap-[1rem] flex-col ">
 
             <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
-            <div className="flex justify-between items-center ">
-              <button onClick={handleConfirm}>Confirm</button>
-              <button onClick={closeModal}>Cancel</button>
+            <div className=" flex justify-between items-center gap-[1rem] w-full ">
+              <button onClick={handleConfirm} className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%]`}>Confirm</button>
+              <button onClick={closeModal} className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed text-white px-[24px] py-[10px]  font-medium w-[50%]`}>Cancel</button>
             </div>
           </div>
         </div>
