@@ -134,7 +134,7 @@ const onChangeClick =()=>{
     return(
         <>
         <ToastContainer className={"absolute"}/>
-        <main className='relative '>
+        <main className='relative flex justify-center items-center flex-col '>
             
         {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
@@ -247,6 +247,7 @@ const onChangeClick =()=>{
         :''}
 
         </main>
+        <Image width={100} height={100} alt="" src={`/gifs/2.gif`} className={'w-4/12'}/>
         </main>
         </>
     )
