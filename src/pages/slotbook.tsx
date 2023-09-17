@@ -9,10 +9,12 @@ const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 import { getTime, getDate, getDayOfMonth } from '@/helpers/dateAndTime'
 import Slot from '@/components/landingcomponents/Slot'
+import Error from 'next/error'
 
 
 export default function SlotBook() {
   const [slotData,setSlotData]= useState([] as any[])
+  const [errorMsg, setErrorMsg]= useState<String>('')
   const token =Cookies.get('jwtToken');
   const dayOneRef=useRef<HTMLDivElement>(null)
   const dayTwoRef=useRef<HTMLDivElement>(null)
@@ -20,22 +22,27 @@ export default function SlotBook() {
   const [selectDay,setSelectDay] = useState<number>(0)
 
   const handleSlotClick=  (event:any)=>{
-    const id =event.target.dataset;
-    console.log(id)
-    async () =>{
+    const id =event.target.dataset.slotid;
+   console.log(id)
+    const bookSlot =async () =>{
       try{
         const headers= {
-          'Authorization': `Bearer ${token}`
+          'Authorization':`Bearer ${token}`,
+          // 'Content-Type':'application/json'
+         
         }
         const payload ={
-  
+          "slotId":id
         }
-        const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,{headers})
+        const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,payload,{headers})
       }
-      catch(e){
-  
+      catch(e:any){
+        const error=e.response.data.error
+        setErrorMsg(error)
+        console.log(error)
       }
     }
+    bookSlot()
     
     
   }
@@ -49,7 +56,8 @@ export default function SlotBook() {
    const fetchSlot= async ()=>{
       try{
         const headers={
-          'Authorization':`Bearer ${token}`
+          'Authorization':`Bearer ${token}`,
+          
         }
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/slot-info`,{headers})
         setSlotData(response.data)
