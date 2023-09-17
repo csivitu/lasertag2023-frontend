@@ -4,6 +4,8 @@ import "tailwindcss/tailwind.css";
 import Image from 'next/image';
 import Footer from '@/components/landingcomponents/Footer';
 import Photo from '@/components/landingcomponents/Photo';
+import Guide from '@/components/landingcomponents/Guide';
+import Slot from '@/components/landingcomponents/Slot';
 
 
 export default function Landing(){
@@ -29,6 +31,7 @@ export default function Landing(){
     
       
     <Photo/>
+    <Slot/>
     </>
   )
 }
