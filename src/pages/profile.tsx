@@ -5,7 +5,9 @@ import { useEffect,useState,useRef } from 'react'
 import Image from 'next/image'
 import Cookies from 'js-cookie'
 import axios from 'axios'
-import { getDate, getDayOfMonth, getTime } from '@/helpers/dateAndTime'
+import {getDayOfMonth, getTime } from '@/helpers/dateAndTime'
+import { ToastContainer,toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 
@@ -110,6 +112,7 @@ const onChangeClick =()=>{
               }
               const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/change-slot`,payload,{headers})
               console.log(response)
+              toast.success(`${response?.data?.message}`)
         }
         catch(e){
 console.log(e)
@@ -126,7 +129,10 @@ console.log(e)
    
 
     return(
+        <>
+        <ToastContainer className={"absolute"}/>
         <main className='relative '>
+            
         {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
           <div className="modal-content ">
@@ -239,5 +245,6 @@ console.log(e)
 
         </main>
         </main>
+        </>
     )
 }

@@ -1,4 +1,5 @@
 import { Tektur} from 'next/font/google'
+import 'react-toastify/dist/ReactToastify.css';
 import { Chakra_Petch} from 'next/font/google'
 import Cookies from 'js-cookie';
 import Image from 'next/image';

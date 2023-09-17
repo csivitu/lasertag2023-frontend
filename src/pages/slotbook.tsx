@@ -124,7 +124,7 @@ checkIfSlotBooked()
         </div>
       )}
     
-    <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px]`}>
+    <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px] ${isOpen?'blur-[3px]':''}`}>
         <div className={` text-white ${tektur.className} text-slotBookHeadingFontSize font-bold`}>
             Select your Laser Tag Slot
         </div>
