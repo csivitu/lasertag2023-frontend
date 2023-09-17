@@ -50,9 +50,9 @@ const payload= {
 }
 catch(e:any){
 
-setError(e.response.data.error)
-const errorMessage=e.response.data.error;
-
+setError(e?.response?.data.error)
+const errorMessage=e?.response?.data.error;
+// console.log(e.response.data)
 toast.error(`${errorMessage}`, {
   position: "top-right",
   autoClose: 4000,

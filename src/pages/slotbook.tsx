@@ -7,24 +7,33 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
-import { getTime, getDate, getDayOfMonth } from '@/helpers/dateAndTime'
-import Slot from '@/components/landingcomponents/Slot'
-import Error from 'next/error'
+import { getTime, getDayOfMonth } from '@/helpers/dateAndTime'
+import { useRouter } from 'next/router'
+
 
 
 export default function SlotBook() {
+  const router =useRouter();
+  const [isOpen, setIsOpen] = useState(false);
   const [slotData,setSlotData]= useState([] as any[])
   const [errorMsg, setErrorMsg]= useState<String>('')
+  const [userInfo,setUserInfo] =useState(null);
   const token =Cookies.get('jwtToken');
   const dayOneRef=useRef<HTMLDivElement>(null)
   const dayTwoRef=useRef<HTMLDivElement>(null)
   const dayThreeRef=useRef<HTMLDivElement>(null)
   const [selectDay,setSelectDay] = useState<number>(0)
+  const [selectSlotId,setSelectSlotId]= useState<String>('')
 
-  const handleSlotClick=  (event:any)=>{
-    const id =event.target.dataset.slotid;
-   console.log(id)
-   
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleConfirm = () => {
     const bookSlot =async () =>{
       try{
         const headers= {
@@ -33,25 +42,50 @@ export default function SlotBook() {
          
         }
         const payload ={
-          "slotId":id
+          "slotId":selectSlotId
         }
         const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,payload,{headers})
       }
       catch(e:any){
         const error=e.response.data.error
         setErrorMsg(error)
-        console.log(error)
+      
       }
     }
     bookSlot()
-    
-    
+  closeModal()
+};
+
+
+
+
+
+  const handleSlotClick=  (event:any)=>{
+    setSelectSlotId(event.target.dataset.slotid)
+      openModal()   
   }
 
+ useEffect(()=>{
+  const checkIfSlotBooked = async ()=>{
+    try{
+        const headers ={
+            'Authorization': `Bearer ${token}`
+        }
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/user-info`,{headers})
+      const data=response.data
+        setUserInfo(response.data)
+        console.log(response.data)
+        if(response?.data.slotBooked){
+          router.push('/profile')
+        }
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+checkIfSlotBooked()
 
-//   useEffect(()=>{
-// console.log(selectDay)
-//   },[selectDay])
+ },[])
 
   useEffect(()=>{
    const fetchSlot= async ()=>{
@@ -76,6 +110,20 @@ export default function SlotBook() {
 },[])
 
   return (
+    <main className='relative'>
+{isOpen && (
+        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
+          <div className="modal-content ">
+
+            <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
+            <div className="flex justify-between items-center ">
+              <button onClick={handleConfirm}>Confirm</button>
+              <button onClick={closeModal}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+    
     <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px]`}>
         <div className={` text-white ${tektur.className} text-slotBookHeadingFontSize font-bold`}>
             Select your Laser Tag Slot
@@ -129,15 +177,14 @@ export default function SlotBook() {
        </section>
       <section className='flex flex-col justify-center items-center gap-[20px]'>
       <section className='flex flex-row justify-center items-center gap-[10px]'>
-    <Image width={16} height={16} alt="Left Arrow" src="/slotBookPage/Vector.svg"/>
-    <p className={`${chakraPetch.className} text-white font-semibold`}>1 of 3</p>
-    <Image width={16} height={16} alt="Right Arrow" src="/slotBookPage/Vector-1.svg"/>
+    
         </section>
         <button className={`bg-slotBookTimeRed text-white rounded-[8px] ${chakraPetch.className} font-semibold text-slotBookDateFontSize px-bookNowButtonX py-bookNowButtonY break-keep	`}>
       Book Now
         </button>
       </section>
         
+    </main>
     </main>
   )
     

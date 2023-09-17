@@ -158,8 +158,8 @@ console.log(e)
                 </div>
                
                 <button className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full`}>
-                {(userInfo?.slotBooked.startTime)?getTime(userInfo?.slotBooked.startTime):''}  ,
-                {(userInfo?.slotBooked.startTime)?getDayOfMonth(userInfo?.slotBooked.startTime):''} Sept
+                {(userInfo?.slotBooked?.startTime)?getTime(userInfo?.slotBooked?.startTime):''}  ,
+                {(userInfo?.slotBooked?.startTime)?getDayOfMonth(userInfo?.slotBooked?.startTime):''} Sept
                 </button>
                 </div>
 
@@ -217,7 +217,7 @@ console.log(e)
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'hidden':''}`} key={index}  data-slotid={slot.id} onClick={(event)=>{
+              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'hidden':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
                setSelectSlotId(event.target.dataset.slotid)
                console.log(event.target.dataset.slotid)
                 openModal()
