@@ -4,7 +4,7 @@ import "tailwindcss/tailwind.css";
 import Image from 'next/image';
 import Footer from '@/components/landingcomponents/Footer';
 import Photo from '@/components/landingcomponents/Photo';
-
+import FAQ from '@/components/landingcomponents/Faq';
 
 export default function Landing(){
   return (
@@ -29,6 +29,7 @@ export default function Landing(){
     
       
     <Photo/>
+    <FAQ/>
     </>
   )
 }
