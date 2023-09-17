@@ -9,6 +9,9 @@ const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 import { getTime, getDayOfMonth } from '@/helpers/dateAndTime'
 import { useRouter } from 'next/router'
+import { toast,ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -38,16 +41,19 @@ export default function SlotBook() {
       try{
         const headers= {
           'Authorization':`Bearer ${token}`,
-          // 'Content-Type':'application/json'
          
         }
         const payload ={
           "slotId":selectSlotId
         }
         const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,payload,{headers})
+        console.log(response)
+        toast.success(response.data.message,{theme: "dark"})
       }
       catch(e:any){
         const error=e.response.data.error
+  
+        toast.error(error,{theme: "dark"})
         setErrorMsg(error)
       
       }
@@ -74,14 +80,14 @@ export default function SlotBook() {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/user-info`,{headers})
       const data=response.data
         setUserInfo(response.data)
-        console.log(response.data)
         if(response?.data.slotBooked){
           router.push('/profile')
         }
     }
-    catch(e){
-        console.log(e)
-    }
+    catch(e:any){
+      // {e?.response?.data?.error}
+      toast.error(`Error fetching slot, please refresh`,{theme: "dark"}) 
+       }
 }
 checkIfSlotBooked()
 
@@ -111,6 +117,7 @@ checkIfSlotBooked()
 
   return (
     <main className='relative'>
+      <ToastContainer/>
 {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
           <div className="modal-content ">

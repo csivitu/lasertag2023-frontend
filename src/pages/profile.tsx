@@ -112,10 +112,11 @@ const onChangeClick =()=>{
               }
               const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/change-slot`,payload,{headers})
               console.log(response)
-              toast.success(`${response?.data?.message}`)
+              toast.success(`${response?.data?.message}`,{theme: "dark"})
         }
-        catch(e){
-console.log(e)
+        catch(e:any){
+        console.log(e)
+        toast.error(`${e?.response?.data?.error}`,{theme: "dark"})
         }
 
        }
@@ -223,7 +224,7 @@ console.log(e)
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'hidden':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
+              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
                setSelectSlotId(event.target.dataset.slotid)
                console.log(event.target.dataset.slotid)
                 openModal()
