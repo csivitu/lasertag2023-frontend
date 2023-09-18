@@ -37,7 +37,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'footerImg':'url("/landingassests/footervector.svg")',
+          'footer':'url("/footer.svg")',
           'footerImg2':'url("/landingassests/Vector.svg")',
+          'buttonImg':'url("/regButton.svg")'
          
       },
       

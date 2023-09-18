@@ -3,44 +3,43 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router';
 import "tailwindcss/tailwind.css";
 import Image from 'next/image';
-import Footer from '@/components/landingcomponents/Footer';
+import Marquee from '@/components/landingcomponents/Marquee';
 import Photo from '@/components/landingcomponents/Photo';
 import FAQ from '@/components/landingcomponents/Faq';
+import Footer from '@/components/landingcomponents/Footer';
 import Cookies from 'js-cookie';
+import { checkExpiry } from '@/helpers/checkExpiry';
+import { Tektur } from 'next/font/google';
+const tektur = Tektur({ subsets: ["latin"] });
 
 export default function Landing(){
   const router = useRouter()
   const token =Cookies.get('jwtToken')
 
   useEffect(()=>{
-    if(token){
+    if(!checkExpiry()){
       router.push('/slotbook')
     }
   },[token])
   
   return (
     
-    <>
-    <div className = "bg-black min-h-screen w-full flex flex-col justify-between">
-      
-        <Navbar/>
-      
-      <div className = "flex flex-col items-center ">
-      <Image src = "/landingassests/Final_2.gif" alt = "image" width = {1} height = {1} className = "w-[45%] h-fit"/>
-        <button className = "flex justify-center w-full">
-          <Image src = "/landingassests/button.svg" alt = "button" width = {100} height = {100} className = "w-2/12 h-2/12"/>
-        </button>
-      </div>
-      
-      <Footer/>
-      
-      
-    </div>
+    <main className='bg-black flex justify-between items-center flex-col h-screen overflow-x-hidden '>
+
+     <Navbar/>
+     {/* hero section */}
+
+
+   <section className='w-full flex flex-col justify-center items-center relative '>
+   <Image width={100} height={100} alt="LogoLaserTag" src="/lasertaglogo.webp" className='w-[60%]'/>
+
+   <button className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat`}>
+      Register
+    </button>
+   </section>
+
    
-    
-      
-    <Photo/>
-    
-    </>
+   <Marquee/>
+      </main>
   )
 }
