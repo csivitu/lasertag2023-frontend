@@ -1,72 +1,83 @@
-import React ,{useState} from 'react'
-import 'tailwindcss/tailwind.css'
-import { Tektur} from 'next/font/google'
-import Image from 'next/image'
-const tektur = Tektur({subsets:['latin']})
+import React, { useState } from "react";
+import Image from "next/image";
+import "tailwindcss/tailwind.css";
 
-export default function Photo() {
-  const array = [
-    {
-      source : "/landingassests/carouselassets/image1.svg"
-    },
-    {
-      source : "/landingassests/carouselassets/image2.svg"
-    },
-    {
-      source : "/landingassests/carouselassets/image3.svg"
-    },
-    {
-      source : "/landingassests/carouselassets/image4.svg"
-    },
-    {
-      source : "/landingassests/carouselassets/image5.svg"
-    },
-    
-  ];
-  const [current,setCurrent] = useState(0);
-  const prev = ()=>{
-      const isFirst = current === 0;
-      const newIndex = isFirst ?array.length-1:current-1;
-      setCurrent(newIndex);
+const Slideshow: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const numberOfImages = 2;
 
-  }
-  const next = ()=>{
-    const last = current === array.length-1;
-    const newIndex = last?0:current+1;
-    setCurrent(newIndex);
+  const handlePrevClick = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : numberOfImages - 1
+    );
+  };
 
-  }
+  const handleNextClick = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex < numberOfImages - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const imagePaths = [
+    "/landingassests/carouselassets/WhatsApp Image 2023-09-19 at 1.19.06 AM (1).jpeg",
+    "/landingassests/carouselassets/WhatsApp Image 2023-09-19 at 1.19.06 AM (2).jpeg",
+  ]; // Define your image paths here
+
   return (
-    
-    <div className = {`bg-black h-screen text-white ${tektur.className}  flex flex-col justify-evenly relative`}>
-        <div>
-            <p className = "text-center text-4xl">A Thrilling Multiplayer Shooting Experience</p><br/>
-            <p className = " text-center text-xl">Laser Tag offers you a chance to step onto the arena for a thrilling multi-player experience.</p>
-            <p className = " text-center text-xl">Don your vests and have your guns at the ready, maximize hits to climb up the leaderboard!</p>
-        </div>
-        
-        <div>
-              
-              <div className = "flex flex-row justify-center align-center">
-                <button onClick = {prev}>
-                  <Image src = {`/landingassests/carouselassets/goleft.svg`} alt = "image-1" width = {100} height = {100}/>
-                </button>
-                <div>
-                  <div className = "border-red-600 border-8">
-                  <Image src = {`${array[current].source}`} alt = "image-1" width = {300}  height = {300}/>
-                  </div>
-               
-                </div>
-                
-               
-               
-                  <button onClick = {next}>
-                    <Image src = "/landingassests/carouselassets/goright.svg" alt = "goright" width = {100} height = {100}/></button>
-                </div>
-             
+    <div className="">
+      <div className="container mx-auto relative w-full" data-carousel="static">
+        <div className="relative overflow-hidden rounded-lg">
+          {imagePaths.map((path, index) => (
+            <div
+              key={index}
+              className={`duration-700 ease-in-out ${
+                index === activeIndex ? "block" : "hidden"
+              }`}
+              data-carousel-item={index === activeIndex ? "active" : undefined}
+            >
+              <Image
+                src={path} // Use the image path from the array
+                alt={`Image ${index + 1}`}
+                width={750} // Adjust the width and height as needed
+                height={750}
+              />
             </div>
+          ))}
         </div>
-    
-  )
-}
 
+        <button
+          type="button"
+          className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev
+          onClick={handlePrevClick}
+        >
+          <Image
+            src="/landingassests/carouselassets/goleft.svg"
+            alt="Left arrow"
+            width={40}
+            height={40}
+          />
+
+          {/* Left arrow icon */}
+        </button>
+
+        <button
+          type="button"
+          className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next
+          onClick={handleNextClick}
+        >
+          <Image
+            src="/landingassests/carouselassets/goright.svg"
+            alt="Left arrow"
+            width={40}
+            height={40}
+          />{" "}
+          {/* Right arrow icon */}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Slideshow;
