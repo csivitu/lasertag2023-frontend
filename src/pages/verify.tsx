@@ -13,6 +13,7 @@ import '../app/globals.css'
 import OtpInput from 'react-otp-input';
 
 export default function Verify(){
+  
 
 const router = useRouter()
 
