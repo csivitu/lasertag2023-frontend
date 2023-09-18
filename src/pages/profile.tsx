@@ -87,7 +87,7 @@ const onChangeClick =()=>{
             }
         }
         checkIfSlotBooked()
-    },)
+    },[])
 
 
 
@@ -137,7 +137,7 @@ const onChangeClick =()=>{
         <main className='relative flex justify-center items-center flex-col '>
             
         {isOpen && (
-        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%]">
+        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px]  flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
           <div className="modal-content  flex justify-between items-center gap-[1rem] flex-col">
 
             <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
@@ -223,18 +223,20 @@ const onChangeClick =()=>{
 
 
         {slotData.map((slot,index)=>{
+            
+         if(selectDay==(slot.day+21)){
           
-         if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center mobile:flex-col ${(slot.id===userInfo?.slotBooked._id)?'':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
-               setSelectSlotId(event.target.dataset.slotid)
-               
-                openModal()
-              }}>
-              <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-              <div className='w-[1.5px] h-[20px] mobile:rotate-90 mobile:hidden tab:block bg-white' data-slotid={slot.id}></div>
-              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>Seats Available</p>
-            </div>
+              slot.isCarry?'':(<div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center mobile:flex-col tab:flex-row ${(slot.id===userInfo?.slotBooked._id)?'':''} ${(slot.availability>0)?'':'pointer-events-none'}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
+                setSelectSlotId(event.target.dataset.slotid)
+                
+                 openModal()
+               }}>
+               <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+               <div className='w-[1.5px] h-[20px] mobile:rotate-90 tab:rotate-0 mobile:hidden tab:block bg-white' data-slotid={slot.id}></div>
+               <p className={` ${chakraPetch.className}  ${(slot.availability>0)?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`} data-slotid={slot.id}>{slot?.availability} Slots</p>
+             </div>)
+             
             )
             }
           
