@@ -49,10 +49,11 @@ export default function SlotBook() {
         const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,payload,{headers})
         console.log(response)
         toast.success(response.data.message,{theme: "dark"})
+        router.push("/slotbook")
       }
       catch(e:any){
         const error=e.response.data.error
-  
+        console.log(e)
         toast.error(error,{theme: "dark"})
         setErrorMsg(error)
       
@@ -79,14 +80,17 @@ export default function SlotBook() {
         }
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/user-info`,{headers})
       const data=response.data
-        setUserInfo(response.data)
+        setUserInfo(data)
         if(response?.data.slotBooked){
           router.push('/profile')
         }
     }
     catch(e:any){
-      // {e?.response?.data?.error}
-      toast.error(`Error fetching slot, please refresh`,{theme: "dark"}) 
+      const error =e?.response?.data.error
+      setErrorMsg(error)
+     toast.error(error,{theme: "dark"})
+     
+     
        }
 }
 checkIfSlotBooked()
@@ -102,12 +106,16 @@ checkIfSlotBooked()
         }
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/slot-info`,{headers})
         setSlotData(response.data)
-        // console.log(response.data)
+       
         
       }
       
-      catch(e){
-        console.log("Cant fetch")
+      catch(e:any){
+        const error =e?.response?.data.error
+        setErrorMsg(error)
+       toast.error(error,{theme: "dark"})
+       router.push("/login")
+        
       }
       
   }
