@@ -39,7 +39,9 @@ module.exports = {
           'footerImg':'url("/landingassests/footervector.svg")',
           'footer':'url("/footer.svg")',
           'footerImg2':'url("/landingassests/Vector.svg")',
-          'buttonImg':'url("/regButton.svg")'
+          'buttonImg':'url("/regButton.svg")',
+          'faqBackground':'url("/faqMain.svg")'
+          
          
       },
       
