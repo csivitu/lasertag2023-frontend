@@ -24,7 +24,7 @@ const Slideshow: React.FC = () => {
   ]; // Define your image paths here
 
   return (
-    <div className="">
+    <div className=""id="gallery">
       <div className="container mx-auto relative w-full" data-carousel="static">
         <div className="relative overflow-hidden rounded-lg">
           {imagePaths.map((path, index) => (
