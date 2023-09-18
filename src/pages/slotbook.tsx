@@ -2,7 +2,7 @@ import '../app/globals.css'
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
 import { useEffect,useState,useRef } from 'react'
-import Image from 'next/image'
+import Logout from '@/components/Logout'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 const tektur = Tektur({subsets:['latin']})
@@ -125,6 +125,7 @@ checkIfSlotBooked()
 
   return (
     <main className='relative'>
+      <Logout/>
       <ToastContainer/>
 {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
@@ -177,11 +178,11 @@ checkIfSlotBooked()
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `} key={index} onClick={handleSlotClick} data-slotid={slot.id}>
-              <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-              <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
-              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>Seats Available</p>
-            </div>
+             slot.isCarry?(""):( <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `} key={index} onClick={handleSlotClick} data-slotid={slot.id}>
+             <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+             <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
+             <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>{slot?.availability}</p>
+           </div>)
             )
             }
           
