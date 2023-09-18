@@ -16,7 +16,7 @@ const [expand5,setExpand5]= useState<boolean>(false)
 
   return (
     <main className={`${tektur.className} flex justify-between items-center flex-col gap-[1rem] bg-black text-white`  }>
-      <p className="font-bold text-5xl">FAQ's</p>
+      <p className="font-bold text-5xl">FAQ&apos;s</p>
       <section className="flex flex-col justify-center items-center  font-semibold w-[75%] gap-[1rem] ">
   
        
