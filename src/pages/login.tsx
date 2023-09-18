@@ -71,16 +71,16 @@ toast.error(`${errorMessage}`, {
   return (
     <main className="w-full flex flex-row bg-black h-screen">
   <ToastContainer/>
-      <div className='w-[50%] flex flex-col justify-start items-start relative'>
+      <div className='laptopS:w-[50%] mobile:w-0  flex flex-col justify-start items-start relative'>
 
         <div className='w-full ml-[20px]'>
-        <Image width={150} height={150} alt="man" src="/login/lasertagLogo.svg" />
+        <Image width={150} height={150} alt="man" src="/login/lasertagLogo.svg" className='mobile:hidden laptopS:block'/>
         </div>
       
-      <Image width={100} height={100} alt="man" src="/login/man.svg" className='w-[85%] absolute bottom-0 object-contain'/>
+      <Image width={100} height={100} alt="man" src="/login/man.svg" className='w-[85%] absolute bottom-0 object-contain mobile:hidden laptopS:block'/>
       </div>
    
-        <section className="bg-slotBookTimeRed w-[50%] flex justify-center flex-col items-center">
+        <section className="bg-slotBookTimeRed laptopS:w-[50%] flex justify-center flex-col items-center tab:w-full">
           <div className='flex flex-col justify-center items-start gap-[48px] w-[75%]'>
 
           <div className='flex flex-col justify-center items-start '>

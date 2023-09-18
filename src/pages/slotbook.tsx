@@ -49,7 +49,7 @@ export default function SlotBook() {
         const response= await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/book-slot`,payload,{headers})
         console.log(response)
         toast.success(response.data.message,{theme: "dark"})
-        router.push("/slotbook")
+        router.push("/profile")
       }
       catch(e:any){
         const error=e.response.data.error
@@ -127,10 +127,10 @@ checkIfSlotBooked()
     <main className='relative'>
       <ToastContainer/>
 {isOpen && (
-        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
+        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
           <div className="modal-content flex justify-between items-center gap-[1rem] flex-col ">
 
-            <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
+            <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to book this slot?</h2>
             <div className=" flex justify-between items-center gap-[1rem] w-full ">
               <button onClick={handleConfirm} className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%]`}>Confirm</button>
               <button onClick={closeModal} className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed text-white px-[24px] py-[10px]  font-medium w-[50%]`}>Cancel</button>
@@ -140,7 +140,7 @@ checkIfSlotBooked()
       )}
     
     <main className={` w-full flex flex-col justify-center items-center min-h-screen bg-black  gap-[75px] ${isOpen?'blur-[3px]':''}`}>
-        <div className={` text-white ${tektur.className} text-slotBookHeadingFontSize font-bold`}>
+        <div className={` text-white ${tektur.className} text-slotBookHeadingFontSize font-bold text-center`}>
             Select your Laser Tag Slot
         </div>
        <section className='flex flex-col justify-center  items-center w-[75%] gap-[50px]'>
@@ -194,9 +194,7 @@ checkIfSlotBooked()
       <section className='flex flex-row justify-center items-center gap-[10px]'>
     
         </section>
-        <button className={`bg-slotBookTimeRed text-white rounded-[8px] ${chakraPetch.className} font-semibold text-slotBookDateFontSize px-bookNowButtonX py-bookNowButtonY break-keep	`}>
-      Book Now
-        </button>
+       
       </section>
         
     </main>

@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <>
     
-        <nav className = "relative flex flex-row justify-center items-center">
+        <nav className = "relative flex flex-row justify-center items-center w-full text-black">
             <div className = "absolute top-0 left-0 w-full"> 
                 <Image src = "/landingassests/navbarvector.svg" alt = "Navbar" width = {1} height = {1} className = "w-full"/>
             </div>
