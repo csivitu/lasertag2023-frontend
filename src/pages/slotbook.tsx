@@ -2,7 +2,7 @@ import '../app/globals.css'
 import { Tektur} from 'next/font/google'
 import { Chakra_Petch} from 'next/font/google'
 import { useEffect,useState,useRef } from 'react'
-import Image from 'next/image'
+import Logout from '@/components/Logout'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 const tektur = Tektur({subsets:['latin']})
@@ -125,6 +125,7 @@ checkIfSlotBooked()
 
   return (
     <main className='relative'>
+      <Logout/>
       <ToastContainer/>
 {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">

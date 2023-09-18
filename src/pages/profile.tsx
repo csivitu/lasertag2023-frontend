@@ -8,6 +8,7 @@ import axios from 'axios'
 import {getDayOfMonth, getTime } from '@/helpers/dateAndTime'
 import { ToastContainer,toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Logout from '@/components/Logout'
 const tektur = Tektur({subsets:['latin']})
 const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 
@@ -132,10 +133,11 @@ const onChangeClick =()=>{
    
 
     return(
-        <>
+        < main >
         <ToastContainer className={"absolute"}/>
+        
         <main className='relative flex justify-center items-center flex-col '>
-            
+        <Logout/>
         {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px]  flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
           <div className="modal-content  flex justify-between items-center gap-[1rem] flex-col">
@@ -255,6 +257,6 @@ const onChangeClick =()=>{
         </div>
         
         </main>
-        </>
+        </main>
     )
 }
