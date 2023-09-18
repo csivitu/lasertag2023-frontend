@@ -12,7 +12,7 @@ export default function LastFooter() {
     <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full px-[4rem]">
     <section className="flex justify-center items-start flex-col ">
     <h1 className={`${tektur.className} text-3xl text-white`}>Follow us</h1>
-    <div className="flex flex-row flex-wrap justify-between items-center w-[60%] gap-[0.rem]">
+    <div className="flex flex-row flex-wrap justify-between items-start w-[60%] gap-[0.rem]">
 
     <Image width={48} height={48} src="/socials/Github.svg" alt="csiLogo" className="w-[48]"/>
     <Image width={48} height={48} src="/socials/Instagram.svg" alt="csiLogo" className="w-[48]"/>
@@ -27,10 +27,10 @@ export default function LastFooter() {
 
     <section>
       <h1 className={`${tektur.className} font-bold text-3xl`}>Visit</h1>
-      <p className={`${chakraPetch.className} font-medium text-xl`}>CSI Website</p>
-      <p className={`${chakraPetch.className} font-medium text-xl`}>Gallery</p>
-      <p className={`${chakraPetch.className} font-medium text-xl`}>Guide</p>
-      <p className={`${chakraPetch.className} font-medium text-xl`}>FAQ</p>
+      <p className={`${chakraPetch.className} font-semibold text-xl`}>CSI Website</p>
+      <p className={`${chakraPetch.className} font-semibold text-xl`}>Gallery</p>
+      <p className={`${chakraPetch.className} font-semibold text-xl`}>Guide</p>
+      <p className={`${chakraPetch.className} font-semibold text-xl`}>FAQ</p>
     </section>
     </main>
   

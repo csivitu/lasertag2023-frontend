@@ -27,14 +27,18 @@ export default function Landing(){
     <main className='bg-black flex justify-between items-center flex-col overflow-x-hidden '>
 
    <Navbar/>
-   <section className='w-full flex flex-col justify-center items-center relative overflow- '>
-   <Image width={100} height={100} alt="LogoLaserTag" src="/lasertaglogo.webp" className='w-[60%]'/>
+   <section className='w-full h-[100vh] flex flex-col justify-center items-center  overflow-hidden'>
+    <div className='relative flex justify-center items-center'>
+    <Image width={100} height={100} alt="LogoLaserTag" src="/lasertaglogo.webp" className='w-[60%]'/>
 
-   <button className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat`}>
-      Register
-    </button>
+<button className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat`}>
+   Register
+ </button>
+    </div>
+  
+    <Marquee/>
    </section>
-   <Marquee/>
+   
    <Photo/>
    <FAQ/>
   <Footer/>
