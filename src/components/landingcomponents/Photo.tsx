@@ -54,8 +54,8 @@ const Slideshow: React.FC = () => {
           <Image
             src="/landingassests/carouselassets/goleft.svg"
             alt="Left arrow"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />
 
           {/* Left arrow icon */}
@@ -70,8 +70,8 @@ const Slideshow: React.FC = () => {
           <Image
             src="/landingassests/carouselassets/goright.svg"
             alt="Left arrow"
-            width={50}
-            height={50}
+            width={40}
+            height={40  }
           />{" "}
           {/* Right arrow icon */}
         </button>

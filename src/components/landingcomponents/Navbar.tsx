@@ -42,7 +42,7 @@ export default function Navbar() {
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
               FAQs
             </button>
-            <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
+            <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">   
               GUIDE
             </button>
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
