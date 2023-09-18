@@ -98,7 +98,7 @@ const [otp,setOtp]= useState<string>("");
             onChange={setOtp}
             numInputs={6}
             containerStyle={'w-full flex flex-row justify-between items-start'}
-            inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold'}
+            inputStyle={'bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold focus:outline-0'}
             inputType="text"
             renderInput={(props:any) => <input {...props} suppressHydrationWarning />}
             shouldAutoFocus={true}
