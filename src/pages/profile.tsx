@@ -137,8 +137,8 @@ const onChangeClick =()=>{
         <main className='relative flex justify-center items-center flex-col '>
             
         {isOpen && (
-        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%]">
-          <div className="modal-content flex justify-between items-center gap-[1rem] flex-col">
+        <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%]">
+          <div className="modal-content  flex justify-between items-center gap-[1rem] flex-col">
 
             <h2 className={`${chakraPetch.className} text-2xl font-bold`}>Are you sure you want to change your slot?</h2>
             <div className="flex justify-between items-center gap-[1rem] w-full">
@@ -155,9 +155,9 @@ const onChangeClick =()=>{
 
             <section className="flex flex-col justify-center items-center w-full gap-[2rem]">
                 <h1 className={`${tektur.className} text-3xl font-bold`}>Profile</h1>
-                <div className="flex justify-around items-center w-[50%]"> 
+                <div className="flex justify-around tab:items-center mobile:items-start laptopS:w-[50%] tab:w-[75%] mobile:w-[90%] tab:flex-row mobile:flex-col mobile:gap-[2rem]"> 
 
-                <div className="flex justify-center items-start flex-col gap-[1rem]"> 
+                <div className="flex justify-center tab:items-start flex-col gap-[1rem] mobile:items-start mobile:w-full tab:w-[90%]"> 
                 <div className="flex justify-center items-end flex-row gap-[1rem]">
                 <h1 className={`${tektur.className} text-4xl `}>Your Slot</h1>
                 <p className={`${tektur.className} text-l underline`} onClick={()=>{
@@ -172,9 +172,9 @@ const onChangeClick =()=>{
                 </button>
                 </div>
 
-                <div className='bg-white  w-[2px] h-[150px]'></div>
+                <div className='bg-white  w-[2px] h-[150px] mobile:hidden tab:block'></div>
 
-                <div className='flex justify-center items-start flex-col gap-[1rem]'>
+                <div className='flex justify-center items-start flex-col gap-[1rem] mobile:w-[100%] tab:w-[50%]'>
 
                     <div className='flex justify-center items-start flex-col'>
                     <h2 className={`${tektur.className} text-2xl font-medium`}>Contact Number</h2>
@@ -192,9 +192,9 @@ const onChangeClick =()=>{
             </section>
         {changeSlotClicked?
        
-       <section className='flex flex-col justify-center  items-center w-[75%] gap-[50px]'>
-       <div className='flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap'>
-        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayOneRef} onClick={()=>{
+       <section className='flex flex-col justify-center  items-center tab:w-[75%] gap-[50px] mobile:w-[90%]'>
+       <div className='flex flex-row justify-start items-center gap-slotBookDatePadding w-full tab:flex-wrap mobile:flex-nowrap '>
+        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`} ref={dayOneRef} onClick={()=>{
           setSelectDay(22)
           dayOneRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayTwoRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -202,7 +202,7 @@ const onChangeClick =()=>{
         }}>
           Day 1
         </div>
-        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayTwoRef} onClick={()=>{
+        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`} ref={dayTwoRef} onClick={()=>{
           setSelectDay(23)
           dayTwoRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayOneRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -210,7 +210,7 @@ const onChangeClick =()=>{
         }}>
           Day 2
         </div>
-        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`} ref={dayThreeRef} onClick={()=>{
+        <div className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`} ref={dayThreeRef} onClick={()=>{
           setSelectDay(24)
           dayThreeRef.current?.classList.toggle('bg-slotBookDateColorHover')
           dayOneRef.current?.classList.remove('bg-slotBookDateColorHover')
@@ -219,20 +219,20 @@ const onChangeClick =()=>{
           Day 3
         </div>
         </div>
-        <section className='grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]'>
+        <section className='grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px] mobile:grid-cols-2'>
 
 
         {slotData.map((slot,index)=>{
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center ${(slot.id===userInfo?.slotBooked._id)?'':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
+              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center mobile:flex-col ${(slot.id===userInfo?.slotBooked._id)?'':''}`} key={index}  data-slotid={slot.id} onClick={(event:any)=>{
                setSelectSlotId(event.target.dataset.slotid)
                
                 openModal()
               }}>
               <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-              <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
+              <div className='w-[1.5px] h-[20px] mobile:rotate-90 mobile:hidden tab:block bg-white' data-slotid={slot.id}></div>
               <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>Seats Available</p>
             </div>
             )
@@ -247,7 +247,11 @@ const onChangeClick =()=>{
         :''}
 
         </main>
-        <Image width={100} height={100} alt="" src={`/gifs/2.gif`} className={'w-4/12'}/>
+        <div className='flex flex-col justify-center items-center gap-[1rem] w-full'>
+        <Image width={100} height={100} alt="" src={`/gifs/2.gif`} className={'tab:w-4/12  tab:block mobile:w-[90%]'}/>
+        <h1 className={`${chakraPetch.className} text-2xl`}>See ya at the venue Soldier</h1>
+        </div>
+        
         </main>
         </>
     )
