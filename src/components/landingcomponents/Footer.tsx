@@ -12,13 +12,13 @@ export default function LastFooter() {
       <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full px-[4rem] ">
         <section className="flex justify-center items-start flex-col ">
           <h1 className={`${tektur.className} text-3xl text-black`}>
-            Follow us
+            Follow Us
           </h1>
           <div className="flex flex-row flex-wrap justify-between items-start w-[60%] gap-[0.rem]">
             <Image
               width={48}
               height={48}
-              src="/socials/Github.svg"
+              src="/socials/GitHub.svg"
               alt="csiLogo"
               className="w-[48]"
             />
