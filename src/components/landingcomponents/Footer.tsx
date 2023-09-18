@@ -9,9 +9,9 @@ const chakraPetch = Chakra_Petch({weight:'300' , subsets:['latin']});
 export default function LastFooter() {
   return (
    <footer className="bg-footer w-full bg-no-repeat bg-cover h-[300px] relative ">
-    <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full px-[4rem]">
+    <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full px-[4rem] ">
     <section className="flex justify-center items-start flex-col ">
-    <h1 className={`${tektur.className} text-3xl text-white`}>Follow us</h1>
+    <h1 className={`${tektur.className} text-3xl text-black`}>Follow us</h1>
     <div className="flex flex-row flex-wrap justify-between items-start w-[60%] gap-[0.rem]">
 
     <Image width={48} height={48} src="/socials/Github.svg" alt="csiLogo" className="w-[48]"/>
@@ -23,10 +23,10 @@ export default function LastFooter() {
     </div>
     </section>
 
-    <Image width={100} height={100} src="/csiLogo.svg" alt="csiLogo" className="w-[350px]"/>
+    <Image width={100} height={100} src="/csiLogo.svg" alt="csiLogo" className="w-[350px] absolute left-[50%] translate-x-[-50%]"/>
 
-    <section>
-      <h1 className={`${tektur.className} font-bold text-3xl`}>Visit</h1>
+    <section className="text-black">
+      <h1 className={`${tektur.className} font-bold text-3xl `}>Visit</h1>
       <p className={`${chakraPetch.className} font-semibold text-xl`}>CSI Website</p>
       <p className={`${chakraPetch.className} font-semibold text-xl`}>Gallery</p>
       <p className={`${chakraPetch.className} font-semibold text-xl`}>Guide</p>

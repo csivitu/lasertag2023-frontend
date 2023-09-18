@@ -35,10 +35,10 @@ export default function Navbar() {
            
             <div className = "flex justify-end text-2xl items-center w-full z-10 translate-y-1/2">
                 <div className = {` flex  justify-end ${tektur.className} font-medium`}>
-                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">FAQs</button>
-                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">GUIDE</button>
-                    <button className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">GALLERY</button>
-                    <button onClick={handleLogin} className = "hover:bg-yellow-400 hover:rounded-full py-2 px-4 mr-20">{loggedIn?'Sign Out':'Sign In'} </button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">FAQs</button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">GUIDE</button>
+                    <button className = "hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500" >GALLERY</button>
+                    <button onClick={handleLogin} className = "hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] transition-all duration-500 mr-20">{loggedIn?'Sign Out':'Sign In'} </button>
                 </div>
             </div>
         </nav>

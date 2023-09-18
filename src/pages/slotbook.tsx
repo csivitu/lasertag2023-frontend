@@ -177,11 +177,11 @@ checkIfSlotBooked()
           
          if(selectDay==getDayOfMonth(slot.startTime)){
             return(
-              <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `} key={index} onClick={handleSlotClick} data-slotid={slot.id}>
-              <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-              <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
-              <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>Seats Available</p>
-            </div>
+             slot.isCarry?(""):( <div className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `} key={index} onClick={handleSlotClick} data-slotid={slot.id}>
+             <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+             <div className='w-[1.5px] h-[20px] bg-white' data-slotid={slot.id}></div>
+             <p className={` ${chakraPetch.className} text-slotBookTimeGreen`} data-slotid={slot.id}>{slot?.availability}</p>
+           </div>)
             )
             }
           
