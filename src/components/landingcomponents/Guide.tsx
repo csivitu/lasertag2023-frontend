@@ -4,9 +4,9 @@ import { Tektur } from "next/font/google";
 
 const tektur = Tektur({ subsets: ["latin"] });
 
-function useClickOutside(ref: any, callback: any) {
+function useClickOutside(ref:any, callback:any) {
   useEffect(() => {
-    function handleClickOutside(event: any) {
+    function handleClickOutside(event:any) {
       if (ref.current && !ref.current.contains(event.target)) {
         callback();
       }
