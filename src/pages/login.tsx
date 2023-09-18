@@ -32,7 +32,7 @@ try{
   }
 const payload= {
   phoneno:`+91${contactNumber}`,
-  email
+  email:email.toString().toLowerCase()
 }
   const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,payload,header)
   
@@ -89,7 +89,8 @@ toast.error(`${errorMessage}`, {
           </div>
 
           <div className='w-full'>
-          <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}>Gravitas Registered Email Address</h2>
+          <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize `}>Gravitas Registered Email Address</h2>
+          <h1 className={`${tektur.className} text-black font-semibold text-[16px]`}> OTP will be sent to email</h1>
           <input type="text" className={`${chakraPetch.className} bg-transparent  text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`} placeholder='studentname@vit.ac.in' ref={emailRef} value={email}
           onChange={(e:any)=>{
             setEmail(e.target.value) 
@@ -98,8 +99,8 @@ toast.error(`${errorMessage}`, {
 
           <div className='w-full'>
           <h2 className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}>Contact Number (Indian Number)</h2>
-          <h1 className={`${tektur.className} text-black font-semibold text-slotBookHeadingFontSize`}>Without Country code</h1>
-          <input type="text" className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full text-black placeholder-[#222222]`} placeholder='studentname@vit.ac.in' ref={contactNumberRef} onChange={(e:any)=>{
+          <h1 className={`${tektur.className} text-black font-semibold text-[16px]`}>Without Country code</h1>
+          <input type="text" className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full text-black placeholder-[#222222]`} placeholder='810xxxxxxx' ref={contactNumberRef} onChange={(e:any)=>{
             setContactNumber(e.target.value)
             
           }} value={contactNumber}/>
@@ -107,7 +108,7 @@ toast.error(`${errorMessage}`, {
          
 
           <button className='w-full px-[1820x] py-[14px] rounded-[8px] bg-black' onClick={handleButtonClick} ref={sendOtpButton}>
-            Send OTP
+            Send OTP to Email
           </button>
           </div> 
         </section>      

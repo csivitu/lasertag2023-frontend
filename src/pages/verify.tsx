@@ -20,7 +20,6 @@ const router = useRouter()
 const params =router?.query.email;
 const [otp,setOtp]= useState<string>("");
 
-
  useEffect(()=>{
   setOtp(otp)
    },[otp])
@@ -35,7 +34,7 @@ const [otp,setOtp]= useState<string>("");
       }
       
       const payload= {
-       email:params,
+       email:params?.toString().toLowerCase(),
        otp:otp
       }
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/verify-user`,payload,header)
