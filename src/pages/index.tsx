@@ -7,7 +7,6 @@ import Marquee from "@/components/landingcomponents/Marquee";
 import Photo from "@/components/landingcomponents/Photo";
 import FAQ from "@/components/landingcomponents/Faq";
 import Footer from "@/components/landingcomponents/Footer";
-import Cookies from "js-cookie";
 import { checkExpiry } from "@/helpers/checkExpiry";
 import { Tektur } from "next/font/google";
 const tektur = Tektur({ subsets: ["latin"] });
@@ -31,7 +30,7 @@ export default function Landing() {
   }, []);
 
   return (
-    <main className="bg-black flex justify-between items-center flex-col overflow-x-hidden ">
+    <main className="bg-black flex justify-between items-center flex-col overflow-x-hidden gap-[3rem]">
       <section className="w-full h-[101vh] flex flex-col justify-between items-center  overflow-hidden">
         <Navbar />
         <div className="relative flex justify-center items-center overflow-hidden">
