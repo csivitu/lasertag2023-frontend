@@ -1,12 +1,21 @@
 import Navbar from '@/components/landingcomponents/Navbar';
-import React from 'react'
+import React, { useEffect } from 'react'
 import "tailwindcss/tailwind.css";
 import Image from 'next/image';
 import Footer from '@/components/landingcomponents/Footer';
 import Photo from '@/components/landingcomponents/Photo';
-
+import FAQ from '@/components/landingcomponents/Faq';
 
 export default function Landing(){
+  const router = useRouter()
+  const token =Cookies.get('jwtToken')
+
+  useEffect(()=>{
+    if(token){
+      router.push('/slotbook')
+    }
+  },[token])
+  
   return (
     
     <>
@@ -29,6 +38,7 @@ export default function Landing(){
     
       
     <Photo/>
+    
     </>
   )
 }
