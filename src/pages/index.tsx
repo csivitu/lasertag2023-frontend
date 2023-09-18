@@ -14,12 +14,10 @@ const tektur = Tektur({ subsets: ["latin"] });
 
 export default function Landing(){
   const router = useRouter()
-  const token =Cookies.get('jwtToken')
-  const [loggedIn, setLoggedIn] = useState<boolean>(false)
   const ctaRef= useRef<HTMLButtonElement>(null);
 
    const handleCTAClick= ()=>{
-    if(loggedIn){
+    if(!checkExpiry()){
       router.push('/slotbook')
     }
     else{
@@ -28,25 +26,26 @@ export default function Landing(){
    }
 
   useEffect(()=>{
+    
     if(!checkExpiry()){
       router.push('/slotbook')
-      setLoggedIn(true);
+     
     }
     
-  },[token])
+  },[])
   
   return (
     
     <main className='bg-black flex justify-between items-center flex-col overflow-x-hidden '>
 
-   <section className='w-full h-[110vh] flex flex-col justify-start items-center  overflow-hidden'>
+   <section className='w-full h-[101vh] flex flex-col justify-between items-center  overflow-hidden'>
     
    <Navbar/>
-    <div className='relative flex justify-center items-center'>
+    <div className='relative flex justify-center items-center overflow-hidden'>
 
-    <Image width={100} height={100} alt="LogoLaserTag" src="/lasertaglogo.webp" className='w-[60%]'/>
-    <button className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black`} onClick={handleCTAClick} ref={ctaRef}>
-      {loggedIn?'Book Now':'Sign In'}
+    <Image width={100} height={100} alt="LogoLaserTag" src="/lasertaglogo.webp" className='w-[60%] overflow-hidden'/>
+    <button className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black`} onClick={handleCTAClick} ref={ctaRef} suppressHydrationWarning>
+      {checkExpiry()?'Sign In':'Book Now'}
     </button>
 
     </div>
