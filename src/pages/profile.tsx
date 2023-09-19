@@ -42,6 +42,12 @@ export default function Profile() {
   const [slotData, setSlotData] = useState([] as any[]);
   const [selectDay, setSelectDay] = useState<number>(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const slotsPerPage = 10; 
+  let totalPages = Math.ceil(slotData.length / slotsPerPage);
+const startIndex = (currentPage - 1) * slotsPerPage;
+const endIndex = startIndex + slotsPerPage;
+
 
   const onChangeClick = () => {
     const fetchSlot = async () => {
@@ -205,6 +211,7 @@ export default function Profile() {
                   ref={dayOneRef}
                   onClick={() => {
                     setSelectDay(22);
+                    setCurrentPage(1)
                     dayOneRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -223,6 +230,7 @@ export default function Profile() {
                   ref={dayTwoRef}
                   onClick={() => {
                     setSelectDay(23);
+                    setCurrentPage(3)
                     dayTwoRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -241,6 +249,7 @@ export default function Profile() {
                   ref={dayThreeRef}
                   onClick={() => {
                     setSelectDay(24);
+                    setCurrentPage(7)
                     dayThreeRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -254,54 +263,71 @@ export default function Profile() {
                 >
                   Day 3
                 </div>
+                
               </div>
               <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px] mobile:grid-cols-2">
-                {slotData.map((slot, index) => {
-                  if (selectDay == slot.day + 21) {
-                    return slot.isCarry ? (
-                      ""
-                    ) : (
-                      <div
-                        className={`gap-[14px] bg-slotBookTime ${
-                          tektur.className
-                        } font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center mobile:flex-col tab:flex-row ${
-                          slot.id === userInfo?.slotBooked._id ? "" : ""
-                        } ${
-                          slot.availability > 0 ? "" : "pointer-events-none"
-                        }`}
-                        key={index}
-                        data-slotid={slot.id}
-                        onClick={(event: any) => {
-                          setSelectSlotId(event.target.dataset.slotid);
+              {slotData
+  .slice(startIndex, endIndex)
+  .map((slot, index) => {
+    if (selectDay == getDayOfMonth(slot.startTime)) {
+      return slot.isCarry ? (
+        ""
+      ) : (
+        <div
+          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          key={index}
+          onClick={(event: any) => {
+            setSelectSlotId(event.target.dataset.slotid);
 
-                          openModal();
-                        }}
-                      >
-                        <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-                        <div
-                          className="w-[1.5px] h-[20px] mobile:rotate-90 tab:rotate-0 mobile:hidden tab:block bg-white"
-                          data-slotid={slot.id}
-                        ></div>
-                        <p
-                          className={` ${chakraPetch.className}  ${
-                            slot.availability > 0
-                              ? "text-slotBookTimeGreen"
-                              : "text-slotBookTimeRed"
-                          }`}
-                          data-slotid={slot.id}
-                        >
-                          {slot?.availability} Slots
-                        </p>
-                      </div>
-                    );
-                  }
-                })}
+            openModal(); }}
+          data-slotid={slot.id}
+        >
+          <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+          <div
+            className="w-[1.5px] h-[20px] bg-white"
+            data-slotid={slot.id}
+          ></div>
+          <p
+            className={` ${chakraPetch.className} text-slotBookTimeGreen`}
+            data-slotid={slot.id}
+          >
+            {slot?.availability} Slots
+          </p>
+        </div>
+      );
+    }
+  })}
               </section>
+              <div className="flex justify-center items-center text-2xl gap-[2rem]">
+<button  className=""
+    disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
+    onClick={() => {setCurrentPage(currentPage - 1)
+     }
+    
+ 
+  
+  }
+  >
+    <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
+  </button>
+  {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
+  <button className="bg-rightArrow bg-no-repeat"
+    disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
+    onClick={() => {
+      
+      setCurrentPage(currentPage + 1)
+    }}
+  >
+        <Image width={32} height={32} alt="back" src="/slotBookPage/Vector-1.svg"/> 
+
+  </button>
+              </div>
             </section>
           ) : (
             ""
           )}
         </main>
+        
         <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
           <Image
             width={100}
