@@ -10,6 +10,8 @@ import FAQ from "@/components/landingcomponents/Faq";
 import Footer from "@/components/landingcomponents/Footer";
 import { checkExpiry } from "@/helpers/checkExpiry";
 import { Tektur } from "next/font/google";
+import Reminder from "@/components/landingcomponents/Reminder";
+
 const tektur = Tektur({ subsets: ["latin"] });
 
 //million-ignore
@@ -58,7 +60,8 @@ export default function Landing() {
 
       <Photo />
       <FAQ />
-      <Guide />
+      <Guide/>
+      <Reminder/>
       <Footer />
     </main>
   );

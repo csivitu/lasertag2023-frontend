@@ -9,6 +9,7 @@ const tektur = Tektur({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 import { getTime, getDayOfMonth } from "@/helpers/dateAndTime";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -253,7 +254,7 @@ const endIndex = startIndex + slotsPerPage;
           </section>
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
-        <div className="pagination">
+        <div className="flex justify-center items-center text-2xl gap-[2rem]">
   <button
     disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
     onClick={() => {setCurrentPage(currentPage - 1)
@@ -263,9 +264,10 @@ const endIndex = startIndex + slotsPerPage;
   
   }
   >
-    Previous
+        <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
+
   </button>
-  {currentPage}
+  {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
   <button
     disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
     onClick={() => {
@@ -273,7 +275,7 @@ const endIndex = startIndex + slotsPerPage;
       setCurrentPage(currentPage + 1)
     }}
   >
-    Next
+     <Image width={32} height={32} alt="back" src="/slotBookPage/Vector-1.svg"/> 
   </button>
 </div>
 

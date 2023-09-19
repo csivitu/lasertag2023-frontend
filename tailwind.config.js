@@ -40,6 +40,8 @@ module.exports = {
         footerImg2: 'url("/Top Divider.svg")',
         buttonImg: 'url("/regButton.svg")',
         faqBackground: 'url("/faqMain.svg")',
+        leftArrow: 'url("/slotBookPage/Vector.svg")',
+        rightArrow: 'url("/slotBookPage/Vector-1.svg")',
       },
 
       screens: {
