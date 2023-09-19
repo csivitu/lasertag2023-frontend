@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Tektur } from 'next/font/google'
 import Image from "next/image";
 import "tailwindcss/tailwind.css";
+const tektur = Tektur({subsets:['latin']})
 
 const Slideshow: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,7 +30,7 @@ const Slideshow: React.FC = () => {
 
   return (
     <>
-      <div className="text-white font-bold text-6xl text-center px-[2vw]">
+      <div className={`${tektur.className} text-white font-bold text-6xl text-center px-[2vw]`}>
         A Thrilling Multiplayer Shooting Experience{" "}
       </div>
       <div className="text-white font-medium text-2xl text-center px-[3vw]">
