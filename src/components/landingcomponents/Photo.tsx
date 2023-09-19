@@ -30,10 +30,10 @@ const Slideshow: React.FC = () => {
 
   return (
     <>
-      <div className={`${tektur.className} text-white font-bold text-6xl text-center px-[2vw]`}>
+      <div className={`${tektur.className} font-normal text-[#FFF6E8] text-5xl text-center px-[8vw]`}>
         A Thrilling Multiplayer Shooting Experience{" "}
       </div>
-      <div className="text-white font-medium text-2xl text-center px-[3vw]">
+      <div className={`${tektur.className} font-normal text-[#FFF6E8] text-lg text-center px-[3vw]`}>
         Laser Tag offers you a chance to step onto the arena for a thrilling
         multi-player experience. <br />
         Don your vests and have your guns at the ready, maximize hits to climb
