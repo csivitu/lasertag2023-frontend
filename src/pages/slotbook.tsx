@@ -237,7 +237,7 @@ export default function SlotBook() {
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
           <section className="flex flex-row justify-center items-center gap-[10px]"></section>
-        </section>
+        </section> 
       </main>
     </main>
   );
