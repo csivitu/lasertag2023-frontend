@@ -16,6 +16,7 @@ export default function LastFooter() {
             Follow Us
           </h1>
           <div className="flex flex-row flex-wrap tab:justify-between items-start tab:w-[60%] gap-[0.rem] mobile:w-[60%]">
+            <Link href="https://github.com/csivitu/">
             <Image
               width={48}
               height={48}
@@ -23,13 +24,18 @@ export default function LastFooter() {
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
-            <Image
+            </Link>
+           <Link href="https://instagram.com/csivitu">
+           <Image
               width={48}
               height={48}
               src="/socials/Instagram.svg"
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
+           </Link>
+            
+            <Link href="https://www.linkedin.com/company/csivitu">
             <Image
               width={48}
               height={48}
@@ -37,6 +43,9 @@ export default function LastFooter() {
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
+            </Link>
+            
+            <Link href="https://twitter.com/csivitu">
             <Image
               width={48}
               height={48}
@@ -44,6 +53,9 @@ export default function LastFooter() {
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
+            </Link>
+           
+            <Link href="https://youtube.com/@csivitu">
             <Image
               width={48}
               height={48}
@@ -51,6 +63,8 @@ export default function LastFooter() {
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
+            </Link>
+            <Link href="https://www.threads.net/@csivitu">
             <Image
               width={48}
               height={48}
@@ -58,16 +72,20 @@ export default function LastFooter() {
               alt="csiLogo"
               className="w-[48] tab:w-[48px]"
             />
+            </Link>
+            
           </div>
         </section>
-
-        <Image
+    <Link href="https://csivit.com/">
+    <Image
           width={100}
           height={100}
           src="/csiLogo.svg"
           alt="csiLogo"
           className="laptopS:w-[350px] tab:w-[250px] absolute left-[50%] translate-x-[-50%] mobile:hidden tab:block"
         />
+    </Link>
+       
 
         <section className="text-black">
           <h1 className={`${tektur.className} font-bold text-3xl `}>Visit</h1>
