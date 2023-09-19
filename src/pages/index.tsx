@@ -33,7 +33,7 @@ export default function Landing() {
   }, []);
 
   return (
-    <main className="bg-black flex justify-between items-center flex-col overflow-x-hidden gap-[3rem]">
+    <main className="bg-black flex justify-between items-center flex-col overflow-x-hidden gap-[3rem] overflow-hidden">
       <section className="w-full h-[101vh] flex flex-col justify-between items-center  overflow-hidden">
         <Navbar />
         <div className="relative flex justify-center items-center overflow-hidden">
@@ -56,11 +56,11 @@ export default function Landing() {
 
         <Marquee />
       </section>
-      
+
       <Photo />
       <FAQ />
-      <Book />
       <Guide/>
+      <Book />
       <Footer />
     </main>
   );

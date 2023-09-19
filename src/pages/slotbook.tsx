@@ -24,7 +24,13 @@ export default function SlotBook() {
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [selectDay, setSelectDay] = useState<number>(0);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const slotsPerPage = 10; 
+  let totalPages = Math.ceil(slotData.length / slotsPerPage);
+  const startIndex = (currentPage - 1) * slotsPerPage;
+const endIndex = startIndex + slotsPerPage;
 
+  
   const openModal = () => {
     setIsOpen(true);
   };
@@ -32,6 +38,9 @@ export default function SlotBook() {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+ 
+
 
   const handleConfirm = () => {
     const bookSlot = async () => {
@@ -101,6 +110,7 @@ export default function SlotBook() {
           { headers }
         );
         setSlotData(response.data);
+        totalPages = Math.ceil(response.data.length / slotsPerPage);
       } catch (e: any) {
         const error = e?.response?.data.error;
         setErrorMsg(error);
@@ -155,6 +165,7 @@ export default function SlotBook() {
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
               ref={dayOneRef}
               onClick={() => {
+                setCurrentPage(1)
                 setSelectDay(22);
                 dayOneRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
@@ -173,6 +184,7 @@ export default function SlotBook() {
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
               ref={dayTwoRef}
               onClick={() => {
+                setCurrentPage(3)
                 setSelectDay(23);
                 dayTwoRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
@@ -191,6 +203,8 @@ export default function SlotBook() {
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
               ref={dayThreeRef}
               onClick={() => {
+                setCurrentPage(7)
+               
                 setSelectDay(24);
                 dayThreeRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
@@ -207,35 +221,62 @@ export default function SlotBook() {
             </div>
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
-            {slotData.map((slot, index) => {
-              if (selectDay == getDayOfMonth(slot.startTime)) {
-                return slot.isCarry ? (
-                  ""
-                ) : (
-                  <div
-                    className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
-                    key={index}
-                    onClick={handleSlotClick}
-                    data-slotid={slot.id}
-                  >
-                    <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-                    <div
-                      className="w-[1.5px] h-[20px] bg-white"
-                      data-slotid={slot.id}
-                    ></div>
-                    <p
-                      className={` ${chakraPetch.className} text-slotBookTimeGreen`}
-                      data-slotid={slot.id}
-                    >
-                      {slot?.availability}
-                    </p>
-                  </div>
-                );
-              }
-            })}
+          {slotData
+  .slice(startIndex, endIndex)
+  .map((slot, index) => {
+    if (selectDay == getDayOfMonth(slot.startTime)) {
+      return slot.isCarry ? (
+        ""
+      ) : (
+        <div
+          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          key={index}
+          onClick={handleSlotClick}
+          data-slotid={slot.id}
+        >
+          <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+          <div
+            className="w-[1.5px] h-[20px] bg-white"
+            data-slotid={slot.id}
+          ></div>
+          <p
+            className={` ${chakraPetch.className} text-slotBookTimeGreen`}
+            data-slotid={slot.id}
+          >
+            {slot?.availability} Slots
+          </p>
+        </div>
+      );
+    }
+  })}
+
           </section>
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
+        <div className="pagination">
+  <button
+    disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
+    onClick={() => {setCurrentPage(currentPage - 1)
+     }
+    
+  
+  
+  }
+  >
+    Previous
+  </button>
+  {currentPage}
+  <button
+    disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
+    onClick={() => {
+      
+      setCurrentPage(currentPage + 1)
+    }}
+  >
+    Next
+  </button>
+</div>
+
           <section className="flex flex-row justify-center items-center gap-[10px]"></section>
         </section> 
       </main>

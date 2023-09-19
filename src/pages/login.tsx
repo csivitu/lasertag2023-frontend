@@ -28,7 +28,7 @@ export default function Login() {
         method: "POST",
       };
       const payload = {
-        email,
+        email:email.toString().toLowerCase(),
       };
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,
@@ -47,7 +47,7 @@ export default function Login() {
         progress: undefined,
         theme: "dark",
       });
-      router.push(`/verify?email=${email}`);
+      router.push(`/verify?email=${email.toString().toLowerCase()}`);
     } catch (e: any) {
       setError(e?.response?.data.error);
       const errorMessage = (e?.response?.data.error)!=undefined?e?.response?.data.error:e?.response?.data ;
