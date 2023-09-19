@@ -32,6 +32,7 @@
     "react-otp-input": "^3.0.4",
     "react-router-dom": "^6.16.0",
     "react-toastify": "^9.1.3",
+    "sharp": "^0.32.6",
     "smarquee": "^1.0.5",
     "tailwindcss": "^3.3.3",
     "typescript": "5.2.2"

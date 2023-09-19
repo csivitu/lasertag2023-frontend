@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+//million-ignore
 export default function Login() {
   const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
