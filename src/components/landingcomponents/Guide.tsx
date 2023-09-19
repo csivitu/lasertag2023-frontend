@@ -63,7 +63,7 @@ export default function Guide() {
                 <p>Get All The Event Details Right Here</p>
               </div>
               <div
-                className={`${tektur.className} flex flex-col lg:flex-row xl:flex-row w-[80vw] mt-[3vh] h-[50vh] `}
+                className={`${tektur.className} flex flex-col lg:flex-row xl:flex-row w-[80vw] mt-[3vh] lg:h-[50vh] `}
               >
                 <div
                   ref={divRef}
