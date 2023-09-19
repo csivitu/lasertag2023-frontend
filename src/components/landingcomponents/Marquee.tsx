@@ -9,7 +9,7 @@ const tektur = Tektur({ subsets: ["latin"] });
 export default function Footer() {
   return (
     <main
-      className={`relative ${tektur.className} flex justify-center items-center bg-footerImg2 bg-contain h-[120px]  `}
+      className={`relative ${tektur.className} flex justify-center items-center bg-footerImg2 bg-contain h-[120px] tab:h-[150px]  `}
     >
       <Marquee
         autoFill={true}

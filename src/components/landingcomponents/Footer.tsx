@@ -9,53 +9,53 @@ const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 export default function LastFooter() {
   return (
     <footer className="bg-footer w-full bg-no-repeat bg-cover h-[300px] relative ">
-      <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full px-[4rem] ">
-        <section className="flex justify-center items-start flex-col ">
+      <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full tab:px-[4rem]  mobile:px-[1rem]  ">
+        <section className="flex justify-center items-start flex-col w-fit ">
           <h1 className={`${tektur.className} text-3xl text-black`}>
             Follow Us
           </h1>
-          <div className="flex flex-row flex-wrap justify-between items-start w-[60%] gap-[0.rem]">
+          <div className="flex flex-row flex-wrap tab:justify-between items-start tab:w-[60%] gap-[0.rem] mobile:w-[40%]">
             <Image
               width={48}
               height={48}
               src="/socials/GitHub.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
             <Image
               width={48}
               height={48}
               src="/socials/Instagram.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
             <Image
               width={48}
               height={48}
               src="/socials/LinkedIn.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
             <Image
               width={48}
               height={48}
               src="/socials/X.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
             <Image
               width={48}
               height={48}
               src="/socials/YouTube.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
             <Image
               width={48}
               height={48}
               src="/socials/Threads.svg"
               alt="csiLogo"
-              className="w-[48]"
+              className="w-[48] tab:w-[48px]"
             />
           </div>
         </section>
@@ -65,7 +65,7 @@ export default function LastFooter() {
           height={100}
           src="/csiLogo.svg"
           alt="csiLogo"
-          className="w-[350px] absolute left-[50%] translate-x-[-50%]"
+          className="laptopS:w-[350px] tab:w-[250px] absolute left-[50%] translate-x-[-50%] mobile:hidden tab:block"
         />
 
         <section className="text-black">

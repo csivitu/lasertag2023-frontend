@@ -39,10 +39,10 @@ export default function Landing() {
             height={100}
             alt="LogoLaserTag"
             src="/lasertaglogo.webp"
-            className="w-[60%] overflow-hidden"
+            className="laptopS:w-[100%] overflow-hidden tab:w-full mobile:w-[580px] mobile:h-[320px]"
           />
           <button
-            className={`${tektur.className} w-[250px] h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black`}
+            className={`${tektur.className} tab:w-[250px] tab:h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black left-[50%] translate-x-[-54%] laptopS:translate-x-[-60%] mobile:w-[250px] mobile:h-[60px]`}
             onClick={handleCTAClick}
             ref={ctaRef}
             suppressHydrationWarning

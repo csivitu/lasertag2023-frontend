@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
@@ -17,16 +17,16 @@ export default function FAQ() {
       className={`${tektur.className} flex justify-between items-center flex-col gap-[1rem] bg-black text-white`}
     >
       <p className="font-bold text-5xl" id="faq">FAQ&apos;s</p>
-      <section className="flex flex-col justify-center items-center  font-semibold w-[75%] gap-[1rem] ">
+      <section className="flex flex-col justify-center items-center  font-semibold laptopS:w-[90%] gap-[1rem] tab:w-[100%]">
         <div
-          className="flex flex-col justify-center items-center bg-faqBackground w-[75%] bg-no-repeat bg-cover p-[14px] "
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand1(!expand1);
           }}
         >
-          <p className="text-2xl">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can take part in LaserTag?</p>
           <div
-            className={`font-normal text-l p-[14px] transition-all duration-500 ease-in-out ${
+            className={`font-normal text-l transition-all duration-500 ease-in-out ${
               expand1 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
@@ -37,14 +37,14 @@ export default function FAQ() {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center items-center bg-faqBackground w-[75%] bg-no-repeat bg-cover p-[14px] "
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand2(!expand2);
           }}
         >
-          <p className="text-2xl">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can take part in LaserTag?</p>
           <div
-            className={`font-normal text-l p-[14px] transition-all duration-500 ease-in-out ${
+            className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand2 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
@@ -55,14 +55,14 @@ export default function FAQ() {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center items-center bg-faqBackground w-[75%] bg-no-repeat bg-cover p-[14px] "
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand3(!expand3);
           }}
         >
-          <p className="text-2xl">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can take part in LaserTag?</p>
           <div
-            className={`font-normal text-l p-[14px] transition-all duration-500 ease-in-out ${
+            className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand3 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
@@ -74,39 +74,36 @@ export default function FAQ() {
         </div>
 
         <div
-          className="flex flex-col justify-center items-center bg-faqBackground w-[75%] bg-no-repeat bg-cover p-[14px] "
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand4(!expand4);
           }}
         >
-          <p className="text-2xl">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can take part in LaserTag?</p>
           <div
-            className={`font-normal text-l p-[14px] transition-all duration-500 ease-in-out ${
+            className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand4 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
             impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            deserunt, provident sunt ad expedita aut sapiente minus repellendus
-            iste suscipit?
+            
           </div>
         </div>
         <div
-          className="flex flex-col justify-center items-center bg-faqBackground w-[75%] bg-no-repeat bg-cover p-[14px] "
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand5(!expand5);
           }}
         >
-          <p className="text-2xl">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can take part in LaserTag?</p>
           <div
-            className={`font-normal text-l p-[14px] transition-all duration-500 ease-in-out ${
-              expand5 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+            className={`font-normal text-l  transition-all duration-500 ease-in-out ${
+              expand5 ? "max-h-[1000px]" : "max-h-0 overflow-hidden box-content"
             }`}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            deserunt, provident sunt ad expedita aut sapiente minus repellendus
-            iste suscipit?
+            
           </div>
         </div>
       </section>

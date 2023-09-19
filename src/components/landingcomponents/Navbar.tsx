@@ -34,12 +34,12 @@ export default function Navbar() {
             alt="Navbar"
             width={1}
             height={1}
-            className="w-full"
+            className="w-full tab:h-[200px] laptopS:h-[150px] mobile:w-full mobile:h-[150px] "
           />
         </div>
 
-        <div className="flex justify-end text-2xl items-center w-full z-10 translate-y-1/2">
-          <div className={` flex  justify-end ${tektur.className} font-medium`}>
+        <div className="flex justify-end text-2xl items-center w-full z-10 mobile:translate-y-1/3 tab:translate-y-1/2">
+          <div className={` tab:flex  justify-end ${tektur.className} font-medium mobile:hidden`}>
             <Link href="/#faq">
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
               FAQs
@@ -62,6 +62,12 @@ export default function Navbar() {
               {loggedIn ? "Sign Out" : "Sign In"}{" "}
             </button>
           </div>
+          <button
+              onClick={handleLogin}
+              className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] transition-all duration-500 font-bold tab:hidden"
+            >
+              {loggedIn ? "Sign Out" : "Sign In"}{" "}
+            </button>
         </div>
       </nav>
     </>
