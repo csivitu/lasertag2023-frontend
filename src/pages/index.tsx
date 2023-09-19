@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
 import Image from "next/image";
 import Marquee from "@/components/landingcomponents/Marquee";
+import Guide from "@/components/landingcomponents/Guide";
 import Photo from "@/components/landingcomponents/Photo";
 import FAQ from "@/components/landingcomponents/Faq";
 import Footer from "@/components/landingcomponents/Footer";
@@ -54,9 +55,10 @@ export default function Landing() {
 
         <Marquee />
       </section>
-
+      
       <Photo />
       <FAQ />
+      <Guide/>
       <Footer />
     </main>
   );
