@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "tailwindcss/tailwind.css";
 import { Tektur } from "next/font/google";
 import { Chakra_Petch } from "next/font/google";
@@ -70,18 +71,29 @@ export default function LastFooter() {
 
         <section className="text-black">
           <h1 className={`${tektur.className} font-bold text-3xl `}>Visit</h1>
+          <Link href="https://csivit.com/">
           <p className={`${chakraPetch.className} font-semibold text-xl`}>
             CSI Website
           </p>
+          </Link>
+         
+          <Link href="/#gallery">
           <p className={`${chakraPetch.className} font-semibold text-xl`}>
             Gallery
           </p>
+          </Link>
+          
+          <Link href="/#guide">
           <p className={`${chakraPetch.className} font-semibold text-xl`}>
             Guide
           </p>
-          <p className={`${chakraPetch.className} font-semibold text-xl`}>
+          </Link>
+         <Link href="/#faq">
+         <p className={`${chakraPetch.className} font-semibold text-xl`}>
             FAQ
           </p>
+         </Link>
+          
         </section>
       </main>
     </footer>
