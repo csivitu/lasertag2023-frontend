@@ -14,9 +14,55 @@ import OtpInput from "react-otp-input";
 
 export default function Verify() {
   const router = useRouter();
-
-  const params = router?.query.email;
+  const email = router?.query.email?.toString();
   const [otp, setOtp] = useState<string>("");
+  const [error, setError] = useState<String>("");
+
+  const handleButtonClick = async (e: any) => {
+
+    try {
+      const headers = {
+        "Content-Type": "application/json"
+        
+      };
+      const payload = {
+        email,
+      };
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,
+        payload,
+        {headers}
+      );
+
+      toast.success("Resent OTP...", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      
+    } catch (e: any) {
+      setError(e?.response?.data.error);
+      const errorMessage = e?.response?.data.error;
+      console.log(e);
+      toast.error(`${errorMessage}`, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
+
 
   useEffect(() => {
     setOtp(otp);
@@ -30,7 +76,7 @@ export default function Verify() {
       };
 
       const payload = {
-        email: params?.toString().toLowerCase(),
+        email: email,
         otp: otp,
       };
       const response = await axios.post(
@@ -117,7 +163,7 @@ export default function Verify() {
                 "w-full flex flex-row justify-between items-start"
               }
               inputStyle={
-                "bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold focus:outline-0"
+                "bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold focus:outline-none"
               }
               inputType="text"
               renderInput={(props: any) => (
@@ -128,11 +174,14 @@ export default function Verify() {
           </div>
 
           <button
-            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black"
+            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black text-white"
             onClick={handleOtpSubmit}
           >
             Submit
           </button>
+          <div className={`${chakraPetch.className} text-black underline font-bold text-xl`} onClick={handleButtonClick}>
+                Resend OTP
+          </div>
         </div>
       </section>
     </main>

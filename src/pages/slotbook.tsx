@@ -117,7 +117,7 @@ export default function SlotBook() {
       <ToastContainer />
       {isOpen && (
         <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px] w-4/12 flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
-          <div className="modal-content flex justify-between items-center gap-[1rem] flex-col ">
+          <div className="modal-content flex justify-between items-center gap-[1rem] flex-col text-white ">
             <h2 className={`${chakraPetch.className} text-2xl font-bold`}>
               Are you sure you want to book this slot?
             </h2>

@@ -122,8 +122,8 @@ export default function Profile() {
       <main className="relative flex justify-center items-center flex-col ">
         <Logout />
         {isOpen && (
-          <div className="  absolute top-[50%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px]  flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
-            <div className="modal-content  flex justify-between items-center gap-[1rem] flex-col">
+          <div className="  absolute mobile:top-[15%] tab:top-[2 0%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px]  flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
+            <div className="modal-content  flex justify-between items-center gap-[1rem] flex-col text-white">
               <h2 className={`${chakraPetch.className} text-2xl font-bold`}>
                 Are you sure you want to change your slot?
               </h2>
@@ -150,15 +150,15 @@ export default function Profile() {
           } flex flex-col justify-center items-center bg-black w-full gap-[2rem] py-[2rem]`}
         >
           <section className="flex flex-col justify-center items-center w-full gap-[2rem]">
-            <h1 className={`${tektur.className} text-3xl font-bold`}>
+            <h1 className={`${tektur.className} text-3xl font-bold text-white`}>
               Profile
             </h1>
             <div className="flex justify-around tab:items-center mobile:items-start laptopS:w-[50%] tab:w-[75%] mobile:w-[90%] tab:flex-row mobile:flex-col mobile:gap-[2rem]">
               <div className="flex justify-center tab:items-start flex-col gap-[1rem] mobile:items-start mobile:w-full tab:w-[90%]">
                 <div className="flex justify-center items-end flex-row gap-[1rem]">
-                  <h1 className={`${tektur.className} text-4xl `}>Your Slot</h1>
+                  <h1 className={`${tektur.className} text-4xl text-white`}>Your Slot</h1>
                   <p
-                    className={`${tektur.className} text-l underline`}
+                    className={`${tektur.className} text-l underline text-white`}
                     onClick={() => {
                       setChangeSlotClicked(!changeSlotClicked);
                       onChangeClick();
@@ -169,7 +169,7 @@ export default function Profile() {
                 </div>
 
                 <button
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full`}
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full `}
                 >
                   {userInfo?.slotBooked?.startTime
                     ? getTime(userInfo?.slotBooked?.startTime)
@@ -185,18 +185,13 @@ export default function Profile() {
               <div className="bg-white  w-[2px] h-[150px] mobile:hidden tab:block"></div>
 
               <div className="flex justify-center items-start flex-col gap-[1rem] mobile:w-[100%] tab:w-[50%]">
-                <div className="flex justify-center items-start flex-col">
-                  <h2 className={`${tektur.className} text-2xl font-medium`}>
-                    Contact Number
-                  </h2>
-                  <p>{userInfo?.phoneno}</p>
-                </div>
+                
 
                 <div className="flex justify-center items-start flex-col">
-                  <h2 className={`${tektur.className} text-2xl font-medium`}>
+                  <h2 className={`${tektur.className} text-2xl font-medium text-white`}>
                     Email
                   </h2>
-                  <p>{userInfo?.email}</p>
+                  <p className={`${tektur.className} text-white`}>{userInfo?.email}</p>
                 </div>
               </div>
             </div>
@@ -306,7 +301,7 @@ export default function Profile() {
             ""
           )}
         </main>
-        <div className="flex flex-col justify-center items-center gap-[1rem] w-full">
+        <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
           <Image
             width={100}
             height={100}

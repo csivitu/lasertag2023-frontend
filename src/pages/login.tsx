@@ -15,10 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
   const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
-  const contactNumberRef = useRef<HTMLInputElement>(null);
   const sendOtpButton = useRef<HTMLButtonElement>(null);
   const [email, setEmail] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
   const [error, setError] = useState<String>("");
 
   const handleButtonClick = async (e: any) => {
@@ -29,8 +27,7 @@ export default function Login() {
         method: "POST",
       };
       const payload = {
-        phoneno: `+91${contactNumber}`,
-        email: email.toString().toLowerCase(),
+        email,
       };
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,
@@ -107,16 +104,10 @@ export default function Login() {
 
           <div className="w-full">
             <h2
-              className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize `}
+              className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
             >
               Gravitas Registered Email Address
             </h2>
-            <h1
-              className={`${tektur.className} text-black font-semibold text-[16px]`}
-            >
-              {" "}
-              OTP will be sent to email
-            </h1>
             <input
               type="text"
               className={`${chakraPetch.className} bg-transparent  text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`}
@@ -129,35 +120,14 @@ export default function Login() {
             />
           </div>
 
-          <div className="w-full">
-            <h2
-              className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
-            >
-              Contact Number (Indian Number)
-            </h2>
-            <h1
-              className={`${tektur.className} text-black font-semibold text-[16px]`}
-            >
-              Without Country code
-            </h1>
-            <input
-              type="text"
-              className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full text-black placeholder-[#222222]`}
-              placeholder="810xxxxxxx"
-              ref={contactNumberRef}
-              onChange={(e: any) => {
-                setContactNumber(e.target.value);
-              }}
-              value={contactNumber}
-            />
-          </div>
+          
 
           <button
-            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black"
+            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black text-white"
             onClick={handleButtonClick}
             ref={sendOtpButton}
           >
-            Send OTP to Email
+            Send OTP
           </button>
         </div>
       </section>
