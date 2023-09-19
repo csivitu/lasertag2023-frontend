@@ -53,14 +53,19 @@ export default function Guide() {
 
   return (
     <>
-      <div className="bg-black flex flex-col justify-between w-3/4 gap-8 py-[5vh]  " id="guide">
+      <div
+        className="bg-black flex flex-col justify-between w-3/4 gap-8 py-[5vh]  "
+        id="guide"
+      >
         <div className="flex flex-col items-center justify-around px-[1rem] ">
           <div className="px-4 lg:px-36 xl:px-36 py-14 w-full">
             <div className="flex flex-col items-center w-full">
               <div
                 className={`text-white text-center ${tektur.className} font-medium  text-[#FFF6E8]  text-4xl px-6 md:px-12 lg:px-24 xl:px-32 pb-8 md:pb-16 w-full`}
               >
-                <p className="text-[#FFF6E8] py-[4vh] ">Get All The Event Details Right Here</p>
+                <p className="text-[#FFF6E8] py-[4vh] ">
+                  Get All The Event Details Right Here
+                </p>
               </div>
               <div
                 className={`${tektur.className} flex flex-col lg:flex-row xl:flex-row w-[80vw] mt-[3vh] lg:h-[50vh] `}
@@ -77,11 +82,19 @@ export default function Guide() {
                   onClick={expand1}
                 >
                   Slot Booking
-                  <p className={`text-lg transition-opacity text-[#FFF6E8]  duration-500 ${div1 === 1 ? "fade-in opacity-100 block" : "fade-out opacity-0 hidden"}`}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Fugiat reprehenderit officiis, optio quod, odio, modi earum
-                    delectus nemo similique accusantium consectetur unde atque
-                    error nobis exercitationem cum aliquam dolore? In.
+                  <p
+                    className={`text-lg transition-opacity text-[#FFF6E8]  duration-500 ${
+                      div1 === 1
+                        ? "fade-in opacity-100 block"
+                        : "fade-out opacity-0 hidden"
+                    }`}
+                  >
+                    You are requested to book your slot via the
+                    &quot;Register&quot; or &quot;Book Slot&quot; option
+                    available on the landing page. Please use your VIT email
+                    address for slot booking. The slots will be alloted on a
+                    first-come-serve basis. Make sure you and your friends book
+                    the same slots to fight as allies.
                   </p>
                 </div>
                 <div
@@ -95,13 +108,52 @@ export default function Guide() {
                   } text-2xl md:text-3xl lg:text-4xl xl:text-4xl hover:cursor-pointer`}
                   onClick={expand2}
                 >
-                  Event Day 
-                  <p className={`text-lg transition-opacity duration-500 ${div2 === 1 ? "fade-in opacity-100 block " : "fade-out opacity-0 hidden"}`}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Fugiat reprehenderit officiis, optio quod, odio, modi earum
-                    delectus nemo similique accusantium consectetur unde atque
-                    error nobis exercitationem cum aliquam dolore? In.
-                  </p>
+                  Event Day
+                  <div
+                    className={`text-lg transition-opacity duration-500 ${
+                      div2 === 1
+                        ? "fade-in opacity-100 block "
+                        : "fade-out opacity-0 hidden"
+                    }`}
+                  >
+                    <ul>
+                      <li>
+                        Participants are requested to report to the venue 15
+                        minutes prior to their respective slots.
+                      </li>
+                      <li>
+                        Personal bubbles: Maintain a safe distance while playing
+                        so as to ensure the game is an enjoyable experience for
+                        all.
+                      </li>
+                      <li>
+                        Running, jumping or climbing is strictly prohibited in
+                        the arena.
+                      </li>
+                      <li>
+                        The gun must be held with both hands at all times to
+                        avoid damage.
+                      </li>
+                      <li>
+                        Ensure that the vest sensors are not blocked for the
+                        duration of the game.
+                      </li>
+                      <li>
+                        All personal vengeances stand nullified in the arena.
+                        Violence, threats or abuse of any manner or form will
+                        not be tolerated.
+                      </li>
+                      <li>
+                        Vandalizing the equipment or set-up of the arena is
+                        strictly prohibited. Players doing so will be removed
+                        from the arena and charged appropriately.
+                      </li>
+                      <li>
+                        Decisions taken by the CSI manager present at the venue
+                        will be final in case of any game-time disputes.
+                      </li>
+                    </ul>
+                  </div>
                   <br />
                 </div>
                 <div
@@ -116,11 +168,14 @@ export default function Guide() {
                   onClick={expand3}
                 >
                   How To Contact Us
-                  <p className={`text-lg text-[#FFF6E8] transition-opacity duration-500 ${div3 === 1 ? "fade-in opacity-100 block" : "fade-out opacity-0 hidden"}`}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Fugiat reprehenderit officiis, optio quod, odio, modi earum
-                    delectus nemo similique accusantium consectetur unde atque
-                    error nobis exercitationem cum aliquam dolore? In.
+                  <p
+                    className={`text-lg text-[#FFF6E8] transition-opacity duration-500 ${
+                      div3 === 1
+                        ? "fade-in opacity-100 block"
+                        : "fade-out opacity-0 hidden"
+                    }`}
+                  >
+                    We will let you know soon :D
                   </p>
                 </div>
               </div>
