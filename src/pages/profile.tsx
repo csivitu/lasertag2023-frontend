@@ -223,7 +223,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  Day 1
+                  22nd September 
                 </div>
                 <div
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`}
@@ -242,7 +242,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  Day 2
+                  23rd September 
                 </div>
                 <div
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`}
@@ -261,7 +261,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  Day 3
+                  24th September 
                 </div>
                 
               </div>
