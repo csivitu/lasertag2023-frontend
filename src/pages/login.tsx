@@ -29,8 +29,8 @@ export default function Login() {
         method: "POST",
       };
       const payload = {
-        phoneno: contactNumber,
-        email,
+        phoneno: `+91${contactNumber}`,
+        email: email.toString().toLowerCase(),
       };
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,
@@ -107,10 +107,16 @@ export default function Login() {
 
           <div className="w-full">
             <h2
-              className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
+              className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize `}
             >
               Gravitas Registered Email Address
             </h2>
+            <h1
+              className={`${tektur.className} text-black font-semibold text-[16px]`}
+            >
+              {" "}
+              OTP will be sent to email
+            </h1>
             <input
               type="text"
               className={`${chakraPetch.className} bg-transparent  text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`}
@@ -127,12 +133,17 @@ export default function Login() {
             <h2
               className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
             >
-              Contact Number
+              Contact Number (Indian Number)
             </h2>
+            <h1
+              className={`${tektur.className} text-black font-semibold text-[16px]`}
+            >
+              Without Country code
+            </h1>
             <input
               type="text"
               className={`${chakraPetch.className} bg-transparent border-b-black border-transparent border-[2px] w-full text-black placeholder-[#222222]`}
-              placeholder="studentname@vit.ac.in"
+              placeholder="810xxxxxxx"
               ref={contactNumberRef}
               onChange={(e: any) => {
                 setContactNumber(e.target.value);
@@ -146,7 +157,7 @@ export default function Login() {
             onClick={handleButtonClick}
             ref={sendOtpButton}
           >
-            Send OTP
+            Send OTP to Email
           </button>
         </div>
       </section>

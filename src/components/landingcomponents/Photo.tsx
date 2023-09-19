@@ -24,7 +24,7 @@ const Slideshow: React.FC = () => {
   ]; // Define your image paths here
 
   return (
-    <div className="">
+    <div className=""id="gallery">
       <div className="container mx-auto relative w-full" data-carousel="static">
         <div className="relative overflow-hidden rounded-lg">
           {imagePaths.map((path, index) => (
@@ -54,8 +54,8 @@ const Slideshow: React.FC = () => {
           <Image
             src="/landingassests/carouselassets/goleft.svg"
             alt="Left arrow"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />
 
           {/* Left arrow icon */}
@@ -70,8 +70,8 @@ const Slideshow: React.FC = () => {
           <Image
             src="/landingassests/carouselassets/goright.svg"
             alt="Left arrow"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />{" "}
           {/* Right arrow icon */}
         </button>

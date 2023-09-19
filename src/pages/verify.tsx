@@ -30,7 +30,7 @@ export default function Verify() {
       };
 
       const payload = {
-        email: params,
+        email: params?.toString().toLowerCase(),
         otp: otp,
       };
       const response = await axios.post(
@@ -117,7 +117,7 @@ export default function Verify() {
                 "w-full flex flex-row justify-between items-start"
               }
               inputStyle={
-                "bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold"
+                "bg-transparent border-2 border-[2px] border-transparent border-b-black text-black font-bold focus:outline-0"
               }
               inputType="text"
               renderInput={(props: any) => (

@@ -6,6 +6,7 @@ import { checkExpiry } from "@/helpers/checkExpiry";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import Link from "next/link";
 const tektur = Tektur({ subsets: ["latin"] });
 
 export default function Navbar() {
@@ -39,15 +40,21 @@ export default function Navbar() {
 
         <div className="flex justify-end text-2xl items-center w-full z-10 translate-y-1/2">
           <div className={` flex  justify-end ${tektur.className} font-medium`}>
+            <Link href="/#faq">
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
               FAQs
             </button>
+            </Link>
+            <Link href="/#guide">
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
               GUIDE
             </button>
+            </Link>
+            <Link href="/#gallery">
             <button className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">
               GALLERY
             </button>
+            </Link>
             <button
               onClick={handleLogin}
               className="hover:bg-yellow-400 hover:rounded-full py-[0.5rem] px-[1rem] transition-all duration-500 mr-20"

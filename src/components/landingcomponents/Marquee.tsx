@@ -11,7 +11,6 @@ export default function Footer() {
     <main
       className={`relative ${tektur.className} flex justify-center items-center bg-footerImg2 bg-contain h-[120px]  `}
     >
-      {/* <Image src = "/landingassests/Vector.svg" alt = "footervector" width = {194} height = {194} className = "w-full "/> */}
       <Marquee
         autoFill={true}
         speed={30}
