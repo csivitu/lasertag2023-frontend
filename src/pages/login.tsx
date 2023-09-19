@@ -82,7 +82,7 @@ export default function Login() {
           width={100}
           height={100}
           alt="man"
-          src="/login/man.sbg"
+          src="/login/man.svg"
           className="w-[85%] absolute bottom-0 object-contain mobile:hidden laptopS:block"
         />
       </div>
