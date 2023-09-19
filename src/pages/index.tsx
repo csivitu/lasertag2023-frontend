@@ -11,6 +11,7 @@ import { checkExpiry } from "@/helpers/checkExpiry";
 import { Tektur } from "next/font/google";
 const tektur = Tektur({ subsets: ["latin"] });
 
+//million-ignore
 export default function Landing() {
   const router = useRouter();
   const ctaRef = useRef<HTMLButtonElement>(null);

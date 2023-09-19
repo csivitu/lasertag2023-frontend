@@ -108,7 +108,8 @@ export default function Profile() {
         toast.success(`${response?.data?.message}`, { theme: "dark" });
       } catch (e: any) {
         console.log(e);
-        toast.error(`${e?.response?.data?.error}`, { theme: "dark" });
+        
+        toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
       }
     };
     changeSlot();
