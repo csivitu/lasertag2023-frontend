@@ -1,4 +1,4 @@
-  import React from "react";
+import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
@@ -16,7 +16,9 @@ export default function FAQ() {
     <main
       className={`${tektur.className} flex justify-between items-center flex-col gap-[1rem] bg-black text-white`}
     >
-      <p className="font-bold text-5xl" id="faq">FAQ&apos;s</p>
+      <p className="font-bold text-5xl" id="faq">
+        FAQ&apos;s
+      </p>
       <section className="flex flex-col justify-center items-center  font-semibold laptopS:w-[90%] gap-[1rem] tab:w-[100%]">
         <div
           className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
@@ -24,16 +26,13 @@ export default function FAQ() {
             setExpand1(!expand1);
           }}
         >
-          <p className="text-lg">Who can take part in LaserTag?</p>
+          <p className="text-lg">Who can participate in LaserTag?</p>
           <div
             className={`font-normal text-l transition-all duration-500 ease-in-out ${
               expand1 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            deserunt, provident sunt ad expedita aut sapiente minus repellendus
-            iste suscipit?
+            Everyone on campus (sorry, third years) is welcome to participate.
           </div>
         </div>
         <div
@@ -42,16 +41,14 @@ export default function FAQ() {
             setExpand2(!expand2);
           }}
         >
-          <p className="text-lg">Who can take part in LaserTag?</p>
+          <p className="text-lg">How long is the event for?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand2 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            deserunt, provident sunt ad expedita aut sapiente minus repellendus
-            iste suscipit?
+            Laser Tag will be open for all 3 days. Participants get to play in
+            15 minute slots
           </div>
         </div>
         <div
@@ -60,16 +57,13 @@ export default function FAQ() {
             setExpand3(!expand3);
           }}
         >
-          <p className="text-lg">Who can take part in LaserTag?</p>
+          <p className="text-lg">Can the other person get hurt?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand3 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            deserunt, provident sunt ad expedita aut sapiente minus repellendus
-            iste suscipit?
+            Yes, emotionally.
           </div>
         </div>
 
@@ -79,15 +73,15 @@ export default function FAQ() {
             setExpand4(!expand4);
           }}
         >
-          <p className="text-lg">Who can take part in LaserTag?</p>
+          <p className="text-lg">How do I form a team?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand4 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            impedit repellat eaque, quo quibusdam consequuntur neque saepe hic
-            
+            You can team up with your friends by booking the same slots. If your
+            friends ditch you like ours do, don&apos;t worry, you&apos;ll find
+            teammates in the arena.
           </div>
         </div>
         <div
@@ -96,14 +90,14 @@ export default function FAQ() {
             setExpand5(!expand5);
           }}
         >
-          <p className="text-lg">Who can take part in LaserTag?</p>
+          <p className="text-lg">What should I bring to the game?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
               expand5 ? "max-h-[1000px]" : "max-h-0 overflow-hidden box-content"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus
-            
+            Your VIT ID card and immaculate vibes. Feel free to show up
+            impeccably dressed and/or with theme related accents.
           </div>
         </div>
       </section>
