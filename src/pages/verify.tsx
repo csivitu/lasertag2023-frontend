@@ -26,7 +26,7 @@ export default function Verify() {
         
       };
       const payload = {
-        email,
+        email:email?.toString().toLowerCase(),
       };
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,

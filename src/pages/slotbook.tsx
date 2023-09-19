@@ -227,7 +227,7 @@ export default function SlotBook() {
                       className={` ${chakraPetch.className} text-slotBookTimeGreen`}
                       data-slotid={slot.id}
                     >
-                      {slot?.availability}
+                      {slot?.availability} Slots
                     </p>
                   </div>
                 );
