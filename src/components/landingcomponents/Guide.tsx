@@ -63,11 +63,11 @@ export default function Guide() {
                 <p>Get All The Event Details Right Here</p>
               </div>
               <div
-                className={`${tektur.className} flex flex-col lg:flex-row xl:flex-row w-full`}
+                className={`${tektur.className} flex flex-col lg:flex-row xl:flex-row w-[80vw] mt-[3vh] h-[50vh] `}
               >
                 <div
                   ref={divRef}
-                  className={`relative text-white border-[#EA1429] px-6 md:px-12 lg:px-24 py-12 xl:py-48 lg:py-48 py-[8px] px-[1rem] mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
+                  className={`flex flex-col justify-center relative text-white border-[#EA1429] px-6 md:px-12 lg:px-24 py-12 xl:py-48 lg:py-48 py-[8px] px-[1rem] mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
                     div1 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1
@@ -86,7 +86,7 @@ export default function Guide() {
                 </div>
                 <div
                   ref={divRef}
-                  className={`relative text-white border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-[8px] px-[1rem] md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
+                  className={`flex flex-col justify-center relative text-white border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-[8px] px-[1rem] md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
                     div2 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1
@@ -106,7 +106,7 @@ export default function Guide() {
                 </div>
                 <div
                   ref={divRef}
-                  className={`relative text-white border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-8 md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3  py-[8px] px-[1rem] ${
+                  className={`flex flex-col justify-center relative text-white border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-8 md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3  py-[8px] px-[1rem] ${
                     div3 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1

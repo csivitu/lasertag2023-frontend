@@ -29,7 +29,7 @@ export default function FAQ() {
           <p className="text-lg">Who can participate in LaserTag?</p>
           <div
             className={`font-normal text-l transition-all duration-500 ease-in-out ${
-              expand1 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+              expand1 ? "max-h-[1000px] my-[1vh]" : "max-h-0 overflow-hidden"
             }`}
           >
             Everyone on campus (sorry, third years) is welcome to participate.
@@ -44,7 +44,7 @@ export default function FAQ() {
           <p className="text-lg">How long is the event for?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
-              expand2 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+              expand2 ? "max-h-[1000px] my-[1vh]" : "max-h-0 overflow-hidden"
             }`}
           >
             Laser Tag will be open for all 3 days. Participants get to play in
@@ -60,7 +60,7 @@ export default function FAQ() {
           <p className="text-lg">Can the other person get hurt?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
-              expand3 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+              expand3 ? "max-h-[1000px] my-[1vh]" : "max-h-0 overflow-hidden"
             }`}
           >
             Yes, emotionally.
@@ -76,7 +76,7 @@ export default function FAQ() {
           <p className="text-lg">How do I form a team?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
-              expand4 ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+              expand4 ? "max-h-[1000px] my-[1vh] pt-[2vh]" : "max-h-0 overflow-hidden"
             }`}
           >
             You can team up with your friends by booking the same slots. If your
@@ -93,7 +93,7 @@ export default function FAQ() {
           <p className="text-lg">What should I bring to the game?</p>
           <div
             className={`font-normal text-l  transition-all duration-500 ease-in-out ${
-              expand5 ? "max-h-[1000px]" : "max-h-0 overflow-hidden box-content"
+              expand5 ? "max-h-[1000px] my-[1vh] pt-[2vh]" : "max-h-0 overflow-hidden box-content"
             }`}
           >
             Your VIT ID card and immaculate vibes. Feel free to show up
