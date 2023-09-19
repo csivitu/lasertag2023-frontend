@@ -4,7 +4,7 @@ import "tailwindcss/tailwind.css";
 
 const Slideshow: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const numberOfImages = 2;
+  const numberOfImages = 5;
 
   const handlePrevClick = () => {
     setActiveIndex((prevIndex) =>
@@ -19,8 +19,11 @@ const Slideshow: React.FC = () => {
   };
 
   const imagePaths = [
-    "/landingassests/carouselassets/WhatsApp Image 2023-09-19 at 1.19.06 AM (1).jpeg",
-    "/landingassests/carouselassets/WhatsApp Image 2023-09-19 at 1.19.06 AM (2).jpeg",
+    "/landingassests/carouselassets/image1.svg",
+    "/landingassests/carouselassets/image2.svg",
+    "/landingassests/carouselassets/image3.svg",
+    "/landingassests/carouselassets/image4.svg",
+    "/landingassests/carouselassets/image5.svg",
   ]; // Define your image paths here
 
   return (
@@ -34,30 +37,71 @@ const Slideshow: React.FC = () => {
         Don your vests and have your guns at the ready, maximize hits to climb
         up the leaderboard!
       </div>
-      <div className="" id="gallery">
+      <div className="lg:w-[80vw]" id="gallery">
         <div
-          className="container mx-auto relative w-full"
+          className=" mx-auto relative px-[2vw]"
           data-carousel="static"
         >
           <div className="relative overflow-hidden rounded-lg">
-            {imagePaths.map((path, index) => (
+          {imagePaths.map((path, index) => {
+            return (
               <div
                 key={index}
                 className={`duration-700 ease-in-out ${
                   index === activeIndex ? "block" : "hidden"
-                }`}
-                data-carousel-item={
-                  index === activeIndex ? "active" : undefined
-                }
+                } flex`}
+                data-carousel-item={index === activeIndex ? "active" : undefined}
               >
-                <Image
-                  src={path} // Use the image path from the array
-                  alt={`Image ${index + 1}`}
-                  width={750} // Adjust the width and height as needed
-                  height={750}
-                />
+                <div className="flex items-center">
+                  <Image
+                    src={imagePaths[(index) % 5]} // Use the image path from the array
+                    alt={`Image ${index}`}
+                    width={200} // Adjust the width and height as needed
+                    height={200}
+                    className="border-2 border-red-500" 
+                  />
+                </div>
+                <div className="flex items-center">
+                  <Image
+                    src={imagePaths[(index + 1) % 5]} // Use the image path from the array
+                    alt={`Image ${index + 1}`}
+                    width={400} // Adjust the width and height as needed
+                    height={400}
+                    className="border-2 border-red-500" 
+                  />
+                </div>
+                <div className="flex items-center">
+                  <Image
+                    src={imagePaths[(index + 2) % 5]} // Use the image path from the array
+                    alt={`Image ${index + 2}`}
+                    width={600} // Adjust the width and height as needed
+                    height={600}
+                    className="border-2 border-red-500" 
+                  />
+                </div>
+                <div className="flex items-center">
+                  <Image
+                    src={imagePaths[(index + 3) % 5]} // Use the image path from the array
+                    alt={`Image ${index + 3}`}
+                    width={400} // Adjust the width and height as needed
+                    height={400}
+                    className="border-2 border-red-500" 
+                  />
+                </div>
+                <div className="flex items-center">
+                  <Image
+                    src={imagePaths[(index + 4) % 5]} // Use the image path from the array
+                    alt={`Image ${index + 4}`}
+                    width={200} // Adjust the width and height as needed
+                    height={200}
+                    className="border-2 border-red-500" 
+                  />
+                </div>
               </div>
-            ))}
+            );
+          })}
+
+
           </div>
 
           <button
