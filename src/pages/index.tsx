@@ -55,10 +55,10 @@ export default function Landing() {
 
         <Marquee />
       </section>
-      
+
       <Photo />
       <FAQ />
-      <Guide/>
+      <Guide />
       <Footer />
     </main>
   );
