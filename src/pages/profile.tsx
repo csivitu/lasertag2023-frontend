@@ -108,7 +108,8 @@ export default function Profile() {
         toast.success(`${response?.data?.message}`, { theme: "dark" });
       } catch (e: any) {
         console.log(e);
-        toast.error(`${e?.response?.data?.error}`, { theme: "dark" });
+        
+        toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
       }
     };
     changeSlot();
@@ -306,7 +307,7 @@ export default function Profile() {
             width={100}
             height={100}
             alt=""
-            src={`/gifs/2.gif`}
+            src={`/gifs/2.webp`}
             className={"tab:w-4/12  tab:block mobile:w-[90%]"}
           />
           <h1 className={`${chakraPetch.className} text-2xl`}>
