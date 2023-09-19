@@ -9,12 +9,12 @@ const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 export default function LastFooter() {
   return (
     <footer className="bg-footer w-full bg-no-repeat bg-cover h-[300px] relative ">
-      <main className="absolute top-[40%]  flex flex-row justify-between items-center w-full tab:px-[4rem]  mobile:px-[1rem]  ">
+      <main className="absolute top-[40%]  flex flex-row justify-between tab:items-center w-full tab:px-[4rem]  mobile:px-[1rem]  mobile:items-start">
         <section className="flex justify-center items-start flex-col w-fit ">
           <h1 className={`${tektur.className} text-3xl text-black`}>
             Follow Us
           </h1>
-          <div className="flex flex-row flex-wrap tab:justify-between items-start tab:w-[60%] gap-[0.rem] mobile:w-[40%]">
+          <div className="flex flex-row flex-wrap tab:justify-between items-start tab:w-[60%] gap-[0.rem] mobile:w-[60%]">
             <Image
               width={48}
               height={48}
