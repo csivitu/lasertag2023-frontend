@@ -4,13 +4,14 @@ import { Tektur } from "next/font/google";
 import "tailwindcss/tailwind.css";
 const tektur = Tektur({ subsets: ["latin"] });
 
-type BookProps = {
+type ReminderProps = {
     
 };
 
-const Book:React.FC<BookProps> = () => {
-    
-    return (
+
+const Reminder:React.FC<ReminderProps> = () => {
+  
+  return (
     <div className="relative w-full md:w-3/4 h-full py-[10vh]">
     <Image src='/reminder.svg' alt='Reminder' height={50} width={50} className="w-full h-auto" />
     <div className="flex-col absolute top-0 left-0 w-full h-full bg-black bg-opacity-5 flex justify-center items-center ">
@@ -19,7 +20,6 @@ const Book:React.FC<BookProps> = () => {
     <Image src='/bookslot.svg' alt='bookslot' width={150} height={100} className='lg:py-[6vh] md:py-[2vh] py-[2vh]  w-1/4 md:w-1/3'/>
       </div>
     </div> 
-    );
-
+  );
 }
-export default Book;
+export default Reminder;

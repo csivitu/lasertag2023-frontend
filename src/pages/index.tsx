@@ -8,9 +8,10 @@ import Guide from "@/components/landingcomponents/Guide";
 import Photo from "@/components/landingcomponents/Photo";
 import FAQ from "@/components/landingcomponents/Faq";
 import Footer from "@/components/landingcomponents/Footer";
-import Book from "@/components/landingcomponents/Book";
 import { checkExpiry } from "@/helpers/checkExpiry";
 import { Tektur } from "next/font/google";
+import Reminder from "@/components/landingcomponents/Reminder";
+
 const tektur = Tektur({ subsets: ["latin"] });
 
 //million-ignore
@@ -60,7 +61,7 @@ export default function Landing() {
       <Photo />
       <FAQ />
       <Guide/>
-      <Book />
+      <Reminder/>
       <Footer />
     </main>
   );
