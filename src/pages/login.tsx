@@ -36,7 +36,7 @@ export default function Login() {
         header
       );
 
-      console.log(response);
+      
       toast.success("Sending OTP...", {
         position: "top-right",
         autoClose: 4000,
@@ -51,7 +51,7 @@ export default function Login() {
     } catch (e: any) {
       setError(e?.response?.data.error);
       const errorMessage = (e?.response?.data.error)!=undefined?e?.response?.data.error:e?.response?.data ;
-      // console.log(e.response.data)
+      
       toast.error(`${errorMessage}`, {
         position: "top-right",
         autoClose: 4000,

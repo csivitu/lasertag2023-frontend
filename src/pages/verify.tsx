@@ -153,7 +153,7 @@ export default function Verify() {
               Enter OTP (Case Sensitive)
             </h2>
             <h4 className={`text-black text-base text-slotBookDateFontSize`}>
-              Please check your spam for OTP
+            Please don&apos;t forget to check your spam folder for the OTP as well.
             </h4>
             <OtpInput
               value={otp}

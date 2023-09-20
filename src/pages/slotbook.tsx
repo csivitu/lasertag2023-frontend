@@ -57,12 +57,12 @@ const endIndex = startIndex + slotsPerPage;
           payload,
           { headers }
         );
-        console.log(response);
+        
         toast.success(response.data.message, { theme: "dark" });
         router.push("/profile");
       } catch (e: any) {
         const error = e.response.data.error;
-        console.log(e);
+        
         toast.error(error, { theme: "dark" });
         setErrorMsg(error);
       }
