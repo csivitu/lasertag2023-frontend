@@ -150,7 +150,7 @@ export default function Verify() {
             <h2
               className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
             >
-              Enter OTP
+              Enter OTP (Case Sensitive)
             </h2>
             <h4 className={`text-black text-base text-slotBookDateFontSize`}>
               Please check your spam for OTP
