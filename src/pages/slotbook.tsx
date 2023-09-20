@@ -116,7 +116,7 @@ const endIndex = startIndex + slotsPerPage;
         const error = e?.response?.data.error;
         setErrorMsg(error);
         toast.error(error, { theme: "dark" });
-        router.push("/login");
+        
       }
     };
     fetchSlot();
@@ -223,7 +223,7 @@ const endIndex = startIndex + slotsPerPage;
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
           {slotData
-  .slice(startIndex, endIndex)
+ 
   .map((slot, index) => {
     if (selectDay == getDayOfMonth(slot.startTime)) {
       return slot.isCarry ? (
@@ -254,31 +254,7 @@ const endIndex = startIndex + slotsPerPage;
           </section>
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
-        <div className="flex justify-center items-center text-2xl gap-[2rem] text-white">
-  <button
-    disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
-    onClick={() => {setCurrentPage(currentPage - 1)
-     }
-    
-  
-  
-  }
-  >
-        <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
-
-  </button>
-  {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
-  <button
-    disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
-    onClick={() => {
       
-      setCurrentPage(currentPage + 1)
-    }}
-  >
-     <Image width={32} height={32} alt="back" src="/slotBookPage/Vector-1.svg"/> 
-  </button>
-</div>
-
           <section className="flex flex-row justify-center items-center gap-[10px]"></section>
         </section> 
       </main>

@@ -123,10 +123,10 @@ const endIndex = startIndex + slotsPerPage;
   };
 
   return (
-    <main>
-      <ToastContainer className={"absolute"} />
+    <main className="overflow-x-hidden">
+      <ToastContainer className={"="} />
 
-      <main className="relative flex justify-center items-center flex-col ">
+      <main className="relative flex justify-center items-center flex-col overflow-x-hidden">
         <Logout />
         {isOpen && (
           <div className="  absolute mobile:top-[15%] tab:top-[2 0%] left-[50%] z-[1] bg-slotBookDateColorHover px-[2rem] py-[0.5rem] rounded-[14px]  flex justify-center items-center translate-x-[-50%]  translate-y-[-50%] mobile:w-[90%] laptopS:w-[50%]">
@@ -207,7 +207,7 @@ const endIndex = startIndex + slotsPerPage;
             <section className="flex flex-col justify-center  items-center tab:w-[75%] gap-[50px] mobile:w-[90%]">
               <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full tab:flex-wrap mobile:flex-nowrap ">
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]  transition-all duration-500 hover:scale-[105%] hover:text-black`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]  transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
                   ref={dayOneRef}
                   onClick={() => {
                     setSelectDay(22);
@@ -226,7 +226,7 @@ const endIndex = startIndex + slotsPerPage;
                   22nd September 
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
                   ref={dayTwoRef}
                   onClick={() => {
                     setSelectDay(23);
@@ -245,7 +245,7 @@ const endIndex = startIndex + slotsPerPage;
                   23rd September 
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
                   ref={dayThreeRef}
                   onClick={() => {
                     setSelectDay(24);
@@ -267,14 +267,14 @@ const endIndex = startIndex + slotsPerPage;
               </div>
               <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px] mobile:grid-cols-2">
               {slotData
-  .slice(startIndex, endIndex)
+
   .map((slot, index) => {
     if (selectDay == getDayOfMonth(slot.startTime)) {
       return slot.isCarry ? (
         ""
       ) : (
         <div
-          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center  transition-all duration-500 hover:hover:scale-[105%] hover:text-black cursor-pointer`}
           key={index}
           onClick={(event: any) => {
             setSelectSlotId(event.target.dataset.slotid);
@@ -298,32 +298,7 @@ const endIndex = startIndex + slotsPerPage;
     }
   })}
               </section>
-              <div className="flex justify-center items-center text-2xl gap-[2rem] text-white">
-<button  className="  transition-all duration-500 hover:scale-[115%] hover:text-white"
-    disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
-    onClick={() => {setCurrentPage(currentPage - 1)
-     }
-    
- 
-  
-  }
-  >
-    <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
-  </button>
-
-  {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
-
-  <button className="bg-rightArrow bg-no-repeat  transition-all duration-500 hover:scale-[115%] hover:text-white"
-    disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
-    onClick={() => {
-      
-      setCurrentPage(currentPage + 1)
-    }}
-  >
-        <Image width={32} height={32} alt="back" src="/slotBookPage/Vector-1.svg"/> 
-
-  </button>
-              </div>
+            
             </section>
           ) : (
             ""
