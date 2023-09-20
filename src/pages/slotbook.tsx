@@ -57,12 +57,12 @@ const endIndex = startIndex + slotsPerPage;
           payload,
           { headers }
         );
-        
+        console.log(response);
         toast.success(response.data.message, { theme: "dark" });
         router.push("/profile");
       } catch (e: any) {
         const error = e.response.data.error;
-        
+        console.log(e);
         toast.error(error, { theme: "dark" });
         setErrorMsg(error);
       }
@@ -112,6 +112,7 @@ const endIndex = startIndex + slotsPerPage;
         );
         setSlotData(response.data);
         totalPages = Math.ceil(response.data.length / slotsPerPage);
+        console.log(response.data)
       } catch (e: any) {
         const error = e?.response?.data.error;
         setErrorMsg(error);
@@ -182,7 +183,7 @@ const endIndex = startIndex + slotsPerPage;
               22nd September 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  pointer-events-none`}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
@@ -198,10 +199,10 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              23rd September 
+              23rd September  (Coming Soon)
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black pointer-events-none`}
               ref={dayThreeRef}
               onClick={() => {
                 setCurrentPage(7)
@@ -218,7 +219,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              24th September 
+              24th September (Coming Soon)
             </div>
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">

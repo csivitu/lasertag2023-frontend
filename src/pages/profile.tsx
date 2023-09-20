@@ -60,7 +60,7 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         setSlotData(response.data);
-        
+        console.log(response.data);
       } catch (e: any) {
         toast.error(`Error fetching slot, please refresh`, { theme: "dark" });
       }
@@ -80,7 +80,7 @@ const endIndex = startIndex + slotsPerPage;
 
         setUserInfo(response.data);
       } catch (e) {
-        
+        console.log(e);
       }
     };
     checkIfSlotBooked();
@@ -95,7 +95,7 @@ const endIndex = startIndex + slotsPerPage;
   };
 
   const handleConfirm = (slotId: any) => {
-    
+    console.log(slotId);
 
     const changeSlot = async () => {
       try {
@@ -110,10 +110,10 @@ const endIndex = startIndex + slotsPerPage;
           payload,
           { headers }
         );
-        
+        console.log(response);
         toast.success(`${response?.data?.message}`, { theme: "dark" });
       } catch (e: any) {
-        
+        console.log(e);
         
         toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
       }
@@ -226,7 +226,7 @@ const endIndex = startIndex + slotsPerPage;
                   22nd September 
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer pointer-events-none`}
                   ref={dayTwoRef}
                   onClick={() => {
                     setSelectDay(23);
@@ -242,10 +242,10 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  23rd September 
+                  23rd September (Coming Soon)
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer pointer-events-none`}
                   ref={dayThreeRef}
                   onClick={() => {
                     setSelectDay(24);
@@ -261,7 +261,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  24th September 
+                  24th September (Coming Soon)
                 </div>
                 
               </div>

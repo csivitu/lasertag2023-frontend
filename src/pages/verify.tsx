@@ -153,7 +153,7 @@ export default function Verify() {
               Enter OTP (Case Sensitive)
             </h2>
             <h4 className={`text-black text-base text-slotBookDateFontSize`}>
-            Please don&apos;t forget to check your spam folder for the OTP as well.
+              Please check your spam for OTP
             </h4>
             <OtpInput
               value={otp}
@@ -180,7 +180,7 @@ export default function Verify() {
             Submit
           </button>
           <div
-            className={`${chakraPetch.className} text-black underline font-bold text-xl`}
+            className={`${chakraPetch.className} text-black underline font-bold text-xl cursor-pointer`}
             onClick={handleButtonClick}
           >
             Resend OTP
