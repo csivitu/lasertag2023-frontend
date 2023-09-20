@@ -254,7 +254,7 @@ const endIndex = startIndex + slotsPerPage;
           </section>
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
-        <div className="flex justify-center items-center text-2xl gap-[2rem]">
+        <div className="flex justify-center items-center text-2xl gap-[2rem] text-white">
   <button
     disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
     onClick={() => {setCurrentPage(currentPage - 1)

@@ -298,7 +298,7 @@ const endIndex = startIndex + slotsPerPage;
     }
   })}
               </section>
-              <div className="flex justify-center items-center text-2xl gap-[2rem]">
+              <div className="flex justify-center items-center text-2xl gap-[2rem] text-white">
 <button  className="  transition-all duration-500 hover:scale-[115%] hover:text-white"
     disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
     onClick={() => {setCurrentPage(currentPage - 1)
@@ -310,7 +310,9 @@ const endIndex = startIndex + slotsPerPage;
   >
     <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
   </button>
+
   {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
+
   <button className="bg-rightArrow bg-no-repeat  transition-all duration-500 hover:scale-[115%] hover:text-white"
     disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
     onClick={() => {
