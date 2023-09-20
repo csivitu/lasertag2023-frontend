@@ -23,7 +23,7 @@ export default function SlotBook() {
   const dayOneRef = useRef<HTMLDivElement>(null);
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
-  const [selectDay, setSelectDay] = useState<number>(0);
+  const [selectDay, setSelectDay] = useState<number>(22);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
   const [currentPage, setCurrentPage] = useState(1);
   const slotsPerPage = 10; 
@@ -163,7 +163,7 @@ const endIndex = startIndex + slotsPerPage;
         <section className="flex flex-col justify-center  items-center w-[75%] gap-[50px]">
           <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
+              className={`bg-slotBookDateColor  ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
               ref={dayOneRef}
               onClick={() => {
                 setCurrentPage(1)

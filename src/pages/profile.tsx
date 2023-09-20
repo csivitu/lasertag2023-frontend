@@ -40,7 +40,7 @@ export default function Profile() {
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
   const [slotData, setSlotData] = useState([] as any[]);
-  const [selectDay, setSelectDay] = useState<number>(0);
+  const [selectDay, setSelectDay] = useState<number>(22);
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const slotsPerPage = 10; 
@@ -137,13 +137,13 @@ const endIndex = startIndex + slotsPerPage;
               <div className="flex justify-between items-center gap-[1rem] w-full">
                 <button
                   onClick={handleConfirm}
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%]`}
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%] transition-all duration-500 hover:hover:scale-[105%] hover:text-black`}
                 >
                   Confirm
                 </button>
                 <button
                   onClick={closeModal}
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-white font-medium w-[50%]`}
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-white font-medium w-[50%] ransition-all duration-500 hover:scale-[105%] hover:text-black`}
                 >
                   Cancel
                 </button>
@@ -165,7 +165,7 @@ const endIndex = startIndex + slotsPerPage;
                 <div className="flex justify-center items-end flex-row gap-[1rem]">
                   <h1 className={`${tektur.className} text-4xl text-white`}>Your Slot</h1>
                   <p
-                    className={`${tektur.className} text-l underline text-white`}
+                    className={`${tektur.className} text-l underline text-white cursor-pointer`}
                     onClick={() => {
                       setChangeSlotClicked(!changeSlotClicked);
                       onChangeClick();
@@ -176,7 +176,7 @@ const endIndex = startIndex + slotsPerPage;
                 </div>
 
                 <button
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full `}
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full transition-all duration-500 hover:scale-[105%] hover:text-white`}
                 >
                   {userInfo?.slotBooked?.startTime
                     ? getTime(userInfo?.slotBooked?.startTime)
@@ -299,7 +299,7 @@ const endIndex = startIndex + slotsPerPage;
   })}
               </section>
               <div className="flex justify-center items-center text-2xl gap-[2rem]">
-<button  className=""
+<button  className="  transition-all duration-500 hover:scale-[115%] hover:text-white"
     disabled={currentPage === 1 || (currentPage===7 &&selectDay===24)  || (currentPage===3 &&selectDay===23)}
     onClick={() => {setCurrentPage(currentPage - 1)
      }
@@ -311,7 +311,7 @@ const endIndex = startIndex + slotsPerPage;
     <Image width={32} height={32} alt="back" src="/slotBookPage/Vector.svg"/> 
   </button>
   {(currentPage-(selectDay===22?0:(selectDay===23?2:6))<0?'':currentPage-(selectDay===22?0:(selectDay===23?2:6)))} of {selectDay===22?2:(selectDay===23?4:4)}
-  <button className="bg-rightArrow bg-no-repeat"
+  <button className="bg-rightArrow bg-no-repeat  transition-all duration-500 hover:scale-[115%] hover:text-white"
     disabled={currentPage === totalPages || (currentPage===6 && selectDay===23) || (currentPage===2 && selectDay===22) }
     onClick={() => {
       
@@ -328,7 +328,7 @@ const endIndex = startIndex + slotsPerPage;
           )}
         </main>
         
-        <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
+       {(changeSlotClicked===true)?'':( <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
           <Image
             width={100}
             height={100}
@@ -339,7 +339,7 @@ const endIndex = startIndex + slotsPerPage;
           <h1 className={`${chakraPetch.className} text-2xl`}>
             See ya at the venue Soldier
           </h1>
-        </div>
+        </div>)}
       </main>
     </main>
   );
