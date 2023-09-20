@@ -59,8 +59,8 @@ export default function Landing() {
       </section>
 
       <Photo />
-      <FAQ />
       <Guide/>
+      <FAQ />
       <Reminder/>
       <Footer />
     </main>
