@@ -124,7 +124,7 @@ export default function Login() {
           
 
           <button
-            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black text-white"
+            className="w-full px-[1820x] py-[14px] rounded-[8px] bg-black text-white transition-all duration-500 hover:scale-[105%] hover:text-black"
             onClick={handleButtonClick}
             ref={sendOtpButton}
           >

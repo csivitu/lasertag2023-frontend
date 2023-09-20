@@ -57,7 +57,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={handleLogin}
-              className="hover:bg-yellow-400 hover:rounded-[7px] py-[0.5rem] px-[1rem] transition-all duration-500 mr-20"
+              className="hover:bg-yellow-400 hover:rounded-[7px] py-[0.5rem] px-[1rem] transition-all duration-500 mr-20  hover:scale-[105%] hover:text-white"
             >
               {loggedIn ? "Sign Out" : "Sign In"}{" "}
             </button>
