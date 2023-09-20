@@ -163,7 +163,7 @@ const endIndex = startIndex + slotsPerPage;
         <section className="flex flex-col justify-center  items-center w-[75%] gap-[50px]">
           <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
             <div
-              className={`bg-slotBookDateColor  ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
+              className={`bg-slotBookDateColor  ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
               ref={dayOneRef}
               onClick={() => {
                 setCurrentPage(1)
@@ -182,7 +182,7 @@ const endIndex = startIndex + slotsPerPage;
               22nd September 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
@@ -201,7 +201,7 @@ const endIndex = startIndex + slotsPerPage;
               23rd September 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center`}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
               ref={dayThreeRef}
               onClick={() => {
                 setCurrentPage(7)

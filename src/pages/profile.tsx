@@ -207,7 +207,7 @@ const endIndex = startIndex + slotsPerPage;
             <section className="flex flex-col justify-center  items-center tab:w-[75%] gap-[50px] mobile:w-[90%]">
               <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full tab:flex-wrap mobile:flex-nowrap ">
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]  transition-all duration-500 hover:scale-[105%] hover:text-black`}
                   ref={dayOneRef}
                   onClick={() => {
                     setSelectDay(22);
@@ -226,7 +226,7 @@ const endIndex = startIndex + slotsPerPage;
                   22nd September 
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black`}
                   ref={dayTwoRef}
                   onClick={() => {
                     setSelectDay(23);
@@ -245,7 +245,7 @@ const endIndex = startIndex + slotsPerPage;
                   23rd September 
                 </div>
                 <div
-                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]`}
+                  className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black`}
                   ref={dayThreeRef}
                   onClick={() => {
                     setSelectDay(24);
