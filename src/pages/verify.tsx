@@ -19,19 +19,17 @@ export default function Verify() {
   const [error, setError] = useState<String>("");
 
   const handleButtonClick = async (e: any) => {
-
     try {
       const headers = {
-        "Content-Type": "application/json"
-        
+        "Content-Type": "application/json",
       };
       const payload = {
-        email:email?.toString().toLowerCase(),
+        email: email?.toString().toLowerCase(),
       };
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`,
         payload,
-        {headers}
+        { headers }
       );
 
       toast.success("Resent OTP...", {
@@ -44,10 +42,12 @@ export default function Verify() {
         progress: undefined,
         theme: "dark",
       });
-      
     } catch (e: any) {
       setError(e?.response?.data.error);
-      const errorMessage = (e?.response?.data.error)!=undefined?e?.response?.data.error:e?.response?.data ;
+      const errorMessage =
+        e?.response?.data.error != undefined
+          ? e?.response?.data.error
+          : e?.response?.data;
       toast.error(`${errorMessage}`, {
         position: "top-right",
         autoClose: 4000,
@@ -60,8 +60,6 @@ export default function Verify() {
       });
     }
   };
-
-
 
   useEffect(() => {
     setOtp(otp);
@@ -154,6 +152,9 @@ export default function Verify() {
             >
               Enter OTP
             </h2>
+            <h4 className={`text-black text-base text-slotBookDateFontSize`}>
+              Please check your spam for OTP
+            </h4>
             <OtpInput
               value={otp}
               onChange={setOtp}
@@ -178,8 +179,11 @@ export default function Verify() {
           >
             Submit
           </button>
-          <div className={`${chakraPetch.className} text-black underline font-bold text-xl`} onClick={handleButtonClick}>
-                Resend OTP
+          <div
+            className={`${chakraPetch.className} text-black underline font-bold text-xl`}
+            onClick={handleButtonClick}
+          >
+            Resend OTP
           </div>
         </div>
       </section>
