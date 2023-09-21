@@ -12,6 +12,7 @@ const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 import { getTime } from "@/helpers/dateAndTime";
 import Router from "next/router";
 import { useRouter } from "next/navigation";
+import { checkExpiry } from "@/helpers/checkExpiry";
 
 
 export default function Adminpanel(){
@@ -31,6 +32,13 @@ const [errorMessage,setErrorMessage] =useState<String>("")
 const token =Cookies.get('jwtToken')
 
 
+useEffect(()=>{
+  Cookies.get('jwtToken')
+  if(checkExpiry()){
+    router.push('/login')
+    toast.error("Login First!!")
+  }
+},[])
 
 useEffect(()=>{
   const checkScope=async ()=>{
@@ -110,8 +118,9 @@ const handleAdminCancelSlot = async()=>{
         toast.success(response.data.message,{theme:'dark'})
     }
     catch(e:any){
-        setErrorMessage(e.response.data.error)
-        toast.error(e.response.data.error,{theme:'dark'})
+        setErrorMessage(e.response.data.message)
+        
+        toast.error(e.response.data.message,{theme:'dark'})
     }
 }
 
@@ -127,7 +136,8 @@ useEffect( ()=>{
         setAdminSlotData(response.data)
     }
     catch(e:any){
-        const error=e.response.data.error
+        const error=e.response.data.message
+        console.log(e)
         toast.error(error,{theme:'dark'})
         setErrorMessage(error)
     }
@@ -139,10 +149,10 @@ useEffect( ()=>{
     return (
         <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen overflow-x-hidden px-[2rem]">
             <ToastContainer/>
-            <h1 className={`${chakraPetch.className} text-white text-5xl`}>List OF all Slots </h1>
+            <h1 className={`${chakraPetch.className} text-white text-5xl`}>List Of all Slots </h1>
              <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
             <div
-              className={`bg-slotBookDateColor  ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black`}
+              className={`bg-slotBookDateColor  ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
               ref={dayOneRef}
               onClick={() => {
                 setCurrentPage(1)
@@ -161,7 +171,7 @@ useEffect( ()=>{
               22nd September 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer  `}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
@@ -180,7 +190,7 @@ useEffect( ()=>{
               23rd September  
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
               ref={dayThreeRef}
               onClick={() => {
                 setCurrentPage(7)
@@ -208,7 +218,7 @@ useEffect( ()=>{
    if (selectDay == getDayOfMonth(slot.startTime)) {
      return ((
         (  <div
-          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center cursor-pointer transition-all duration-500 hover:scale-[105%] hover:text-black`}
           key={index} onClick={(event:any)=>{
             setSelectSlotToShow(event.target.dataset.toshow)
             setSelectedSlotId(event.target.dataset.slotid)
@@ -241,7 +251,7 @@ useEffect( ()=>{
 
              {/*Admin Assign slot */}
             <section className="flex flex-col justify-center itmes-center text-white text-4xl w-[75%] gap-[1rem]">
-                Assgin Above Selected Slot to:
+                Assign Above Selected Slot to:
                 <input type="text" placeholder="Email of student" className={`${chakraPetch.className} bg-transparent  text-white border-transparent border-[2px] border-white  placeholder-[#222222] rounded-[14px] p-[0.5rem]`} value={userEmailAssign}
                  onChange={(e: any) => {
                     setUserEmailAssign(e.target.value);
@@ -273,7 +283,7 @@ useEffect( ()=>{
             <button className={`w-[30%] px-[18px] py-[7px] rounded-[8px]  bg-slotBookTimeRed text-white transition-all duration-500 hover:scale-[105%] hover:text-gray-400 text-xl font-medium`} onClick={()=>{
                 handleAdminShowSlot()
             }}>
-                    Show Selected slot
+                    Show/Hide Selected slot
                   </button>
             </section>
 
