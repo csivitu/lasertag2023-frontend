@@ -4,6 +4,7 @@ import { Tektur } from "next/font/google";
 import "react-toastify/dist/ReactToastify.css";
 import { Chakra_Petch } from "next/font/google";
 import { useEffect,useState,useRef } from "react";
+import Logout from "@/components/Logout";
 import Cookies from "js-cookie";
 import { ToastContainer,toast } from "react-toastify";
 import axios from "axios";
@@ -149,6 +150,7 @@ useEffect( ()=>{
     return (
         <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen overflow-x-hidden px-[2rem]">
             <ToastContainer/>
+            <Logout/>
             <h1 className={`${chakraPetch.className} text-white text-5xl`}>List Of all Slots </h1>
              <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
             <div
