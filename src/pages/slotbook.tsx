@@ -183,7 +183,7 @@ const endIndex = startIndex + slotsPerPage;
               22nd September 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  pointer-events-none`}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
@@ -199,7 +199,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              23rd September  (Coming Soon)
+              23rd September  
             </div>
             <div
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black pointer-events-none`}
@@ -242,7 +242,7 @@ const endIndex = startIndex + slotsPerPage;
             data-slotid={slot.id}
           ></div>
           <p
-            className={` ${chakraPetch.className} text-slotBookTimeGreen`}
+            className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}
             data-slotid={slot.id}
           >
             {slot?.availability} Slots
