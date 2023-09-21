@@ -94,7 +94,13 @@ export default function Verify() {
         progress: undefined,
         theme: "dark",
       });
-      router.push("/");
+      if(response?.data?.isAdmin){
+        router.push("/adminpanel")
+      }
+      else{
+        router.push("/");
+      }
+      
     } catch (e: any) {
       const errorMessage = e.response.data.error;
       toast.error(`${errorMessage}`, {
