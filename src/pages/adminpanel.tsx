@@ -14,7 +14,7 @@ import Router from "next/router";
 import { useRouter } from "next/navigation";
 
 
-export default function adminpanel(){
+export default function Adminpanel(){
     const dayOneRef = useRef<HTMLDivElement>(null);
     const router= useRouter()
   const dayTwoRef = useRef<HTMLDivElement>(null);
