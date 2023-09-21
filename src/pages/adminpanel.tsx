@@ -16,6 +16,7 @@ export default function adminpanel(){
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedSlotId, setSelectedSlotId]= useState('');
   const [selectDay, setSelectDay] = useState<number>(22);
 const [userEmailAssign,setUserEmailAssign] =useState("")
 const [adminSlotData, setAdminSlotData] = useState([] as any[]);
@@ -46,6 +47,7 @@ useEffect( ()=>{
 
     return (
         <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen">
+            <ToastContainer/>
             <h1 className={`${chakraPetch.className} text-white text-5xl`}>List OF all Slots </h1>
              <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
             <div
@@ -111,19 +113,22 @@ useEffect( ()=>{
                     {adminSlotData
  
  .map((slot, index) => {
-   
+   console.log(slot)
    if (selectDay == getDayOfMonth(slot.startTime)) {
      return ((
         (  <div
           className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
-          key={index}
+          key={index} onClick={(event:any)=>{
+            setSelectedSlotId(event.target.dataset.slotid)
+            toast.warn(`Slot Selected Day:${getDayOfMonth (slot.startTime)} Time: ${getTime(slot.startTime)}`,{theme:'dark'})
+          }}
              
           data-slotid={slot.id}
         >
-            <div className="flex flex-col items-center justify-start gap-[4px]">
-            <p >Carry: <p className={`${slot.isCarry===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.isCarry.toString()}
-                </p></p>
-             <p>Visible: <p className={`${slot.toShow===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.isCarry.toString()}</p></p>
+            <div className="flex flex-col items-start justify-between gap-[4px]">
+            <p >Carry: <div className={`${slot.isCarry===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.isCarry.toString()}
+                </div></p>
+             <p>Visible: <div className={`${slot.toShow===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.toShow.toString()}</div></p>
             </div>
           <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
           <div
@@ -140,7 +145,8 @@ useEffect( ()=>{
       ))
    }
  })}
-            </section>     
+            </section> 
+
              {/*Admin Assign slot */}
             <section className="flex flex-col justify-center itmes-center text-white text-4xl w-[75%] gap-[1rem]">
                 Assgin Above Selected Slot to:
@@ -164,7 +170,7 @@ useEffect( ()=>{
                     Cancel Slot 
                   </button>
             </section>
-
+             {/* Slot for user */}
             <section className="flex flex-col justify-center itmes-center text-white text-4xl w-[75%] gap-[1rem]">
             Show Slot for all users:
             <button className={`w-[30%] px-[18px] py-[7px] rounded-[8px]  bg-slotBookTimeRed text-white transition-all duration-500 hover:scale-[105%] hover:text-gray-400 text-xl font-medium`}>
