@@ -268,27 +268,27 @@ const endIndex = startIndex + slotsPerPage;
       return slot.isCarry ? (
         ""
       ) : (
-        <div
-          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center  transition-all duration-500 hover:hover:scale-[105%] hover:text-black cursor-pointer`}
-          key={index}
-          onClick={(event: any) => {
-            setSelectSlotId(event.target.dataset.slotid);
+       slot.toShow?( <div
+        className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center  transition-all duration-500 hover:hover:scale-[105%] hover:text-black cursor-pointer`}
+        key={index}
+        onClick={(event: any) => {
+          setSelectSlotId(event.target.dataset.slotid);
 
-            openModal(); }}
+          openModal(); }}
+        data-slotid={slot.id}
+      >
+        <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+        <div
+          className="w-[1.5px] h-[20px] bg-white"
+          data-slotid={slot.id}
+        ></div>
+        <p
+          className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'} `}
           data-slotid={slot.id}
         >
-          <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-          <div
-            className="w-[1.5px] h-[20px] bg-white"
-            data-slotid={slot.id}
-          ></div>
-          <p
-            className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'} `}
-            data-slotid={slot.id}
-          >
-            {slot?.availability} Slots
-          </p>
-        </div>
+          {slot?.availability} Slots
+        </p>
+      </div>):''
       );
     }
   })}

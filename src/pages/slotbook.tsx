@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SlowBuffer } from "buffer";
 
 export default function SlotBook() {
   const router = useRouter();
@@ -224,10 +225,10 @@ const endIndex = startIndex + slotsPerPage;
  
   .map((slot, index) => {
     if (selectDay == getDayOfMonth(slot.startTime)) {
-      return slot.isCarry ? (
+      return (slot.isCarry)? (
         ""
       ) : (
-        <div
+        slot.toShow?(  <div
           className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
           key={index}
           onClick={handleSlotClick}
@@ -244,7 +245,7 @@ const endIndex = startIndex + slotsPerPage;
           >
             {slot?.availability} Slots
           </p>
-        </div>
+        </div>):''
       );
     }
   })}
