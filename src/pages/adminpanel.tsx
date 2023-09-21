@@ -229,19 +229,21 @@ useEffect( ()=>{
              
           data-slotid={slot.id} data-toshow={slot.toShow}
         >
-            <div className="flex flex-col items-start justify-between gap-[4px]">
+            <div className="flex flex-col items-start justify-between gap-[4px]" data-slotid={slot.id} data-toshow={slot.toShow}>
             <div >Carry: <span className={`${slot.isCarry===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.isCarry.toString()}
                 </span></div>
              <div>Visible: <span className={`${slot.toShow===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.toShow.toString()}</span></div>
             </div>
-          <p data-slotid={slot.id}>{getTime(slot.startTime)} </p>
+          <p data-toshow={slot.toShow} data-slotid={slot.id}>{getTime(slot.startTime)} </p>
           <div
             className="w-[1.5px] h-[20px] bg-white"
             data-slotid={slot.id}
+            data-toshow={slot.toShow}
           ></div>
           <p
             className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}
             data-slotid={slot.id}
+            data-toshow={slot.toShow}
           >
             {slot?.availability} Slots
           </p>
