@@ -218,7 +218,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              24th September (Coming Soon)
+              24th September 
             </div>
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
