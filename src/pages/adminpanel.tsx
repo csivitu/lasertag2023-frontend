@@ -112,7 +112,7 @@ useEffect(()=>{
 },[selectSlotToShow])
 
     return (
-        <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen overflow-x-hidden">
+        <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen overflow-x-hidden px-[2rem]">
             <ToastContainer/>
             <h1 className={`${chakraPetch.className} text-white text-5xl`}>List OF all Slots </h1>
              <div className="flex flex-row justify-start items-center gap-slotBookDatePadding w-full flex-wrap">
@@ -155,7 +155,7 @@ useEffect(()=>{
               23rd September  
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
+              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black pointer-events-none`}
               ref={dayThreeRef}
               onClick={() => {
                 setCurrentPage(7)
