@@ -60,7 +60,6 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         setSlotData(response.data);
-        console.log(response.data);
       } catch (e: any) {
         toast.error(`Error fetching slot, please refresh`, { theme: "dark" });
       }
@@ -80,7 +79,6 @@ const endIndex = startIndex + slotsPerPage;
 
         setUserInfo(response.data);
       } catch (e) {
-        console.log(e);
       }
     };
     checkIfSlotBooked();
@@ -95,7 +93,6 @@ const endIndex = startIndex + slotsPerPage;
   };
 
   const handleConfirm = (slotId: any) => {
-    console.log(slotId);
 
     const changeSlot = async () => {
       try {
@@ -110,10 +107,8 @@ const endIndex = startIndex + slotsPerPage;
           payload,
           { headers }
         );
-        console.log(response);
         toast.success(`${response?.data?.message}`, { theme: "dark" });
       } catch (e: any) {
-        console.log(e);
         
         toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
       }
