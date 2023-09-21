@@ -234,14 +234,14 @@ useEffect( ()=>{
                 </span></div>
              <div>Visible: <span className={`${slot.toShow===true?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}>{slot?.toShow.toString()}</span></div>
             </div>
-          <p data-toshow={slot.toShow} data-slotid={slot.id}>{getTime(slot.startTime)} </p>
+          <p data-slotid={slot.id}>{getTime(slot.startTime)} </p>
           <div
             className="w-[1.5px] h-[20px] bg-white"
             data-slotid={slot.id}
           ></div>
           <p
             className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'}`}
-            data-slotid={slot.id} data-toshow={slot.toShow}
+            data-slotid={slot.id}
           >
             {slot?.availability} Slots
           </p>
