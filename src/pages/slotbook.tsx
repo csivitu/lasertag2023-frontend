@@ -90,6 +90,7 @@ const endIndex = startIndex + slotsPerPage;
         if (response?.data.slotBooked) {
           router.push("/profile");
         }
+       
       } catch (e: any) {
         const error = e?.response?.data.error;
         setErrorMsg(error);

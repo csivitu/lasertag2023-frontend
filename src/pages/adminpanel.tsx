@@ -10,21 +10,51 @@ import axios from "axios";
 const tektur = Tektur({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 import { getTime } from "@/helpers/dateAndTime";
+import Router from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function adminpanel(){
     const dayOneRef = useRef<HTMLDivElement>(null);
+    const router= useRouter()
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedSlotId, setSelectedSlotId]= useState('');
   const [selectSlotToShow,setSelectSlotToShow]= useState<boolean>(false)
   const [selectDay, setSelectDay] = useState<number>(22);
+  const [userData,setUserData]= useState(null)
 const [userEmailAssign,setUserEmailAssign] =useState("")
 const [userEmailCancel,setUserEmailCancel] =useState("")
 const [adminSlotData, setAdminSlotData] = useState([] as any[]);
 const [errorMessage,setErrorMessage] =useState<String>("")
 const token =Cookies.get('jwtToken')
+
+
+
+useEffect(()=>{
+  const checkScope=async ()=>{
+    try{
+      const headers={
+          "Authorization":`Bearer ${token}`,
+          "Content-Type":"application/json"
+      }
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/user-info`,{headers})
+          if(response.data.scope.trim()!="SUPERADMIN"){
+            if(response.data.scope.trim()!="ADMIN"){
+            toast.warn('Do not access this route, may cause a ban',{theme:'dark'})
+            router.push("/")   
+            }   
+          }
+          setUserData(response.data)
+          
+  }
+  catch(e:any){
+      setErrorMessage(e.response.data.error)
+  }
+  }
+checkScope()  
+},[]) 
 
 const handleAdminShowSlot=async ()=>{
     try{
@@ -45,7 +75,6 @@ const handleAdminShowSlot=async ()=>{
     }
     catch(e:any){
         setErrorMessage(e.response.data.error)
-        console.log()
         toast.error(e.response.data.error,{theme:'dark'})
     }
 }
@@ -106,10 +135,6 @@ useEffect( ()=>{
    fetchAdminSlot()
 }
 ,[])
-
-useEffect(()=>{
-    console.log(selectSlotToShow)
-},[selectSlotToShow])
 
     return (
         <main className="bg-black flex flex-col justify-between items-center gap-[3rem] min-h-screen overflow-x-hidden px-[2rem]">
