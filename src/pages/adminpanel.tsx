@@ -119,9 +119,10 @@ const handleAdminCancelSlot = async()=>{
         toast.success(response.data.message,{theme:'dark'})
     }
     catch(e:any){
+         toast.error(e.response.data.message,{theme:'dark'})
         setErrorMessage(e.response.data.message)
+        console.log(e)
         
-        toast.error(e.response.data.message,{theme:'dark'})
     }
 }
 
