@@ -279,7 +279,7 @@ useEffect( ()=>{
             </section>
              {/* Show Slot for user */}
             <section className="flex flex-col justify-center itmes-center text-white text-4xl w-[75%] gap-[1rem]">
-            Show selected slot for all users:
+            Show/Hide selected slot for all users:
             <button className={`w-[30%] px-[18px] py-[7px] rounded-[8px]  bg-slotBookTimeRed text-white transition-all duration-500 hover:scale-[105%] hover:text-gray-400 text-xl font-medium`} onClick={()=>{
                 handleAdminShowSlot()
             }}>
