@@ -22,6 +22,7 @@ export default function Adminpanel(){
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showBookedBy,setShowBookedBy]= useState<Boolean>(false)
   const [selectedSlotId, setSelectedSlotId]= useState('');
   const [selectSlotToShow,setSelectSlotToShow]= useState<boolean>(false)
   const [selectDay, setSelectDay] = useState<number>(22);
@@ -177,6 +178,7 @@ useEffect( ()=>{
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer  `}
               ref={dayTwoRef}
               onClick={() => {
+                setShowBookedBy(!showBookedBy)
                 setCurrentPage(3)
                 setSelectDay(23);
                 dayTwoRef.current?.classList.toggle(
@@ -214,10 +216,8 @@ useEffect( ()=>{
             </div>
             </div>
             <section className=" grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px] ">
-                    {adminSlotData
- 
- .map((slot, index) => {
-   
+                    {adminSlotData.map((slot, index) => {
+    console.log(slot)
    if (selectDay == getDayOfMonth(slot.startTime)) {
      return ((
         (  <div
@@ -253,7 +253,26 @@ useEffect( ()=>{
    }
  })}
             </section> 
+            <section className="flex flex-row justify-center items-center w-full text-white flex-wrap bg-slotBookDateColor rounded-[14px]">
+            {
+  adminSlotData.map((slot: any, index: number) => (
+    (selectedSlotId===slot.id)?(<div key={index} className="flex flex-col justify-center items-center bg-slotBookTime">
+    <p className="">
+      {`Slot Selected Day:${getDayOfMonth (slot.startTime)} Time: ${getTime(slot.startTime)}`}
+    </p>
+    {slot.slotBookedBy.map((userDetails: any, index: number) => (
+      <div key={index}>
+        {userDetails.name}
+      </div>
+    ))}
+  </div>):''
+    
+  ))
+}
 
+
+
+            </section>
              {/*Admin Assign slot */}
             <section className="flex flex-col justify-center itmes-center text-white text-4xl w-[75%] gap-[1rem]">
                 Assign Above Selected Slot to:
