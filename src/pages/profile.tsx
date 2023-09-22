@@ -256,7 +256,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  24th September (Coming Soon)
+                  24th September
                 </div>
                 
               </div>
