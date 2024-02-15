@@ -22,7 +22,7 @@ export default function Adminpanel(){
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [showBookedBy,setShowBookedBy]= useState<Boolean>(false)
+  const [showBookedBy,setShowBookedBy]= useState<boolean>(false)
   const [selectedSlotId, setSelectedSlotId]= useState('');
   const [selectSlotToShow,setSelectSlotToShow]= useState<boolean>(false)
   const [selectDay, setSelectDay] = useState<number>(22);
@@ -30,19 +30,21 @@ export default function Adminpanel(){
 const [userEmailAssign,setUserEmailAssign] =useState("")
 const [userEmailCancel,setUserEmailCancel] =useState("")
 const [adminSlotData, setAdminSlotData] = useState([] as any[]);
-const [errorMessage,setErrorMessage] =useState<String>("")
+const [errorMessage,setErrorMessage] =useState<string>("")
 const token =Cookies.get('jwtToken')
 
+
+useEffect(()=>{
+  
+},[])
 
 useEffect(()=>{
   Cookies.get('jwtToken')
   if(checkExpiry()){
     router.push('/login')
-    toast.error("Login First!!")
+    toast.error("Login Expired")
+    return;
   }
-},[])
-
-useEffect(()=>{
   const checkScope=async ()=>{
     try{
       const headers={
@@ -102,6 +104,7 @@ try{
     toast.success(response.data.message,{theme:'dark'})
 }
 catch(e:any){
+  console.log(e)
     setErrorMessage(e.response.data.error)
     toast.error(e.response.data.error,{theme:'dark'})
 }

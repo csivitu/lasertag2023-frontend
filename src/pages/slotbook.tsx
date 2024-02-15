@@ -9,10 +9,8 @@ const tektur = Tektur({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 import { getTime, getDayOfMonth } from "@/helpers/dateAndTime";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { SlowBuffer } from "buffer";
 
 export default function SlotBook() {
   const router = useRouter();
@@ -31,19 +29,12 @@ export default function SlotBook() {
   let totalPages = Math.ceil(slotData.length / slotsPerPage);
   const startIndex = (currentPage - 1) * slotsPerPage;
 const endIndex = startIndex + slotsPerPage;
-
-  
   const openModal = () => {
     setIsOpen(true);
   };
-
   const closeModal = () => {
     setIsOpen(false);
   };
-
- 
-
-
   const handleConfirm = () => {
     const bookSlot = async () => {
       try {

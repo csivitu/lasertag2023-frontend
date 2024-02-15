@@ -17,12 +17,25 @@ export default function Login() {
   const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const sendOtpButton = useRef<HTMLButtonElement>(null);
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState<String>("");
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleButtonClick = async (e: any) => {
     e.preventDefault();
     try {
+      if(email==''){
+        toast.error("Can't be empty", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
       const header = {
         "Content-Type": "application/json",
         method: "POST",
@@ -35,8 +48,6 @@ export default function Login() {
         payload,
         header
       );
-
-      
       toast.success("Sending OTP...", {
         position: "top-right",
         autoClose: 4000,
@@ -50,8 +61,7 @@ export default function Login() {
       router.push(`/verify?email=${email.toString().toLowerCase()}`);
     } catch (e: any) {
       setError(e?.response?.data.error);
-      const errorMessage = (e?.response?.data.error)!=undefined?e?.response?.data.error:e?.response?.data ;
-      
+      const errorMessage = (e?.response?.data.error)!=undefined?e?.response?.data.error:e?.response?.data ;   
       toast.error(`${errorMessage}`, {
         position: "top-right",
         autoClose: 4000,

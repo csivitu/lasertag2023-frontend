@@ -16,7 +16,10 @@ export default function Verify() {
   const router = useRouter();
   const email = router?.query.email?.toString();
   const [otp, setOtp] = useState<string>("");
-  const [error, setError] = useState<String>("");
+  const [error, setError] = useState<string>("");
+  useEffect(() => {
+    setOtp(otp);
+  }, [otp]);
 
   const handleButtonClick = async (e: any) => {
     try {
@@ -31,7 +34,6 @@ export default function Verify() {
         payload,
         { headers }
       );
-
       toast.success("Resent OTP...", {
         position: "top-right",
         autoClose: 4000,
@@ -60,18 +62,25 @@ export default function Verify() {
       });
     }
   };
-
-  useEffect(() => {
-    setOtp(otp);
-  }, [otp]);
-
   const handleOtpSubmit = async () => {
+    if(otp==''){
+      toast.error("OTP Can't be empty", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
     try {
       const header = {
         "Content-Type": "application/json",
         method: "POST",
       };
-
       const payload = {
         email: email,
         otp: otp,
@@ -83,7 +92,6 @@ export default function Verify() {
       );
       const token = response.data.token;
       Cookies.set("jwtToken", token, { expires: (7 * 24 * 60 * 60) / 24 });
-
       toast.success(`Logged In`, {
         position: "top-right",
         autoClose: 4000,
