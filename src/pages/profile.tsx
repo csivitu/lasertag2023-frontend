@@ -116,6 +116,7 @@ const endIndex = startIndex + slotsPerPage;
     changeSlot();
     closeModal();
   };
+ 
 
   return (
     <main className="overflow-x-hidden">
@@ -171,7 +172,7 @@ const endIndex = startIndex + slotsPerPage;
                 </div>
 
                 <button
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full transition-all duration-500 hover:scale-[105%] hover:text-white`}
+                  className={`${tektur.className} rounded-[14px] bg-[#93FD10] px-[24px] py-[20px] text-black font-medium w-full  transition-all duration-500 hover:scale-[105%] hover:text-white`}
                 >
                   {userInfo?.slotBooked?.startTime
                     ? getTime(userInfo?.slotBooked?.startTime)

@@ -16,7 +16,7 @@ export default function Logout() {
 
   return (
     <button
-      className={`${chakraPetch.className} rounded-[6px] font-semibold px-[1rem] py-[0.5rem] bg-slotBookTimeRed absolute top-5 right-5  transition-all duration-500 hover:scale-[105%] hover:text-black`}
+      className={`${chakraPetch.className} rounded-[6px] font-semibold px-[1rem] py-[0.5rem] bg-[#93FD10] text-black absolute top-5 right-5  transition-all duration-500 hover:scale-[105%] hover:text-black`}
       onClick={handleLogout}
     >
       Logout
