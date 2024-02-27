@@ -146,7 +146,7 @@ export default function Verify() {
         />
       </div>
 
-      <section className="bg-slotBookTimeRed laptopS:w-[50%] flex justify-center flex-col items-center mobile:w-full">
+      <section className="bg-[#93FD10] laptopS:w-[50%] flex justify-center flex-col items-center mobile:w-full">
         <div className="flex flex-col justify-center items-start gap-[48px] w-[75%]">
           <div className="flex flex-col justify-center items-start ">
             <h1
