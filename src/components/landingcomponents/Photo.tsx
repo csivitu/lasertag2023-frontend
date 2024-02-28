@@ -21,11 +21,11 @@ const Slideshow: React.FC = () => {
   };
 
   const imagePaths = [
-    "/landingassests/carouselassets/image1.svg",
-    "/landingassests/carouselassets/image2.svg",
-    "/landingassests/carouselassets/image3.svg",
-    "/landingassests/carouselassets/image4.svg",
-    "/landingassests/carouselassets/image5.svg",
+    "/landingassests/carouselassets/image1.webp",
+    "/landingassests/carouselassets/image2.webp",
+    "/landingassests/carouselassets/image3.webp",
+    "/landingassests/carouselassets/image4.webp",
+    "/landingassests/carouselassets/image5.webp",
   ]; // Define your image paths here
 
   return (
