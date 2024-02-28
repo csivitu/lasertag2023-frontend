@@ -137,13 +137,7 @@ export default function Verify() {
           />
         </div>
 
-        <Image
-          width={100}
-          height={100}
-          alt="man"
-          src="/login/man.svg"
-          className="w-[85%] absolute bottom-0 object-contain"
-        />
+       
       </div>
 
       <section className="bg-[#93FD10] laptopS:w-[50%] flex justify-center flex-col items-center mobile:w-full">

@@ -15,7 +15,7 @@ export default function FAQ() {
   return (
     <main
 
-      className={`${tektur.className}  bg-faq w-full h-screen flex  items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh]`}
+      className={`${tektur.className} bg-no-repeat bg-cover  bg-faq w-full h-screen flex  items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh]`}
 
         
 

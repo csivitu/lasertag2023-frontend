@@ -54,7 +54,7 @@ export default function Guide() {
   return (
     <>
       <div
-        className="bg-guide h-screen w-[100vw] flex flex-col justify-between  gap-8 py-[5vh]  "
+        className="bg-guide h-screen w-full bg-no-repeat bg-cover flex flex-col justify-between  gap-8 py-[5vh]  "
         id="guide"
       >
         <div className="flex flex-col items-center justify-around px-[1rem] ">

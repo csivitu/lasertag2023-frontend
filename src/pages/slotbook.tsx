@@ -22,7 +22,7 @@ export default function SlotBook() {
   const dayOneRef = useRef<HTMLDivElement>(null);
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
-  const [selectDay, setSelectDay] = useState<number>(22);
+  const [selectDay, setSelectDay] = useState<number>(29);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
   const [currentPage, setCurrentPage] = useState(1);
   const slotsPerPage = 10; 
@@ -158,7 +158,7 @@ const endIndex = startIndex + slotsPerPage;
               ref={dayOneRef}
               onClick={() => {
                 setCurrentPage(1)
-                setSelectDay(22);
+                setSelectDay(29);
                 dayOneRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
                 );
@@ -177,7 +177,7 @@ const endIndex = startIndex + slotsPerPage;
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
-                setSelectDay(23);
+                setSelectDay(1);
                 dayTwoRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
                 );
