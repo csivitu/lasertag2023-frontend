@@ -20,7 +20,7 @@ const Reminder:React.FC<ReminderProps> = () => {
     <main className='flex w-full bg-footer h-screen flex-row justify-center itmes-center'>
       <ToastContainer/>
     
-    <div className="relative w-full md:w-3/4 h-full py-[5vh]">
+    <div className="relative w-full md:w-3/4 h-full py-[5vh] ">
      
     <Image src='/reminder.svg' alt='Reminder' height={50} width={50} className="w-full h-auto" />
     <div className="flex-col absolute top-0 left-0 w-full h-full bg-black bg-opacity-5 flex justify-center items-center ">
