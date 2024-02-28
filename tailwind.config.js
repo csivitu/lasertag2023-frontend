@@ -42,6 +42,7 @@ module.exports = {
         faqBackground: 'url("/faqMain.svg")',
         leftArrow: 'url("/slotBookPage/Vector.svg")',
         rightArrow: 'url("/slotBookPage/Vector-1.svg")',
+        logo:'url("/landingassests/logo.svg")',
       },
 
       screens: {

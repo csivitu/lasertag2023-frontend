@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "tailwindcss/tailwind.css";
 import { Tektur } from "next/font/google";
+
 import Image from "next/image";
 const tektur = Tektur({ subsets: ["latin"] });
 
