@@ -14,7 +14,7 @@ export default function FAQ() {
 
   return (
     <main
-      className={`${tektur.className} flex justify-between items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh]`}
+      className={`${tektur.className} h-screen w-[100vw] flex justify-between items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh] bg-bgii`}
     >
       <p className="font-normal text-4xl text-[#FFF6E8] tracking-widest py-[4vh] px-[3vw] text-center" id="faq">
       Got Any Questions? We Have Answers.
