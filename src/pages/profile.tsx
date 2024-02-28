@@ -34,7 +34,7 @@ interface UserData {
 }
 
 export default function Profile() {
-  const router = useRouter()
+  const router = useRouter();
   const token = Cookies.get("jwtToken");
   const [userInfo, setUserInfo] = useState<UserData | null>(null);
   const [changeSlotClicked, setChangeSlotClicked] = useState<boolean>(false);
@@ -45,12 +45,13 @@ export default function Profile() {
   const [slotData, setSlotData] = useState([] as any[]);
   const [selectDay, setSelectDay] = useState<number>(29);
   const [isOpen, setIsOpen] = useState(false);
+  const [flag, setFlag] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const slotsPerPage = 10; 
+  const [slotChanged, setSlotChanged] = useState(true);
+  const slotsPerPage = 10;
   let totalPages = Math.ceil(slotData.length / slotsPerPage);
-const startIndex = (currentPage - 1) * slotsPerPage;
-const endIndex = startIndex + slotsPerPage;
- 
+  const startIndex = (currentPage - 1) * slotsPerPage;
+  const endIndex = startIndex + slotsPerPage;
 
   const onChangeClick = () => {
     const fetchSlot = async () => {
@@ -62,6 +63,7 @@ const endIndex = startIndex + slotsPerPage;
           `${process.env.NEXT_PUBLIC_API_ENDPOINT}/slot-info`,
           { headers }
         );
+
         setSlotData(response.data);
       } catch (e: any) {
         toast.error(`Error fetching slot, please refresh`, { theme: "dark" });
@@ -79,14 +81,11 @@ const endIndex = startIndex + slotsPerPage;
           `${process.env.NEXT_PUBLIC_API_ENDPOINT}/user-info`,
           { headers }
         );
-
         setUserInfo(response.data);
-      } catch (e) {
-      }
+      } catch (e) {}
     };
     checkIfSlotBooked();
-  }, []);
-
+  }, [slotChanged]);
   const openModal = () => {
     setIsOpen(true);
   };
@@ -96,9 +95,9 @@ const endIndex = startIndex + slotsPerPage;
   };
 
   const handleConfirm = (slotId: any) => {
-
     const changeSlot = async () => {
       try {
+        setSlotChanged(false);
         const headers = {
           Authorization: `Bearer ${token}`,
         };
@@ -110,18 +109,26 @@ const endIndex = startIndex + slotsPerPage;
           payload,
           { headers }
         );
+        if (response.status === 200) {
+          setSlotChanged(true);
+          setFlag(1);
+        }
         toast.success(`${response?.data?.message}`, { theme: "dark" });
-        setChangeSlotClicked(false)
-       
+        setChangeSlotClicked(false);
       } catch (e: any) {
-        
-        toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
+        toast.error(
+          `${
+            e?.response?.data?.error != undefined
+              ? e?.response?.data?.error
+              : e?.response?.data
+          }`,
+          { theme: "dark" }
+        );
       }
     };
     changeSlot();
     closeModal();
   };
- 
 
   return (
     <main className="overflow-x-hidden">
@@ -138,14 +145,12 @@ const endIndex = startIndex + slotsPerPage;
               <div className="flex justify-between items-center gap-[1rem] w-full">
                 <button
                   onClick={handleConfirm}
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%] transition-all duration-500 hover:hover:scale-[105%] hover:text-black`}
-                >
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeGreen px-[24px] py-[10px] text-white font-medium w-[50%] transition-all duration-500 hover:hover:scale-[105%] hover:text-black`}>
                   Confirm
                 </button>
                 <button
                   onClick={closeModal}
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-white font-medium w-[50%] ransition-all duration-500 hover:scale-[105%] hover:text-black`}
-                >
+                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-white font-medium w-[50%] ransition-all duration-500 hover:scale-[105%] hover:text-black`}>
                   Cancel
                 </button>
               </div>
@@ -155,8 +160,7 @@ const endIndex = startIndex + slotsPerPage;
         <main
           className={`${
             isOpen ? "blur-[3px]" : ""
-          } flex flex-col justify-center items-center bg-black w-full gap-[2rem] py-[2rem]`}
-        >
+          } flex flex-col justify-center items-center bg-black w-full gap-[2rem] py-[2rem]`}>
           <section className="flex flex-col justify-center items-center w-full gap-[2rem]">
             <h1 className={`${tektur.className} text-3xl font-bold text-white`}>
               Profile
@@ -164,42 +168,45 @@ const endIndex = startIndex + slotsPerPage;
             <div className="flex justify-around tab:items-center mobile:items-start laptopS:w-[50%] tab:w-[75%] mobile:w-[90%] tab:flex-row mobile:flex-col mobile:gap-[2rem]">
               <div className="flex justify-center tab:items-start flex-col gap-[1rem] mobile:items-start mobile:w-full tab:w-[90%]">
                 <div className="flex justify-center items-end flex-row gap-[1rem]">
-                  <h1 className={`${tektur.className} text-4xl text-white`}>Your Slot</h1>
+                  <h1 className={`${tektur.className} text-4xl text-white`}>
+                    Your Slot
+                  </h1>
                   <p
                     className={`${tektur.className} text-l underline text-white cursor-pointer`}
                     onClick={() => {
                       setChangeSlotClicked(!changeSlotClicked);
                       onChangeClick();
-                    }}
-                  >
-                    {changeSlotClicked?"profile":"change slot"}
+                    }}>
+                    {changeSlotClicked ? "profile" : "change slot"}
                   </p>
                 </div>
 
-                <button
-                  className={`${tektur.className} rounded-[14px] bg-[#93FD10] px-[24px] py-[20px] text-black font-medium w-full  transition-all duration-500 hover:scale-[105%] hover:text-white`}
-                >
-                  {userInfo?.slotBooked?.startTime
-                    ? getTime(userInfo?.slotBooked?.startTime)
-                    : ""}{" "}
-                  ,
-                  {userInfo?.slotBooked?.startTime
-                    ? getDayOfMonth(userInfo?.slotBooked?.startTime)
-                    : ""}{" "}
-                  Sept
-                </button>
+                {slotChanged && (
+                  <button
+                    className={`${tektur.className} rounded-[14px] bg-[#93FD10] px-[24px] py-[20px] text-black font-medium w-full  transition-all duration-500 hover:scale-[105%] hover:text-white`}>
+                    {userInfo?.slotBooked?.startTime
+                      ? getTime(userInfo?.slotBooked?.startTime)
+                      : ""}{" "}
+                    ,
+                    {userInfo?.slotBooked?.startTime
+                      ? getDayOfMonth(userInfo?.slotBooked?.startTime)
+                      : ""}{" "}
+                    Sept
+                  </button>
+                )}
               </div>
 
               <div className="bg-white  w-[2px] h-[150px] mobile:hidden tab:block"></div>
 
               <div className="flex justify-center items-start flex-col gap-[1rem] mobile:w-[100%] tab:w-[50%]">
-                
-
                 <div className="flex justify-center items-start flex-col">
-                  <h2 className={`${tektur.className} text-2xl font-medium text-white`}>
+                  <h2
+                    className={`${tektur.className} text-2xl font-medium text-white`}>
                     Email
                   </h2>
-                  <p className={`${tektur.className} text-white`}>{userInfo?.email}</p>
+                  <p className={`${tektur.className} text-white`}>
+                    {userInfo?.email}
+                  </p>
                 </div>
               </div>
             </div>
@@ -212,7 +219,7 @@ const endIndex = startIndex + slotsPerPage;
                   ref={dayOneRef}
                   onClick={() => {
                     setSelectDay(29);
-                    setCurrentPage(1)
+                    setCurrentPage(1);
                     dayOneRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -222,8 +229,7 @@ const endIndex = startIndex + slotsPerPage;
                     dayThreeRef.current?.classList.remove(
                       "bg-slotBookDateColorHover"
                     );
-                  }}
-                >
+                  }}>
                   29 February
                 </div>
                 <div
@@ -231,7 +237,7 @@ const endIndex = startIndex + slotsPerPage;
                   ref={dayTwoRef}
                   onClick={() => {
                     setSelectDay(1);
-                    setCurrentPage(3)
+                    setCurrentPage(3);
                     dayTwoRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -241,16 +247,15 @@ const endIndex = startIndex + slotsPerPage;
                     dayThreeRef.current?.classList.remove(
                       "bg-slotBookDateColorHover"
                     );
-                  }}
-                >
-                  1st March 
+                  }}>
+                  1st March
                 </div>
                 <div
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer `}
                   ref={dayThreeRef}
                   onClick={() => {
                     setSelectDay(2);
-                    setCurrentPage(7)
+                    setCurrentPage(7);
                     dayThreeRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
                     );
@@ -260,64 +265,67 @@ const endIndex = startIndex + slotsPerPage;
                     dayTwoRef.current?.classList.remove(
                       "bg-slotBookDateColorHover"
                     );
-                  }}
-                >
+                  }}>
                   2nd March
                 </div>
-                
               </div>
               <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px] mobile:grid-cols-2">
-              {slotData
+                {slotData.map((slot, index) => {
+                  if (selectDay == getDayOfMonth(slot.startTime)) {
+                    return slot.isCarry ? (
+                      ""
+                    ) : slot.toShow ? (
+                      <div
+                        className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center  transition-all duration-500 hover:hover:scale-[105%] hover:text-black cursor-pointer`}
+                        key={index}
+                        onClick={(event: any) => {
+                          setSelectSlotId(event.target.dataset.slotid);
 
-  .map((slot, index) => {
-    if (selectDay == getDayOfMonth(slot.startTime)) {
-      return slot.isCarry ? (
-        ""
-      ) : (
-       slot.toShow?( <div
-        className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center  transition-all duration-500 hover:hover:scale-[105%] hover:text-black cursor-pointer`}
-        key={index}
-        onClick={(event: any) => {
-          setSelectSlotId(event.target.dataset.slotid);
-
-          openModal(); }}
-        data-slotid={slot.id}
-      >
-        <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-        <div
-          className="w-[1.5px] h-[20px] bg-white"
-          data-slotid={slot.id}
-        ></div>
-        <p
-          className={` ${chakraPetch.className} ${slot?.availability >0 ?'text-slotBookTimeGreen':'text-slotBookTimeRed'} `}
-          data-slotid={slot.id}
-        >
-          {slot?.availability} Slots
-        </p>
-      </div>):'Slots not currently available'
-      );
-    }
-  })}
+                          openModal();
+                        }}
+                        data-slotid={slot.id}>
+                        <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+                        <div
+                          className="w-[1.5px] h-[20px] bg-white"
+                          data-slotid={slot.id}></div>
+                        <p
+                          className={` ${chakraPetch.className} ${
+                            slot?.availability > 0
+                              ? "text-slotBookTimeGreen"
+                              : "text-slotBookTimeRed"
+                          } `}
+                          data-slotid={slot.id}>
+                          {slot?.availability} Slots
+                        </p>
+                      </div>
+                    ) : (
+                      "Slots not currently available"
+                    );
+                  }
+                })}
               </section>
-            
             </section>
           ) : (
             ""
           )}
         </main>
-        
-       {(changeSlotClicked===true)?'':( <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
-          <Image
-            width={100}
-            height={100}
-            alt=""
-            src={`/gifs/2.webp`}
-            className={"tab:w-4/12  tab:block mobile:w-[90%]"}
-          />
-          <h1 className={`${chakraPetch.className} text-2xl`}>
-            See ya at the venue Soldier
-          </h1>
-        </div>)}
+
+        {changeSlotClicked === true ? (
+          ""
+        ) : (
+          <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
+            <Image
+              width={100}
+              height={100}
+              alt=""
+              src={`/gifs/2.webp`}
+              className={"tab:w-4/12  tab:block mobile:w-[90%]"}
+            />
+            <h1 className={`${chakraPetch.className} text-2xl`}>
+              See ya at the venue Soldier
+            </h1>
+          </div>
+        )}
       </main>
     </main>
   );
