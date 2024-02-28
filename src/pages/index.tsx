@@ -36,7 +36,7 @@ export default function Landing() {
 
   return (
     <>
-      <main className="bg-event font-athiti flex justify-between items-center flex-col overflow-x-hidden  overflow-hidden">
+      <main className="bg-event  flex justify-between items-center flex-col overflow-x-hidden  overflow-hidden">
         <section className="w-full h-[100vh] flex flex-col justify-between items-center  overflow-hidden">
           <Navbar />
           <div className="absolute top-[50%] h-full left-[50%] translate-y-[-50%] translate-x-[-50%] flex justify-between items-center overflow-hidden">
