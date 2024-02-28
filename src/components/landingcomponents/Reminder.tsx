@@ -17,10 +17,13 @@ type ReminderProps = {
 const Reminder:React.FC<ReminderProps> = () => {
     const router =useRouter();
   return (
-    <main className='flex h-screen flex-row justify-center itmes-center'>
+
+ 
+    <main className='flex flex-row justify-center itmes-center bg-bgi h-screen w-[100vw]'>
+
       <ToastContainer/>
     
-    <div className="relative w-full md:w-3/4 h-full py-[5vh]">
+    <div className="relative w-full md:w-3/4 h-full py-[5vh] ">
      
     <Image src='/reminder.svg' alt='Reminder' height={50} width={50} className="w-full h-auto" />
     <div className="flex-col absolute top-0 left-0 w-full h-full bg-black bg-opacity-5 flex justify-center items-center ">
