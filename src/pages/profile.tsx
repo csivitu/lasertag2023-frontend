@@ -9,7 +9,7 @@ import { getDayOfMonth, getTime } from "@/helpers/dateAndTime";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logout from "@/components/Logout";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const tektur = Tektur({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
@@ -34,6 +34,7 @@ interface UserData {
 }
 
 export default function Profile() {
+  const router = useRouter()
   const token = Cookies.get("jwtToken");
   const [userInfo, setUserInfo] = useState<UserData | null>(null);
   const [changeSlotClicked, setChangeSlotClicked] = useState<boolean>(false);
@@ -49,7 +50,7 @@ export default function Profile() {
   let totalPages = Math.ceil(slotData.length / slotsPerPage);
 const startIndex = (currentPage - 1) * slotsPerPage;
 const endIndex = startIndex + slotsPerPage;
-  const router = useRouter();
+ 
 
   const onChangeClick = () => {
     const fetchSlot = async () => {
@@ -110,7 +111,7 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         toast.success(`${response?.data?.message}`, { theme: "dark" });
-        router.push('/profile');
+        setChangeSlotClicked(false)
        
       } catch (e: any) {
         
@@ -171,7 +172,7 @@ const endIndex = startIndex + slotsPerPage;
                       onChangeClick();
                     }}
                   >
-                    Change Slot
+                    {changeSlotClicked?"profile":"change slot"}
                   </p>
                 </div>
 

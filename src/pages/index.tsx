@@ -48,7 +48,7 @@ export default function Landing() {
               className="laptopS:w-[100%] overflow-hidden tab:w-[70vw] mobile:w-[580px] mobile:h-[260px]"
             />
             <button
-              className={`${tektur.className} rounded-full tab:w-[250px] tab:h-[60px] bg-[#93FD10] font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black left-[50%] translate-x-[-50%] laptopS:translate-x-[-52%] mobile:w-[250px] mobile:h-[60px]`}
+              className={`${tektur.className} md:mt-4 rounded-full tab:w-[250px] tab:h-[60px] bg-[#93FD10] font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black left-[50%] translate-x-[-50%] laptopS:translate-x-[-52%] mobile:w-[250px] mobile:h-[60px]`}
               onClick={handleCTAClick}
               ref={ctaRef}
               suppressHydrationWarning

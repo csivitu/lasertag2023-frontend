@@ -50,7 +50,7 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         toast.success(response.data.message, { theme: "dark" });
-        router.push("/profile");
+        
       } catch (e: any) {
         const error = e.response.data.error;
         toast.error(error, { theme: "dark" });
@@ -221,7 +221,7 @@ const endIndex = startIndex + slotsPerPage;
         ""
       ) : (
         slot.toShow?(  <div
-          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          className={` cursor-pointer gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
           key={index}
           onClick={handleSlotClick}
           data-slotid={slot.id}
