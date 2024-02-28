@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+//million-ignore
 export default function SlotBook() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +58,7 @@ const endIndex = startIndex + slotsPerPage;
         setErrorMsg(error);
       }
     };
+    router.push('/profile');
     bookSlot();
     closeModal();
   };
@@ -173,7 +175,7 @@ const endIndex = startIndex + slotsPerPage;
               29th February 
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
+              className={` cursor-pointer bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
@@ -192,7 +194,7 @@ const endIndex = startIndex + slotsPerPage;
               1st March  
             </div>
             <div
-              className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
+              className={` cursor-pointer bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
               ref={dayThreeRef}
               onClick={() => {
                 setCurrentPage(7)
@@ -212,11 +214,14 @@ const endIndex = startIndex + slotsPerPage;
               2nd March 
             </div>
           </div>
-          <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
-          {slotData
+          <section className=" text-white grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
+         {
+          (selectDay == 29)? slotData
  
   .map((slot, index) => {
-    if (selectDay == getDayOfMonth(slot.startTime)) {
+    
+    
+    if ((selectDay == getDayOfMonth(slot.startTime) && (selectDay== 29))) {
       return (slot.isCarry)? (
         ""
       ) : (
@@ -237,10 +242,12 @@ const endIndex = startIndex + slotsPerPage;
           >
             {slot?.availability} Slots
           </p>
-        </div>):'Slots not available currently'
+        </div>):<p className = "text-white">Slots not available</p>
       );
+    }else{
+      <p className="text-white">Slots not available</p>
     }
-  })}
+  }): <p className = "text-white w-full flex justify-center">Slots not available</p>}
 
           </section>
         </section>
