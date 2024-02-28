@@ -34,19 +34,19 @@ export default function Landing() {
   }, []);
 
   return (
-    <main className="bg-black font-athiti flex justify-between items-center flex-col overflow-x-hidden gap-[3rem] overflow-hidden">
+    <main className="bg-event  font-athiti flex justify-between items-center flex-col overflow-x-hidden gap-[3rem] overflow-hidden">
       <section className="w-full h-[101vh] flex flex-col justify-between items-center  overflow-hidden">
         <Navbar />
-        <div className="relative flex justify-center items-center overflow-hidden">
+        <div className="absolute top-[50%] h-full left-[50%] translate-y-[-50%] translate-x-[-50%] flex justify-between items-center overflow-hidden">
           <Image
             width={100}
             height={100}
             alt="LogoLaserTag"
-            src="/lasertaglogo.webp"
+            src="/lasertaglogo.svg"
             className="laptopS:w-[100%] overflow-hidden tab:w-[70vw] mobile:w-[580px] mobile:h-[260px]"
           />
           <button
-            className={`${tektur.className} tab:w-[250px] tab:h-[60px] bg-buttonImg font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black left-[50%] translate-x-[-50%] laptopS:translate-x-[-52%] mobile:w-[250px] mobile:h-[60px]`}
+            className={`${tektur.className} rounded-full tab:w-[250px] tab:h-[60px] bg-[#93FD10] font-bold text-xl object-fill absolute top-[70%] bg-no-repeat text-black left-[50%] translate-x-[-50%] laptopS:translate-x-[-52%] mobile:w-[250px] mobile:h-[60px]`}
             onClick={handleCTAClick}
             ref={ctaRef}
             suppressHydrationWarning
@@ -55,7 +55,7 @@ export default function Landing() {
           </button>
         </div>
 
-        <Marquee />
+       
       </section>
 
       <Photo />

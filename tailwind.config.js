@@ -43,6 +43,7 @@ module.exports = {
         leftArrow: 'url("/slotBookPage/Vector.svg")',
         rightArrow: 'url("/slotBookPage/Vector-1.svg")',
         logo:'url("/landingassests/logo.svg")',
+        event:'url("/EVENT.svg")',
       },
 
       screens: {
