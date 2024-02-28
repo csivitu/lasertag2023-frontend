@@ -58,8 +58,9 @@ const endIndex = startIndex + slotsPerPage;
         setErrorMsg(error);
       }
     };
-    router.push('/profile');
+   
     bookSlot();
+    router.push('/profile');
     closeModal();
   };
 

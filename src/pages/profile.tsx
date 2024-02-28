@@ -124,7 +124,7 @@ const endIndex = startIndex + slotsPerPage;
  
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden bg-black">
       <ToastContainer className={"="} />
 
       <main className="relative flex justify-center items-center flex-col overflow-x-hidden">
