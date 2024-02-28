@@ -16,6 +16,9 @@ module.exports = {
       bookNowButtonY: "14px",
     },
     extend: {
+      fontFamily: {
+        weird: ['var(--font-weird)'],
+      },
       fontSize: {
         slotBookDateFontSize: "24px",
         slotBookHeadingFontSize: "32px",
