@@ -46,12 +46,13 @@ module.exports = {
         leftArrow: 'url("/slotBookPage/Vector.svg")',
         rightArrow: 'url("/slotBookPage/Vector-1.svg")',
         logo:'url("/landingassests/logo.svg")',
-        event:'url("/EVENT.svg")',
-        content:'url("/content.svg")',
-        guide:'url("/guide.svg")',
-        gallery:'url("/Gallery.svg")',
-        faq:'url("/FAQ.svg")',
-        footer:'url("/footer.svg")'
+        event:'url("/EVENT.webp")',
+        content:'url("/content.webp")',
+        guide:'url("/guide.webp")',
+        gallery:'url("/Gallery.webp")',
+        faq:'url("/FAQ.webp")',
+        footer:'url("/footer.webp")',
+        landing:'url("/landing.webp")'
       
 
       },
