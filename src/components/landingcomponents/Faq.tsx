@@ -35,7 +35,7 @@ export default function FAQ() {
                 ? "max-h-[1000px] my-[1vh] pt-[1vh]"
                 : "max-h-0 overflow-hidden"
             }`}>
-            Everyone on campus (sorry, third years) is welcome to participate.
+            Everyone on campus is welcome to participate.
           </div>
         </div>
         <div
