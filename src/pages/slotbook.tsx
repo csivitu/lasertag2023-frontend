@@ -60,8 +60,9 @@ const endIndex = startIndex + slotsPerPage;
     };
    
     bookSlot();
-    router.push('/profile');
+    
     closeModal();
+    router.push('/profile');
   };
 
   const handleSlotClick = (event: any) => {
