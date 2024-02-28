@@ -294,7 +294,7 @@ const endIndex = startIndex + slotsPerPage;
         >
           {slot?.availability} Slots
         </p>
-      </div>):''
+      </div>):'Slots not currently available'
       );
     }
   })}
