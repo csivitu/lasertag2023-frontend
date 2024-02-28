@@ -22,7 +22,7 @@ export default function SlotBook() {
   const dayOneRef = useRef<HTMLDivElement>(null);
   const dayTwoRef = useRef<HTMLDivElement>(null);
   const dayThreeRef = useRef<HTMLDivElement>(null);
-  const [selectDay, setSelectDay] = useState<number>(22);
+  const [selectDay, setSelectDay] = useState<number>(29);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
   const [currentPage, setCurrentPage] = useState(1);
   const slotsPerPage = 10; 
@@ -50,7 +50,7 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         toast.success(response.data.message, { theme: "dark" });
-        router.push("/profile");
+        
       } catch (e: any) {
         const error = e.response.data.error;
         toast.error(error, { theme: "dark" });
@@ -158,7 +158,7 @@ const endIndex = startIndex + slotsPerPage;
               ref={dayOneRef}
               onClick={() => {
                 setCurrentPage(1)
-                setSelectDay(22);
+                setSelectDay(29);
                 dayOneRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
                 );
@@ -170,14 +170,14 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              22nd September 
+              29th February 
             </div>
             <div
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
               ref={dayTwoRef}
               onClick={() => {
                 setCurrentPage(3)
-                setSelectDay(23);
+                setSelectDay(1);
                 dayTwoRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
                 );
@@ -189,7 +189,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              23rd September  
+              1st March  
             </div>
             <div
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
@@ -209,7 +209,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              24th September 
+              2nd March 
             </div>
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
@@ -221,7 +221,7 @@ const endIndex = startIndex + slotsPerPage;
         ""
       ) : (
         slot.toShow?(  <div
-          className={`gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+          className={` cursor-pointer gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
           key={index}
           onClick={handleSlotClick}
           data-slotid={slot.id}

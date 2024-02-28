@@ -89,16 +89,16 @@ export default function Login() {
           />
         </div>
 
-        <Image
+        {/* <Image
           width={100}
           height={100}
           alt="man"
           src="/login/man.svg"
           className="w-[85%] absolute bottom-0 object-contain mobile:hidden laptopS:block"
-        />
+        /> */}
       </div>
 
-      <section className="bg-slotBookTimeRed laptopS:w-[50%] flex justify-center flex-col items-center tab:w-full">
+      <section className="bg-[#93FD10] laptopS:w-[50%] flex justify-center flex-col items-center tab:w-full">
         <div className="flex flex-col justify-center items-start gap-[48px] w-[75%]">
           <div className="flex flex-col justify-center items-start ">
             <h1
@@ -117,11 +117,11 @@ export default function Login() {
             <h2
               className={`${tektur.className} text-black font-semibold text-slotBookDateFontSize`}
             >
-              Gravitas Registered Email Address
+              Riviera Registered Email Address
             </h2>
             <input
               type="text"
-              className={`${chakraPetch.className} bg-transparent  text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`}
+              className={`${chakraPetch.className} bg-transparent outline-none text-black border-b-black border-transparent border-[2px] w-full  placeholder-[#222222]`}
               placeholder="studentname@vit.ac.in"
               ref={emailRef}
               value={email}

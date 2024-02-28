@@ -54,17 +54,17 @@ export default function Guide() {
   return (
     <>
       <div
-        className="bg-black flex flex-col justify-between w-3/4 gap-8 py-[5vh]  "
+        className="bg-guide h-screen w-full bg-no-repeat bg-cover flex flex-col justify-between  gap-8 py-[5vh]  "
         id="guide"
       >
         <div className="flex flex-col items-center justify-around px-[1rem] ">
           <div className="px-4 lg:px-36 xl:px-36 py-14 w-full">
             <div className="flex flex-col items-center w-full">
               <div
-                className={`text-white text-center ${tektur.className} font-medium  text-[#FFF6E8]  text-4xl px-6 md:px-12 lg:px-24 xl:px-32 pb-8 md:pb-16 w-full`}
+                className={`text-white  flex justify-center text-center ${tektur.className} font-medium    text-4xl px-6 md:px-12  lg:px-24 xl:px-32 pb-8 md:pb-16 w-full`}
               >
-                <p className="text-[#FFF6E8] py-[4vh] ">
-                  Get All The Event Details Right Here
+                <p className="bg-white text-black w-full border-4 border-black md:w-1/3 py-[4vh] font-bold rounded-lg  ">
+                  Remember Morty
                 </p>
               </div>
               <div
@@ -72,7 +72,7 @@ export default function Guide() {
               >
                 <div
                   ref={divRef}
-                  className={`flex flex-col justify-center items-center relative text-[#FFF6E8]  border-[#EA1429] px-6 md:px-12 lg:px-24 py-12 xl:py-48 lg:py-48 py-[8px]  overflow-hidden px-[1rem] mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
+                  className={`flex flex-col justify-center items-center relative text-black  border-black bg-white px-6 md:px-12 lg:px-24 py-12 xl:py-48 lg:py-48 py-[8px]  overflow-hidden px-[1rem] mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
                     div1 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1
@@ -83,7 +83,7 @@ export default function Guide() {
                 >
                   Slot Booking
                   <p
-                    className={`text-lg transition-opacity text-[#FFF6E8]  duration-500 ${
+                    className={`text-lg transition-opacity  duration-500 ${
                       div1 === 1
                         ? "fade-in opacity-100 block"
                         : "fade-out opacity-0 hidden"
@@ -99,7 +99,7 @@ export default function Guide() {
                 </div>
                 <div
                   ref={divRef}
-                  className={`flex flex-col justify-center items-center relative text-[#FFF6E8]  border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-[8px] overflow-hidden px-[1rem] md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
+                  className={`flex flex-col justify-center items-center relative  text-black  border-black bg-white  border-2  px-6 md:px-12 lg:px-24 xl:px-18 py-[8px] overflow-hidden px-[1rem] md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3 ${
                     div2 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1
@@ -158,7 +158,7 @@ export default function Guide() {
                 </div>
                 <div
                   ref={divRef}
-                  className={`flex flex-col justify-center relative items-center text-[#FFF6E8]  border-2 border-[#EA1429] px-6 md:px-12 lg:px-24 xl:px-18 py-8 md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3  py-[8px] px-[1rem] ${
+                  className={`flex flex-col justify-center relative items-center  text-black  border-black bg-white   border-2  px-6 md:px-12 lg:px-24 xl:px-18 py-8 md:py-48 mx-2 my-2 md:my-0 lg:my-0 xl:my-0 w-full lg:w-1/3  py-[8px] px-[1rem] ${
                     div3 === 1
                       ? `xl:w-full transition-all duration-500 ease-in-out xl:px-24 border-8`
                       : out === 1
@@ -169,7 +169,7 @@ export default function Guide() {
                 >
                   How To Contact Us
                   <p
-                    className={`text-lg text-[#FFF6E8] transition-opacity duration-500 ${
+                    className={`text-lg transition-opacity duration-500 ${
                       div3 === 1
                         ? "fade-in opacity-100 block"
                         : "fade-out opacity-0 hidden"

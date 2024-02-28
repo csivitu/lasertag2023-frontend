@@ -14,19 +14,23 @@ export default function FAQ() {
 
   return (
     <main
-      className={`${tektur.className} flex justify-between items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh]`}
+
+      className={`${tektur.className} bg-no-repeat bg-cover  bg-faq w-full h-screen flex  items-center flex-col gap-[2rem] bg-black text-white py-[10vh] pb-[5vh]`}
+
+        
+
     >
-      <p className="font-normal text-4xl text-[#FFF6E8] tracking-widest py-[4vh] px-[3vw] text-center" id="faq">
+      <p className="font-bold text-4xl text-black tracking-widest py-[4vh] px-[3vw] text-center" id="faq">
       Got Any Questions? We Have Answers.
       </p>
       <section className="flex flex-col justify-center items-center  font-semibold laptopS:w-[90%] gap-[1rem] tab:w-[100%]">
         <div
-          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat bg-cover p-[14px] mobile:w-[85%] box-content text-left"
+          className="flex flex-col justify-center items-start bg-faqBackground tab:w-[75%] bg-no-repeat  p-[14px] mobile:w-[85%] box-content text-left"
           onClick={() => {
             setExpand1(!expand1);
           }}
         >
-          <p className="text-lg text-[#FFF6E8] ">Who can participate in LaserTag?</p>
+          <p className="text-lg text-[#FFF6E8]  ">Who can participate in LaserTag?</p>
           <div
             className={`font-normal text-[#FFF6E8]  text-l transition-all duration-500 ease-in-out ${
               expand1 ? "max-h-[1000px] my-[1vh]" : "max-h-0 overflow-hidden"

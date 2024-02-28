@@ -9,6 +9,8 @@ import { getDayOfMonth, getTime } from "@/helpers/dateAndTime";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logout from "@/components/Logout";
+import { useRouter } from "next/navigation";
+
 const tektur = Tektur({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({ weight: "300", subsets: ["latin"] });
 
@@ -32,6 +34,7 @@ interface UserData {
 }
 
 export default function Profile() {
+  const router = useRouter()
   const token = Cookies.get("jwtToken");
   const [userInfo, setUserInfo] = useState<UserData | null>(null);
   const [changeSlotClicked, setChangeSlotClicked] = useState<boolean>(false);
@@ -40,14 +43,14 @@ export default function Profile() {
   const dayThreeRef = useRef<HTMLDivElement>(null);
   const [selectSlotId, setSelectSlotId] = useState<String>("");
   const [slotData, setSlotData] = useState([] as any[]);
-  const [selectDay, setSelectDay] = useState<number>(22);
+  const [selectDay, setSelectDay] = useState<number>(29);
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const slotsPerPage = 10; 
   let totalPages = Math.ceil(slotData.length / slotsPerPage);
 const startIndex = (currentPage - 1) * slotsPerPage;
 const endIndex = startIndex + slotsPerPage;
-
+ 
 
   const onChangeClick = () => {
     const fetchSlot = async () => {
@@ -108,6 +111,8 @@ const endIndex = startIndex + slotsPerPage;
           { headers }
         );
         toast.success(`${response?.data?.message}`, { theme: "dark" });
+        setChangeSlotClicked(false)
+       
       } catch (e: any) {
         
         toast.error(`${(e?.response?.data?.error!=undefined ?e?.response?.data?.error:e?.response?.data)}`, { theme: "dark" });
@@ -116,6 +121,7 @@ const endIndex = startIndex + slotsPerPage;
     changeSlot();
     closeModal();
   };
+ 
 
   return (
     <main className="overflow-x-hidden">
@@ -166,12 +172,12 @@ const endIndex = startIndex + slotsPerPage;
                       onChangeClick();
                     }}
                   >
-                    Change Slot
+                    {changeSlotClicked?"profile":"change slot"}
                   </p>
                 </div>
 
                 <button
-                  className={`${tektur.className} rounded-[14px] bg-slotBookTimeRed px-[24px] py-[10px] text-black font-medium w-full transition-all duration-500 hover:scale-[105%] hover:text-white`}
+                  className={`${tektur.className} rounded-[14px] bg-[#93FD10] px-[24px] py-[20px] text-black font-medium w-full  transition-all duration-500 hover:scale-[105%] hover:text-white`}
                 >
                   {userInfo?.slotBooked?.startTime
                     ? getTime(userInfo?.slotBooked?.startTime)
@@ -205,7 +211,7 @@ const endIndex = startIndex + slotsPerPage;
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem]  transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer`}
                   ref={dayOneRef}
                   onClick={() => {
-                    setSelectDay(22);
+                    setSelectDay(29);
                     setCurrentPage(1)
                     dayOneRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
@@ -218,13 +224,13 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  22nd September 
+                  29 February
                 </div>
                 <div
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px]  tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer `}
                   ref={dayTwoRef}
                   onClick={() => {
-                    setSelectDay(23);
+                    setSelectDay(1);
                     setCurrentPage(3)
                     dayTwoRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
@@ -237,13 +243,13 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  23rd September 
+                  1st March 
                 </div>
                 <div
                   className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] tab:px-[56px] tab:py-[24px] tab:text-slotBookDateFontSize flex-1 text-center mobile:py-[0.5rem] transition-all duration-500 hover:scale-[105%] hover:text-black cursor-pointer `}
                   ref={dayThreeRef}
                   onClick={() => {
-                    setSelectDay(24);
+                    setSelectDay(2);
                     setCurrentPage(7)
                     dayThreeRef.current?.classList.toggle(
                       "bg-slotBookDateColorHover"
@@ -256,7 +262,7 @@ const endIndex = startIndex + slotsPerPage;
                     );
                   }}
                 >
-                  24th September
+                  2nd March
                 </div>
                 
               </div>
