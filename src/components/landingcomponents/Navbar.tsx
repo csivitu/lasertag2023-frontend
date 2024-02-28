@@ -30,7 +30,7 @@ export default function Navbar() {
      
       
 
-        <div className=" absolute top-0 rounded-full  w-fit bg-[#252525] text-[#93FD10] flex text-xl items-center right-0 z-10 mobile:translate-y-1/3 tab:translate-y-1/2">
+        <div className=" absolute top-0 rounded-full  bg-[#252525] text-[#93FD10] flex text-xl items-center right-0 z-10 mobile:translate-y-1/3 tab:translate-y-1/2">
           <div className={` tab:flex  justify-end ml-10 mr-0 ${tektur.className} font-medium mobile:hidden`}>
             <Link href="/#faq">
             <button className="hover:underline hover:rounded-full py-[0.5rem] px-[1rem] mr-20 transition-all duration-500">

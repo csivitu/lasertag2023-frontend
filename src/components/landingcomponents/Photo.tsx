@@ -30,15 +30,17 @@ const Slideshow: React.FC = () => {
 
   return (
     <>
-      <div className={`${tektur.className} text-[#FFF6E8] font-medium lg:text-4xl text-3xl text-center tracking-widest px-[2vw]`}>
+      <div className={`  ${tektur.className} text-[#FFF6E8] font-medium lg:text-4xl text-3xl text-center tracking-widest px-[2vw]`}>
         A Thrilling Multiplayer Shooting Experience{" "}
       </div>
-      <div className={`${tektur.className} text-[#FFF6E8] font-normal lg:text-lg text-xl text-center px-[3vw]`}>
+      
+      <div className={` ${tektur.className} text-[#FFF6E8] font-normal lg:text-lg text-xl text-center px-[3vw]`}>
         Laser Tag offers you a chance to step onto the arena for a thrilling
         multi-player experience. <br />
         Don your vests and have your guns at the ready, maximize hits to climb
         up the leaderboard!
       </div>
+      <main className = "bg-gallery w-[100vw] h-screen mt-10 flex justify-center  items-center">
       <div className="lg:w-[80vw] mt-[2vh]" id="gallery">
         <div
           className=" mx-auto relative px-[2vw]"
@@ -60,7 +62,7 @@ const Slideshow: React.FC = () => {
                     alt={`Image ${index}`}
                     width={200} // Adjust the width and height as needed
                     height={200}
-                    className="border-2 border-red-500" 
+                    className="border-2 border-[#93FD10]" 
                   />
                 </div>
                 <div className="flex items-center">
@@ -69,7 +71,7 @@ const Slideshow: React.FC = () => {
                     alt={`Image ${index + 1}`}
                     width={400} // Adjust the width and height as needed
                     height={400}
-                    className="border-2 border-red-500" 
+                    className="border-2 border-[#93FD10]" 
                   />
                 </div>
                 <div className="flex items-center">
@@ -78,7 +80,7 @@ const Slideshow: React.FC = () => {
                     alt={`Image ${index + 2}`}
                     width={600} // Adjust the width and height as needed
                     height={600}
-                    className="border-2 border-red-500" 
+                    className="border-2 border-[#93FD10]" 
                   />
                 </div>
                 <div className="flex items-center">
@@ -87,7 +89,7 @@ const Slideshow: React.FC = () => {
                     alt={`Image ${index + 3}`}
                     width={400} // Adjust the width and height as needed
                     height={400}
-                    className="border-2 border-red-500" 
+                    className="border-2 border-[#93FD10]" 
                   />
                 </div>
                 <div className="flex items-center">
@@ -96,7 +98,7 @@ const Slideshow: React.FC = () => {
                     alt={`Image ${index + 4}`}
                     width={200} // Adjust the width and height as needed
                     height={200}
-                    className="border-2 border-red-500" 
+                    className="border-2 border-[#93FD10]" 
                   />
                 </div>
               </div>
@@ -138,6 +140,8 @@ const Slideshow: React.FC = () => {
           </button>
         </div>
       </div>
+      </main>
+      
     </>
   );
 };

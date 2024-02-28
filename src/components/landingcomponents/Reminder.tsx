@@ -17,7 +17,10 @@ type ReminderProps = {
 const Reminder:React.FC<ReminderProps> = () => {
     const router =useRouter();
   return (
+
+ 
     <main className='flex flex-row justify-center itmes-center bg-bgi h-screen w-[100vw]'>
+
       <ToastContainer/>
     
     <div className="relative w-full md:w-3/4 h-full py-[5vh] ">

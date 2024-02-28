@@ -170,7 +170,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              22nd September 
+              29th February 
             </div>
             <div
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black  `}
@@ -189,7 +189,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              23rd September  
+              1st March  
             </div>
             <div
               className={`bg-slotBookDateColor ${tektur.className} font-semibold font- text-white rounded-[8px] px-[56px] py-[24px] text-slotBookDateFontSize flex-1 text-center transition-all duration-500 hover:scale-[105%] hover:text-black `}
@@ -209,7 +209,7 @@ const endIndex = startIndex + slotsPerPage;
                 );
               }}
             >
-              24th September 
+              2nd March 
             </div>
           </div>
           <section className="grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
