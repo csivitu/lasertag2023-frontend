@@ -85,7 +85,7 @@ export default function Profile() {
       } catch (e) {}
     };
     checkIfSlotBooked();
-  }, []);
+  }, [slotChanged]);
   const openModal = () => {
     setIsOpen(true);
   };
@@ -191,7 +191,7 @@ export default function Profile() {
                     {userInfo?.slotBooked?.startTime
                       ? getDayOfMonth(userInfo?.slotBooked?.startTime)
                       : ""}{" "}
-                      <p className = "text-black">March</p>
+                      March
                     
                   </button>
                   
