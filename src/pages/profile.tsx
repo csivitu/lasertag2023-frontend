@@ -191,8 +191,10 @@ export default function Profile() {
                     {userInfo?.slotBooked?.startTime
                       ? getDayOfMonth(userInfo?.slotBooked?.startTime)
                       : ""}{" "}
+                      March
                     
                   </button>
+                  
                 )}
               </div>
 
