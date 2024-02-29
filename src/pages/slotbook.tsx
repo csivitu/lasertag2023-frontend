@@ -205,11 +205,11 @@ export default function SlotBook() {
             </div>
           </div>
           <section className=" text-white grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
-            {selectDay == 29 ? (
+            {(selectDay == 29 || selectDay == 1) ? (
               slotData.map((slot, index) => {
                 if (
                   selectDay == getDayOfMonth(slot.startTime) &&
-                  selectDay == 29
+                  (selectDay == 29 || selectDay == 1)
                 ) {
                   return slot.isCarry ? (
                     ""
