@@ -191,7 +191,7 @@ export default function Profile() {
                     {userInfo?.slotBooked?.startTime
                       ? getDayOfMonth(userInfo?.slotBooked?.startTime)
                       : ""}{" "}
-                    Sept
+                    
                   </button>
                 )}
               </div>
