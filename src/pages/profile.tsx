@@ -192,8 +192,9 @@ export default function Profile() {
                       ? getDayOfMonth(userInfo?.slotBooked?.startTime)
                       : ""}{" "}
                       March
-                    
+                      <p>Note: Please reload if data is not visible</p>
                   </button>
+                
                   
                 )}
               </div>
