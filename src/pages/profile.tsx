@@ -178,6 +178,7 @@ export default function Profile() {
                       onChangeClick();
                     }}>
                     {changeSlotClicked ? "profile" : "change slot"}
+                  
                   </p>
                 </div>
 
@@ -192,16 +193,18 @@ export default function Profile() {
                       ? getDayOfMonth(userInfo?.slotBooked?.startTime)
                       : ""}{" "}
                       March
-                      <p>Note: Please reload if data is not visible</p>
+                      
                   </button>
                 
                   
                 )}
               </div>
-
+            
               <div className="bg-white  w-[2px] h-[150px] mobile:hidden tab:block"></div>
+             
 
               <div className="flex justify-center items-start flex-col gap-[1rem] mobile:w-[100%] tab:w-[50%]">
+             
                 <div className="flex justify-center items-start flex-col">
                   <h2
                     className={`${tektur.className} text-2xl font-medium text-white`}>
@@ -316,7 +319,9 @@ export default function Profile() {
         {changeSlotClicked === true ? (
           ""
         ) : (
+         
           <div className="flex flex-col justify-center items-center gap-[1rem] w-full bg-black text-white">
+             <p className = "md:text-2xl">Note: Please reload if data is not visible</p>
             <Image
               width={100}
               height={100}
