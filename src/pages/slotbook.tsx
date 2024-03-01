@@ -190,7 +190,7 @@ export default function SlotBook() {
               onClick={() => {
                 setCurrentPage(7);
 
-                setSelectDay(24);
+                setSelectDay(2);
                 dayThreeRef.current?.classList.toggle(
                   "bg-slotBookDateColorHover"
                 );
