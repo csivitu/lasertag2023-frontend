@@ -205,46 +205,35 @@ export default function SlotBook() {
             </div>
           </div>
           <section className=" text-white grid tab:grid-cols-3 laptopS:grid-cols-4 w-full gap-[10px]">
-            {(selectDay == 29 || selectDay == 1 || selectDay == 2) ? (
-              slotData.map((slot, index) => {
-                if (
-                  selectDay == getDayOfMonth(slot.startTime) &&
-                  (selectDay == 29 || selectDay == 1 || selectDay == 2)
-                ) {
-                  return slot.isCarry ? (
-                    ""
-                  ) : slot.toShow ? (
-                    <div
-                      className={` cursor-pointer gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
-                      key={index}
-                      onClick={handleSlotClick}
-                      data-slotid={slot.id}>
-                      <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
-                      <div
-                        className="w-[1.5px] h-[20px] bg-white"
-                        data-slotid={slot.id}></div>
-                      <p
-                        className={` ${chakraPetch.className} ${
-                          slot?.availability > 0
-                            ? "text-slotBookTimeGreen"
-                            : "text-slotBookTimeRed"
-                        }`}
-                        data-slotid={slot.id}>
-                        {slot?.availability} Slots
-                      </p>
-                    </div>
-                  ) : (
-                    <p className="text-white">Slots not available</p>
-                  );
-                } else {
-                  <p className="text-white">Slots not available</p>;
-                }
-              })
-            ) : (
-              <p className="text-white w-full flex justify-center">
-                Slots not available
-              </p>
-            )}
+            {slotData.map((slot, index) => {
+              return slot.isCarry ? (
+                ""
+              ) : slot.toShow ? (
+                <div
+                  className={` cursor-pointer gap-[14px] bg-slotBookTime ${tektur.className} font-semibold font- rounded-[8px] px-[18px] py-[20px] text-white flex flex-row justify-center items-center `}
+                  key={index}
+                  onClick={handleSlotClick}
+                  data-slotid={slot.id}>
+                  <p data-slotid={slot.id}>{getTime(slot.startTime)}</p>
+                  <div
+                    className="w-[1.5px] h-[20px] bg-white"
+                    data-slotid={slot.id}></div>
+                  <p
+                    className={` ${chakraPetch.className} ${
+                      slot?.availability > 0
+                        ? "text-slotBookTimeGreen"
+                        : "text-slotBookTimeRed"
+                    }`}
+                    data-slotid={slot.id}>
+                    {slot?.availability} Slots
+                  </p>
+                </div>
+              ) : (
+                <p className="text-white w-full flex justify-center">
+                  Slots not available
+                </p>
+              );
+            })}
           </section>
         </section>
         <section className="flex flex-col justify-center items-center gap-[20px]">
